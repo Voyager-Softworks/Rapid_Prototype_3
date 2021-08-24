@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject canvas;
+    public GameObject menu;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,8 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            canvas.SetActive(!canvas.activeSelf);
+            menu.SetActive(!menu.activeSelf);
+            Cursor.lockState = (menu.activeSelf ? CursorLockMode.None : CursorLockMode.Locked);
         }
     }
 }
