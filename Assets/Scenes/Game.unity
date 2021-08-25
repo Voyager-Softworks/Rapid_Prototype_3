@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
   m_baseRange: 10
-  m_distanceMultiplier: 800
+  m_distanceMultiplier: 600
   m_decayRate: 50
   m_noise: {fileID: 11400000, guid: 17c203c5cce109331a501acfcd2e263c, type: 2}
   manualsoundplay: 0
@@ -663,7 +663,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2051206642}
   playerTransform: {fileID: 842017842}
-  m_alerted: 0
+  mostRecentAlertPosition: {x: 0, y: 0, z: 0}
+  mostRecentAwarePosition: {x: 0, y: 0, z: 0}
+  m_currentState: 0
+  m_visionCone: 0.589
+  m_visionDistance: 15
+  m_wanderSpeed: 3.5
+  m_patrolSpeed: 6
+  m_searchSpeed: 7
+  m_pursueSpeed: 7
+  m_fleeSpeed: 9
+  m_awareness: 0
+  m_awarenessThreshhold: 3
+  m_fleeDuration: 0
 --- !u!23 &2051206644
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -720,14 +732,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051206641}
-  m_LocalRotation: {x: -0, y: 0.9914446, z: -0, w: 0.1305289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50.5, y: 0.807, z: 94.76}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 297162944}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2051206647
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1123,7 +1135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 69.8
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1163,6 +1175,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955371, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787359199434955371, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
