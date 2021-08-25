@@ -17,13 +17,13 @@ public class LookAtCursor : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //RaycastHit[] HitInfo = Physics.RaycastAll(m_cam.transform.position, m_cam.transform.forward, 100f);
+        RaycastHit[] HitInfo = Physics.RaycastAll(m_cam.transform.position, m_cam.transform.forward, 100f);
 
-        //foreach (RaycastHit _hit in HitInfo)
-        //{
-        //    if (_hit.transform.root == m_player) continue;
-        //    Gizmos.DrawSphere(_hit.point, 0.1f);
-        //}
+        foreach (RaycastHit _hit in HitInfo)
+        {
+            if (_hit.transform.root == m_player) continue;
+            Gizmos.DrawSphere(_hit.point, 0.1f);
+        }
     }
 
     // Update is called once per frame

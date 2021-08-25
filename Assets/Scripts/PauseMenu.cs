@@ -5,20 +5,53 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject menu;
+    public GameObject win;
+    public GameObject lose;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Pause()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        menu.SetActive(true);
+        win.SetActive(false);
+        lose.SetActive(false);
+    }
+
+    public void EnableWinScreen()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        menu.SetActive(false);
+        win.SetActive(true);
+        lose.SetActive(false);
+    }
+
+    public void EnableLoseScreen()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        menu.SetActive(false);
+        win.SetActive(false);
+        lose.SetActive(true);
+    }
+
+    public void Unpause()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        menu.SetActive(false);
+        win.SetActive(false);
+        lose.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!win.activeSelf && !lose.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
-            menu.SetActive(!menu.activeSelf);
-            Cursor.lockState = (menu.activeSelf ? CursorLockMode.None : CursorLockMode.Locked);
+            if (menu.activeSelf) {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 }
