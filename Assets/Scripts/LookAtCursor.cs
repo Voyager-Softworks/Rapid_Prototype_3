@@ -38,6 +38,7 @@ public class LookAtCursor : MonoBehaviour
         foreach (RaycastHit _hit in HitInfo)
         {
             if (_hit.transform.root == m_player) continue;
+            if (_hit.collider.isTrigger) continue;
 
             if (Vector3.Distance(_hit.point, transform.position) <= Vector3.Distance(hitpos, transform.position))
             {
