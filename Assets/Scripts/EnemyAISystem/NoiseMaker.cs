@@ -9,7 +9,8 @@ public class NoiseMaker : MonoBehaviour
     public float m_distanceMultiplier;
     public float m_decayRate;
     public NoiseData m_noise;
-
+    public bool m_playOnCollision;
+    public bool m_triggerEnemyAlert;
     public bool manualsoundplay = false;
     public void PlayNoise()
     {
@@ -18,6 +19,10 @@ public class NoiseMaker : MonoBehaviour
         newNoise.m_baseRange = m_baseRange;
         newNoise.m_multiplier = m_distanceMultiplier;
         newNoise.m_decayRate = m_decayRate;
+        if (!m_triggerEnemyAlert)
+        {
+            newNoise.m_triggerEnemyAlert = false;
+        }
 
     }
     // Start is called before the first frame update
@@ -35,4 +40,15 @@ public class NoiseMaker : MonoBehaviour
             manualsoundplay = false;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!m_playOnCollision) return;
+
+        m_triggerEnemyAlert = other.gameObject.CompareTag("Player");
+
+
+        PlayNoise();
+    }
+
 }

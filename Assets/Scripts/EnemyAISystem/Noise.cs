@@ -5,6 +5,7 @@ using UnityEngine;
 public class Noise : MonoBehaviour
 {
     public Color m_Near, m_Mid, m_Far;
+    public bool m_triggerEnemyAlert = true;
     public float m_baseRange;
     public float m_multiplier;
     public float m_decayRate;
@@ -87,6 +88,7 @@ public class Noise : MonoBehaviour
 
     void Alert()
     {
+        if (!m_triggerEnemyAlert) return;
         RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up);
         foreach (var hit in hits)
         {
