@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cam: {fileID: 1712571667}
   m_player: {fileID: 0}
+  lookSpeed: 2
 --- !u!1 &755399707
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb019991c96d5e144bea39c0c200f156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 1
   player: {fileID: 842017840}
   cam: {fileID: 1712571668}
 --- !u!1 &954424369 stripped
