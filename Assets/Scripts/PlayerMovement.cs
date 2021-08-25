@@ -82,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         m_cam.transform.localPosition = 
-            (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * 1.0f/stepLength)) * stepHeight)
+            (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * (1.0f/stepLength))) * stepHeight)
             + (transform.up * camY)
-            + (transform.right * (1.0f - Mathf.Sin(distanceTraveled * 1.0f / stepLength)) * stepHeight * 0.4f);
+            + (transform.right * (1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength) / 2)) * stepHeight * 0.4f);
     }
 }
