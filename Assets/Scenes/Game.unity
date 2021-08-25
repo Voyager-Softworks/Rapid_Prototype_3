@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847ab3d8cb1465b4f9902e19d63d2461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1625990567}
+  menu: {fileID: 2004016338}
+  win: {fileID: 1923008960}
+  lose: {fileID: 1583145851}
 --- !u!4 &44425284
 Transform:
   m_ObjectHideFlags: 0
@@ -241,7 +243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297162943
 GameObject:
@@ -586,6 +588,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1923008960, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
   m_PrefabInstance: {fileID: 5651391616184423002}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2004016338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5651391617528755120, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+  m_PrefabInstance: {fileID: 5651391616184423002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2051206641
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2051206642}
   playerTransform: {fileID: 842017842}
+  m_alerted: 0
 --- !u!23 &2051206644
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -705,7 +713,7 @@ Transform:
   m_Children:
   - {fileID: 297162944}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
 --- !u!64 &2051206647
 MeshCollider:
@@ -914,7 +922,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2097776354
 MonoBehaviour:
@@ -983,7 +991,7 @@ Transform:
   m_Children:
   - {fileID: 2078577884}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &919132148949719672
 GameObject:
