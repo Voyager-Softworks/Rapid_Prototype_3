@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Noise : MonoBehaviour
 {
+    public Color m_Near, m_Mid, m_Far;
     public float m_baseRange;
     public float m_multiplier;
     public float m_decayRate;
@@ -70,20 +71,46 @@ public class Noise : MonoBehaviour
     /// </summary>
     void OnDrawGizmos()
     {
-        Color c = Color.red;
-        c.a = 0.2f;
+        Color c = m_Far;
+        c.a = 0.1f;
+        Gizmos.color = c;
+        Gizmos.DrawSphere(this.gameObject.transform.position, m_currentAlertRadius * 3);
+        c = m_Mid;
+        c.a = 0.3f;
         Gizmos.color = c;
         Gizmos.DrawSphere(this.gameObject.transform.position, m_currentAlertRadius);
+        c = m_Near;
+        c.a = 0.2f;
+        Gizmos.color = c;
+        Gizmos.DrawSphere(this.gameObject.transform.position, m_currentAlertRadius / 3);
     }
 
     void Alert()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius, Vector3.up);
+        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up);
+        foreach (var hit in hits)
+        {
+            if (hit.collider.gameObject.GetComponent<EnemyAI>())
+            {
+                hit.collider.gameObject.GetComponent<EnemyAI>().RecieveAware(this.gameObject.transform);
+            }
+        }
+
+        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius, Vector3.up);
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.GetComponent<EnemyAI>())
             {
                 hit.collider.gameObject.GetComponent<EnemyAI>().RecieveAlert(this.gameObject.transform);
+            }
+        }
+
+        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius / 3, Vector3.up);
+        foreach (var hit in hits)
+        {
+            if (hit.collider.gameObject.GetComponent<EnemyAI>())
+            {
+                hit.collider.gameObject.GetComponent<EnemyAI>().RecievePursuit();
             }
         }
     }
