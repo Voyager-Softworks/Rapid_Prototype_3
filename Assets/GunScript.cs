@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
-    [SerializeField] Transform end;
+    [SerializeField] Transform r_end;
+    [SerializeField] Transform l_end;
 
     [SerializeField] GameObject shotParticles;
     [SerializeField] AudioClip shotSound;
+
+    [SerializeField] float ammo = 6;
+    [SerializeField] bool r_chamber = true;
+    [SerializeField] bool l_chamber = true;
 
 
     // Start is called before the first frame update
@@ -23,10 +28,52 @@ public class GunScript : MonoBehaviour
         {
             Shoot();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
+    }
+
+    public void Reload()
+    {
+        if (!l_chamber && ammo > 0)
+        {
+            l_chamber = true;
+            ammo--;
+        }
+
+        if (!r_chamber && ammo > 0)
+        {
+            r_chamber = true;
+            ammo--;
+        }
     }
 
     public void Shoot()
     {
+        Transform end = null;
+
+        if (l_chamber)
+        {
+            l_chamber = false;
+            end = l_end;
+        }
+        else if (r_chamber)
+        {
+            r_chamber = false;
+            end = r_end;
+        }
+        else if (ammo > 0)
+        {
+            Reload();
+            return;
+        }
+        else
+        {
+            return;
+        }
+
         GameObject particles = Instantiate(shotParticles, end.position, end.rotation, null);
         Destroy(particles, 2);
     }

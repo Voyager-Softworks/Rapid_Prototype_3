@@ -344,6 +344,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &738494709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 738494709, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+  m_PrefabInstance: {fileID: 1787359199738000987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842017840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1787359199434955371, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
@@ -1109,17 +1114,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: stepHeight
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 49.87
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1127,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50
+      value: 88.84
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1161,14 +1162,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1787359199908623633, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: end
+      propertyPath: l_end
+      value: 
+      objectReference: {fileID: 738494709}
+    - target: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: r_end
       value: 
       objectReference: {fileID: 1470627991}
-    - target: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: shotParticles
-      value: 
-      objectReference: {fileID: 3816971866841486247, guid: a5052a24690b1d14f81d2a1dc34cafe9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
 --- !u!33 &3469287836723007335
