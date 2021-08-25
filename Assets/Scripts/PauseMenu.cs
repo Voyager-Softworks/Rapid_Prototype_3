@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Unpause()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         menu.SetActive(false);
         win.SetActive(false);
         lose.SetActive(false);
