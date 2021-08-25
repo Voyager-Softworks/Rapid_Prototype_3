@@ -44,11 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9be261b253abba749ac39334a713d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Near: {r: 1, g: 0, b: 0, a: 1}
+  m_Mid: {r: 1, g: 0.5506037, b: 0, a: 1}
+  m_Far: {r: 1, g: 0.9491426, b: 0, a: 1}
   m_baseRange: 10
+  m_multiplier: 0
   m_decayRate: 1
   m_currentAlertRadius: 0
   m_audioSource: {fileID: 4694221353609643741}
   m_data: {fileID: 0}
+  m_timestamp: 0
+  m_amountToIncrement: 0
+  m_samples: []
 --- !u!82 &4694221353609643741
 AudioSource:
   m_ObjectHideFlags: 0
