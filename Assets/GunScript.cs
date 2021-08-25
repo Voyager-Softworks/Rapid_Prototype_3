@@ -62,6 +62,11 @@ public class GunScript : MonoBehaviour
 
     private void UpdateVisuals()
     {
+        foreach (GameObject _shell in shells)
+        {
+            _shell.SetActive(true);
+        }
+
         for (int i = 0; i < shells.Length - ammo; i++)
         {
             shells[i].SetActive(false);
@@ -69,6 +74,13 @@ public class GunScript : MonoBehaviour
 
         r_ind.material = (r_chamber ? green : red);
         l_ind.material = (l_chamber ? green : red);
+    }
+
+    public void AddAmmo(float _amount)
+    {
+        ammo += _amount;
+
+        UpdateVisuals();
     }
 
     public void Shoot()

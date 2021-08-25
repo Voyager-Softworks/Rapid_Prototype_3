@@ -40,6 +40,11 @@ public class PauseMenu : MonoBehaviour
         lose.SetActive(false);
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Update is called once per frame
     void Update()
     {
