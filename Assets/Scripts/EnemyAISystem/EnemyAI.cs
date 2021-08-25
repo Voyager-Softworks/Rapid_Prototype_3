@@ -67,7 +67,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     m_currentState = AIState.PURSUING;
                 }
-                agent.destination = GetWanderPosition(10.0f, 5.0f, gameObject.transform.forward);
+                agent.destination = GetWanderPosition(30.0f, 40.0f, gameObject.transform.forward);
                 agent.speed = m_wanderSpeed;
                 break;
             case AIState.PATROLLING:
