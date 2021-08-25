@@ -7,6 +7,14 @@ public class GunScript : MonoBehaviour
     [SerializeField] Transform r_end;
     [SerializeField] Transform l_end;
 
+    [SerializeField] Renderer r_ind;
+    [SerializeField] Renderer l_ind;
+
+    [SerializeField] GameObject[] shells;
+
+    [SerializeField] Material red;
+    [SerializeField] Material green;
+
     [SerializeField] GameObject shotParticles;
     [SerializeField] AudioClip shotSound;
 
@@ -18,7 +26,7 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateVisuals();
     }
 
     // Update is called once per frame
@@ -48,6 +56,19 @@ public class GunScript : MonoBehaviour
             r_chamber = true;
             ammo--;
         }
+
+        UpdateVisuals();
+    }
+
+    private void UpdateVisuals()
+    {
+        for (int i = 0; i < shells.Length - ammo; i++)
+        {
+            shells[i].SetActive(false);
+        }
+
+        r_ind.material = (r_chamber ? green : red);
+        l_ind.material = (l_chamber ? green : red);
     }
 
     public void Shoot()
@@ -76,5 +97,7 @@ public class GunScript : MonoBehaviour
 
         GameObject particles = Instantiate(shotParticles, end.position, end.rotation, null);
         Destroy(particles, 2);
+
+        UpdateVisuals();
     }
 }
