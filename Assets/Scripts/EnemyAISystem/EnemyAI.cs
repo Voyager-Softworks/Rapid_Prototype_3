@@ -12,10 +12,17 @@ public class EnemyAI : MonoBehaviour
         SEARCHING,
         PURSUING,
         FLEEING,
+        ATTACKING,
+        IDLING,
+        RECOVERING,
     };
     [Header("Prefab Setup Options")]
     public NavMeshAgent agent;
     public Transform playerTransform;
+
+    public Animator anim;
+
+    Rigidbody body;
 
     [Header("Debugging")]
     public Vector3 mostRecentAlertPosition, mostRecentAwarePosition;
@@ -37,10 +44,24 @@ public class EnemyAI : MonoBehaviour
     public float m_fleeDuration;
     float m_fleetimer;
 
+    [Header("Attacking")]
+    public float m_attackRadius;
+    public float m_attackForceMult;
+
+    public float m_attackHeightOffset;
+
+    [Header("Idling")]
+    [Range(0, 100)]
+    public int m_idleChance;
+    public float m_idleCooldown;
+    float m_idleTimer;
+
+
     // Start is called before the first frame update
     void Start()
     {
         m_currentState = AIState.WANDERING;
+        m_idleTimer = m_idleCooldown;
     }
 
     // Update is called once per frame
@@ -63,12 +84,22 @@ public class EnemyAI : MonoBehaviour
         switch (m_currentState)
         {
             case AIState.WANDERING:
+                m_idleTimer -= Time.deltaTime;
                 if (m_awareness > 7.0f)
                 {
                     m_currentState = AIState.PURSUING;
                 }
+
                 agent.destination = GetWanderPosition(30.0f, 40.0f, gameObject.transform.forward);
                 agent.speed = m_wanderSpeed;
+                if (m_idleTimer <= 0.0f)
+                {
+                    m_idleTimer = m_idleCooldown;
+                    if (Random.Range(0, 100) <= m_idleChance)
+                    {
+                        m_currentState = AIState.IDLING;
+                    }
+                }
                 break;
             case AIState.PATROLLING:
                 if (m_awareness == 0.0f)
@@ -95,10 +126,16 @@ public class EnemyAI : MonoBehaviour
             case AIState.PURSUING:
 
                 agent.destination = playerTransform.position;
+                agent.stoppingDistance = m_attackRadius;
                 agent.speed = m_pursueSpeed;
                 if (m_awareness <= 7.0f)
                 {
                     m_currentState = AIState.WANDERING;
+                }
+                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius)
+                {
+                    m_currentState = AIState.ATTACKING;
+                    Attack();
                 }
                 break;
             case AIState.FLEEING:
@@ -110,9 +147,36 @@ public class EnemyAI : MonoBehaviour
                     m_currentState = AIState.WANDERING;
                 }
                 break;
+            case AIState.RECOVERING:
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Recovery") &&
+                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                {
+                    m_currentState = AIState.WANDERING;
+                }
+                break;
+            case AIState.ATTACKING:
+                m_awareness = 10.0f;
+                break;
+            case AIState.IDLING:
+                agent.speed = 0.0f;
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") &&
+                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                {
+                    m_currentState = AIState.WANDERING;
+                }
+                break;
             default:
                 break;
         }
+    }
+
+    void Attack()
+    {
+        body = gameObject.AddComponent<Rigidbody>();
+        Vector3 playerPos = new Vector3(playerTransform.position.x, playerTransform.position.y + m_attackHeightOffset, playerTransform.position.z);
+        Vector3 direction = (playerPos - gameObject.transform.position).normalized;
+        body.AddForce(direction * m_attackForceMult, ForceMode.Impulse);
+        agent.enabled = false;
     }
 
     public void RecieveFlee()
@@ -165,11 +229,29 @@ public class EnemyAI : MonoBehaviour
         return new Vector3((_radius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + origin.x, origin.y, _radius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + origin.z);
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (m_currentState == AIState.ATTACKING)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                //Stuff for killing the player
+            }
+            else if (other.gameObject.CompareTag("Ground"))
+            {
+                m_currentState = AIState.RECOVERING;
+                Destroy(body);
+                agent.enabled = true;
+            }
+        }
+    }
+
     /// <summary>
     /// Callback to draw gizmos that are pickable and always drawn.
     /// </summary>
     void OnDrawGizmos()
     {
+        Gizmos.color = Color.yellow;
         Vector3 leftRay = Quaternion.AngleAxis(m_visionCone * -90.0f, Vector3.up) * transform.forward;
         Vector3 rightRay = Quaternion.AngleAxis(m_visionCone * 90.0f, Vector3.up) * transform.forward;
         Vector3[] curvepositions = new Vector3[5];
@@ -182,6 +264,12 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawRay(transform.position, rightRay.normalized * m_visionDistance);
         Gizmos.DrawLine(curvepositions[0], curvepositions[2]);
         Gizmos.DrawLine(curvepositions[2], curvepositions[4]);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, m_attackRadius);
+
+        Vector3 playerPos = new Vector3(playerTransform.position.x, playerTransform.position.y + m_attackHeightOffset, playerTransform.position.z);
+        Vector3 direction = (playerPos - gameObject.transform.position);
+        Gizmos.DrawRay(new Ray(transform.position, direction));
 
     }
 
