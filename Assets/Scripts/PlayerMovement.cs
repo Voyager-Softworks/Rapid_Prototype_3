@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Simple player movement script
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float stepHeight = 0.05f;
     [SerializeField] float stepLength = 1.0f;
     [SerializeField] float distanceTraveled = 0;
+    public UnityEvent Step;
+    bool oneStep = true;
 
     private void Start()
     {
@@ -85,5 +88,18 @@ public class PlayerMovement : MonoBehaviour
             (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * (1.0f/stepLength))) * stepHeight)
             + (transform.up * camY)
             + (transform.right * (1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength) / 2)) * stepHeight * 0.4f);
+
+        if ((1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength))) <= 0.1f)
+        {
+            if (oneStep)
+            {
+                oneStep = false;
+                Step.Invoke();
+            }
+        }
+        else
+        {
+            oneStep = true;
+        }
     }
 }
