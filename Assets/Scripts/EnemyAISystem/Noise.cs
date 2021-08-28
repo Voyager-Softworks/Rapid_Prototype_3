@@ -75,7 +75,7 @@ public class Noise : MonoBehaviour
         Color c = m_Far;
         c.a = 0.1f;
         Gizmos.color = c;
-        Gizmos.DrawSphere(this.gameObject.transform.position, m_currentAlertRadius * 6);
+        Gizmos.DrawSphere(this.gameObject.transform.position, m_currentAlertRadius * 3);
         c = m_Mid;
         c.a = 0.3f;
         Gizmos.color = c;
@@ -89,7 +89,7 @@ public class Noise : MonoBehaviour
     void Alert()
     {
         if (!m_triggerEnemyAlert) return;
-        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 6, Vector3.up);
+        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up);
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.GetComponent<EnemyAI>())

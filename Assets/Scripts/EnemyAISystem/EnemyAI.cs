@@ -105,7 +105,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.PATROLLING:
-                if (m_awareness == 0.0f)
+                if (m_awareness < m_patrolThreshhold)
                 {
                     m_currentState = AIState.WANDERING;
                 }
@@ -120,6 +120,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.SEARCHING:
+                agent.stoppingDistance = 0.0f;
                 if (m_awareness > m_pursueThreshhold)
                 {
                     m_currentState = AIState.PURSUING;

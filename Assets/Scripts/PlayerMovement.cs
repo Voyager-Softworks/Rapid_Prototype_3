@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera")]
     [SerializeField] GameObject m_cam;
     float camY = 0;
-    
+
     [Header("Ground")]
     public CharacterController controller;
     public Transform groundCheck;
@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     float moveSpeed_Copy;
     public float sneakSpeed;
+    public float runSpeed;
     bool forceSlow = false;
     public float jumpHeight;
 
@@ -71,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = sneakSpeed;
         }
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = runSpeed;
+        }
         else
         {
             moveSpeed = moveSpeed_Copy;
@@ -98,8 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        m_cam.transform.localPosition = 
-            (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * (1.0f/stepLength))) * stepHeight)
+        m_cam.transform.localPosition =
+            (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength))) * stepHeight)
             + (transform.up * camY)
             + (transform.right * (1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength) / 2)) * stepHeight * 0.4f);
 
