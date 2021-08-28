@@ -8,22 +8,29 @@ using UnityEngine.Events;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Camera")]
     [SerializeField] GameObject m_cam;
     float camY = 0;
-
+    
+    [Header("Ground")]
     public CharacterController controller;
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
+    bool isGrounded;
 
+    [Header("Movement")]
     public float moveSpeed;
+    float moveSpeed_Copy;
+    public float sneakSpeed;
+    bool forceSlow = false;
     public float jumpHeight;
 
     public float gravity;
 
     public Vector3 velocity;
-    bool isGrounded;
 
+    [Header("Steps")]
     [SerializeField] float stepHeight = 0.05f;
     [SerializeField] float stepLength = 1.0f;
     [SerializeField] float distanceTraveled = 0;
@@ -32,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        moveSpeed_Copy = moveSpeed;
         distanceTraveled = 0;
         camY = m_cam.transform.localPosition.y;
     }
@@ -39,9 +47,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //only if local player
-        
-
         isGrounded = false;
 
         Collider[] hits = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
@@ -62,10 +67,19 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
+        if (forceSlow || Input.GetKey(KeyCode.LeftControl))
+        {
+            moveSpeed = sneakSpeed;
+        }
+        else
+        {
+            moveSpeed = moveSpeed_Copy;
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = Vector3.ClampMagnitude((transform.right * x) + (transform.forward * z), 1.0f);
+        Vector3 move = ((transform.right * x) + (transform.forward * z)).normalized;
         move *= moveSpeed;
 
         velocity = new Vector3(move.x, velocity.y, move.z);
@@ -101,5 +115,10 @@ public class PlayerMovement : MonoBehaviour
         {
             oneStep = true;
         }
+    }
+
+    public void ToggleSlowWalk()
+    {
+        forceSlow = !forceSlow;
     }
 }
