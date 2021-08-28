@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = ((transform.right * x) + (transform.forward * z)).normalized;
+        Vector3 move = Vector3.ClampMagnitude((transform.right * x) + (transform.forward * z), 1.0f);
         move *= moveSpeed;
 
         velocity = new Vector3(move.x, velocity.y, move.z);
