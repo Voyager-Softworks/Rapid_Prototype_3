@@ -589,13 +589,14 @@ GameObject:
   - component: {fileID: 1787359199908623633}
   - component: {fileID: 1787359199908623634}
   - component: {fileID: 5074632281218101417}
+  - component: {fileID: 7115408418560647538}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2253841355692905206
 Transform:
   m_ObjectHideFlags: 0
@@ -724,9 +725,31 @@ MonoBehaviour:
   green: {fileID: 2100000, guid: 8a9552f30b69dbf47a8a5478df67ab9a, type: 2}
   shotParticles: {fileID: 3816971866841486247, guid: a5052a24690b1d14f81d2a1dc34cafe9, type: 3}
   shotSound: {fileID: 0}
+  noiseMaker: {fileID: 7115408418560647538}
   ammo: 0
   r_chamber: 1
   l_chamber: 1
+--- !u!114 &7115408418560647538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444688361403533388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ded7fe0d74f598f4986571240256a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
+  m_baseRange: 10
+  m_distanceMultiplier: 1750
+  m_decayRate: 1000
+  m_noise: {fileID: 11400000, guid: af257380c6b2d3df0ae6687941bde95c, type: 2}
+  m_playOnCollision: 0
+  m_triggerEnemyAlert: 1
+  m_objectSpace: 0
+  manualsoundplay: 0
 --- !u!1 &1787359198162137930
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +1007,6 @@ GameObject:
   - component: {fileID: 1787359199434955368}
   - component: {fileID: 1787359199434955374}
   - component: {fileID: 842017841}
-  - component: {fileID: 719780905910548597}
   - component: {fileID: 3022285105067123761}
   m_Layer: 0
   m_Name: Player
@@ -1053,6 +1075,21 @@ MonoBehaviour:
   stepHeight: 0.1
   stepLength: 0.85
   distanceTraveled: 0
+  Step:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 842017841}
+        m_TargetAssemblyTypeName: NoiseMaker, Assembly-CSharp
+        m_MethodName: PlayNoise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1787359199434955374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,32 +1118,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
-  m_baseRange: 10
-  m_distanceMultiplier: 800
-  m_decayRate: 20
+  m_baseRange: 20
+  m_distanceMultiplier: 2000
+  m_decayRate: 50
   m_noise: {fileID: 11400000, guid: e0065d9d35d45caf2ad0c26d4fb19abf, type: 2}
   m_playOnCollision: 0
   m_triggerEnemyAlert: 1
-  manualsoundplay: 0
---- !u!114 &719780905910548597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787359199434955371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ded7fe0d74f598f4986571240256a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
-  m_baseRange: 10
-  m_distanceMultiplier: 600
-  m_decayRate: 50
-  m_noise: {fileID: 11400000, guid: 17c203c5cce109331a501acfcd2e263c, type: 2}
-  m_playOnCollision: 0
-  m_triggerEnemyAlert: 0
+  m_objectSpace: 1
   manualsoundplay: 0
 --- !u!54 &3022285105067123761
 Rigidbody:

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Near: {r: 1, g: 0, b: 0, a: 1}
   m_Mid: {r: 1, g: 0.5506037, b: 0, a: 1}
   m_Far: {r: 1, g: 0.9491426, b: 0, a: 1}
+  m_triggerEnemyAlert: 1
   m_baseRange: 10
   m_multiplier: 0
   m_decayRate: 1
@@ -112,7 +113,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.856
       inSlope: 0
       outSlope: 0
       tangentMode: 0

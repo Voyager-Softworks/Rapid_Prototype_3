@@ -11,10 +11,15 @@ public class NoiseMaker : MonoBehaviour
     public NoiseData m_noise;
     public bool m_playOnCollision;
     public bool m_triggerEnemyAlert;
+    public bool m_objectSpace;
     public bool manualsoundplay = false;
     public void PlayNoise()
     {
         Noise newNoise = Instantiate(m_noisePrefab, this.transform.position, this.transform.rotation).GetComponent<Noise>();
+        if (m_objectSpace)
+        {
+            newNoise.gameObject.transform.SetParent(this.gameObject.transform);
+        }
         newNoise.m_data = m_noise;
         newNoise.m_baseRange = m_baseRange;
         newNoise.m_multiplier = m_distanceMultiplier;

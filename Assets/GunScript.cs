@@ -17,6 +17,7 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] GameObject shotParticles;
     [SerializeField] AudioClip shotSound;
+    [SerializeField] NoiseMaker noiseMaker;
 
     [SerializeField] float ammo = 6;
     [SerializeField] bool r_chamber = true;
@@ -106,7 +107,7 @@ public class GunScript : MonoBehaviour
         {
             return;
         }
-
+        noiseMaker.PlayNoise();
         GameObject particles = Instantiate(shotParticles, end.position, end.rotation, null);
         Destroy(particles, 2);
 

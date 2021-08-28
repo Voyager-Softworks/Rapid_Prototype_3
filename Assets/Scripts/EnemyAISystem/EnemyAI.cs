@@ -38,7 +38,10 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Awareness")]
     public float m_awareness = 0.0f;
-    public float m_awarenessThreshhold;
+    [Range(0.0f, 10.0f)]
+    public float m_patrolThreshhold;
+    [Range(0.0f, 10.0f)]
+    public float m_pursueThreshhold;
 
     [Header("Flee Behaviour")]
     public float m_fleeDuration;
@@ -67,7 +70,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_awareness -= Time.deltaTime;
+        m_awareness -= Time.deltaTime / 2.0f;
         if (m_awareness < 0.0f)
         {
             m_awareness = 0.0f;
@@ -78,14 +81,14 @@ public class EnemyAI : MonoBehaviour
         }
         if ((playerTransform.position - gameObject.transform.position).magnitude <= m_visionDistance && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)))
         {
-            m_awareness = 10.0f;
+            m_awareness += 3.0f * Time.deltaTime;
 
         }
         switch (m_currentState)
         {
             case AIState.WANDERING:
                 m_idleTimer -= Time.deltaTime;
-                if (m_awareness > 7.0f)
+                if (m_awareness > m_pursueThreshhold)
                 {
                     m_currentState = AIState.PURSUING;
                 }
@@ -95,7 +98,7 @@ public class EnemyAI : MonoBehaviour
                 if (m_idleTimer <= 0.0f)
                 {
                     m_idleTimer = m_idleCooldown;
-                    if (Random.Range(0, 100) <= m_idleChance)
+                    if (Random.Range(1, 100) <= m_idleChance)
                     {
                         m_currentState = AIState.IDLING;
                     }
@@ -106,7 +109,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     m_currentState = AIState.WANDERING;
                 }
-                else if (m_awareness > 7.0f)
+                else if (m_awareness > m_pursueThreshhold)
                 {
                     m_currentState = AIState.PURSUING;
                 }
@@ -117,9 +120,13 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.SEARCHING:
-                if (m_awareness > 7.0f)
+                if (m_awareness > m_pursueThreshhold)
                 {
                     m_currentState = AIState.PURSUING;
+                }
+                if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius)
+                {
+                    m_currentState = AIState.PATROLLING;
                 }
                 agent.destination = mostRecentAlertPosition;
                 break;
@@ -128,7 +135,7 @@ public class EnemyAI : MonoBehaviour
                 agent.destination = playerTransform.position;
                 agent.stoppingDistance = m_attackRadius;
                 agent.speed = m_pursueSpeed;
-                if (m_awareness <= 7.0f)
+                if (m_awareness <= m_pursueThreshhold)
                 {
                     m_currentState = AIState.WANDERING;
                 }
@@ -148,6 +155,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.RECOVERING:
+                agent.speed = 0.0f;
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Recovery") &&
                     anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 {
@@ -216,7 +224,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         mostRecentAwarePosition = _awarePos.position;
-        if (m_awareness > m_awarenessThreshhold && m_currentState == AIState.WANDERING)
+        if (m_awareness > m_patrolThreshhold && m_currentState == AIState.WANDERING)
         {
             m_currentState = AIState.PATROLLING;
         }
@@ -246,10 +254,11 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
     /// <summary>
-    /// Callback to draw gizmos that are pickable and always drawn.
+    /// Callback to draw gizmos only if the object is selected.
     /// </summary>
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Vector3 leftRay = Quaternion.AngleAxis(m_visionCone * -90.0f, Vector3.up) * transform.forward;
@@ -270,6 +279,48 @@ public class EnemyAI : MonoBehaviour
         Vector3 playerPos = new Vector3(playerTransform.position.x, playerTransform.position.y + m_attackHeightOffset, playerTransform.position.z);
         Vector3 direction = (playerPos - gameObject.transform.position);
         Gizmos.DrawRay(new Ray(transform.position, direction));
+    }
+    /// <summary>
+    /// Callback to draw gizmos that are pickable and always drawn.
+    /// </summary>
+    void OnDrawGizmos()
+    {
+
+
+        switch (m_currentState)
+        {
+            case AIState.WANDERING:
+                Gizmos.color = Color.blue;
+                break;
+            case AIState.PATROLLING:
+                Gizmos.color = Color.green;
+                break;
+            case AIState.SEARCHING:
+                Gizmos.color = Color.yellow;
+                break;
+            case AIState.PURSUING:
+                Gizmos.color = Color.magenta;
+                break;
+            case AIState.ATTACKING:
+                Gizmos.color = Color.red;
+                break;
+            case AIState.IDLING:
+                Gizmos.color = Color.cyan;
+                break;
+            case AIState.FLEEING:
+                Gizmos.color = Color.white;
+                break;
+            case AIState.RECOVERING:
+                Gizmos.color = Color.gray;
+                break;
+            default:
+                break;
+        }
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3.up * 20.0f));
+
+        Gizmos.DrawSphere(transform.position + (Vector3.up * 20.0f), 2.0f);
+        Gizmos.color = Color.Lerp(Color.blue, Color.red, m_awareness / 10.0f);
+        Gizmos.DrawCube(transform.position + (Vector3.up * m_awareness), new Vector3(3.0f, m_awareness * 2.0f, 3.0f));
 
     }
 
