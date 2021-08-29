@@ -59,6 +59,16 @@ public class EnemyAI : MonoBehaviour
     public float m_idleCooldown;
     float m_idleTimer;
 
+    [Header("Audio")]
+    public AudioSource m_SFXsource;
+    public AudioSource m_Stepsource;
+
+    public List<AudioClip> m_WalkSFX;
+    public AudioClip m_InjureSFX;
+    public AudioClip m_LaunchSFX;
+    public AudioClip m_LandSFX;
+    public AudioClip m_RetreatSFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -81,12 +91,30 @@ public class EnemyAI : MonoBehaviour
         }
         if ((playerTransform.position - gameObject.transform.position).magnitude <= m_visionDistance && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)))
         {
-            m_awareness += 3.0f * Time.deltaTime;
-
+            m_awareness += 6.0f * Time.deltaTime;
         }
+
+        anim.SetBool("WANDERING", false);
+        anim.SetBool("PATROLLING", false);
+        anim.SetBool("SEARCHING", false);
+        anim.SetBool("PURSUING", false);
+        anim.SetBool("FLEEING", false);
+        anim.SetBool("ATTACKING", false);
+        anim.SetBool("RECOVERING", false);
+
+        if (!m_Stepsource.isPlaying && m_currentState == AIState.PURSUING)
+        {
+            m_Stepsource.Play();
+        }
+        else if (m_Stepsource.isPlaying && m_currentState != AIState.PURSUING)
+        {
+            m_Stepsource.Stop();
+        }
+
         switch (m_currentState)
         {
             case AIState.WANDERING:
+                anim.SetBool("WANDERING", true);
                 m_idleTimer -= Time.deltaTime;
                 if (m_awareness > m_pursueThreshhold)
                 {
@@ -105,6 +133,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.PATROLLING:
+                anim.SetBool("PATROLLING", true);
                 if (m_awareness < m_patrolThreshhold)
                 {
                     m_currentState = AIState.WANDERING;
@@ -120,18 +149,20 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.SEARCHING:
+                anim.SetBool("SEARCHING", true);
                 agent.stoppingDistance = 0.0f;
                 if (m_awareness > m_pursueThreshhold)
                 {
                     m_currentState = AIState.PURSUING;
                 }
-                if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius)
+                if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius * 2)
                 {
                     m_currentState = AIState.PATROLLING;
                 }
                 agent.destination = mostRecentAlertPosition;
                 break;
             case AIState.PURSUING:
+                anim.SetBool("PURSUING", true);
 
                 agent.destination = playerTransform.position;
                 agent.stoppingDistance = m_attackRadius;
@@ -140,13 +171,14 @@ public class EnemyAI : MonoBehaviour
                 {
                     m_currentState = AIState.WANDERING;
                 }
-                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius)
+                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && body == null)
                 {
                     m_currentState = AIState.ATTACKING;
                     Attack();
                 }
                 break;
             case AIState.FLEEING:
+                anim.SetBool("FLEEING", true);
                 agent.destination = GetWanderPosition(20.0f, 10.0f, gameObject.transform.position - playerTransform.position);
                 agent.speed = m_fleeSpeed;
                 m_fleetimer -= Time.deltaTime;
@@ -156,14 +188,17 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.RECOVERING:
+                anim.SetBool("RECOVERING", true);
                 agent.speed = 0.0f;
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Recovery") &&
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Armature|LAND") &&
                     anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 {
                     m_currentState = AIState.WANDERING;
+
                 }
                 break;
             case AIState.ATTACKING:
+                anim.SetBool("ATTACKING", true);
                 m_awareness = 10.0f;
                 break;
             case AIState.IDLING:
@@ -186,12 +221,16 @@ public class EnemyAI : MonoBehaviour
         Vector3 direction = (playerPos - gameObject.transform.position).normalized;
         body.AddForce(direction * m_attackForceMult, ForceMode.Impulse);
         agent.enabled = false;
+        m_SFXsource.clip = m_LaunchSFX;
+        m_SFXsource.Play();
     }
 
     public void RecieveFlee()
     {
         m_fleetimer = m_fleeDuration;
         m_currentState = AIState.FLEEING;
+        m_SFXsource.clip = m_RetreatSFX;
+        m_SFXsource.Play();
     }
     public void RecieveAlert(Transform _alertPos)
     {
@@ -245,12 +284,19 @@ public class EnemyAI : MonoBehaviour
             if (other.gameObject.CompareTag("Player"))
             {
                 //Stuff for killing the player
+                m_currentState = AIState.RECOVERING;
+                Destroy(body);
+                agent.enabled = true;
+                m_SFXsource.clip = m_LandSFX;
+                m_SFXsource.Play();
             }
             else if (other.gameObject.CompareTag("Ground"))
             {
                 m_currentState = AIState.RECOVERING;
                 Destroy(body);
                 agent.enabled = true;
+                m_SFXsource.clip = m_LandSFX;
+                m_SFXsource.Play();
             }
         }
     }
