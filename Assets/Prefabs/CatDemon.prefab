@@ -180,13 +180,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476292365505473941}
-  m_LocalRotation: {x: -0.48650572, y: 0.2690147, z: 0.31717008, w: 0.7683401}
-  m_LocalPosition: {x: -0.057043172, y: 0.94186044, z: -0.0063137272}
+  m_LocalRotation: {x: -0.57769436, y: 0.21287951, z: 0.34719074, w: 0.7073968}
+  m_LocalPosition: {x: 0.006997482, y: 0.7559998, z: -0.13399966}
   m_LocalScale: {x: 1, y: 1, z: 0.9999873}
   m_Children: []
   m_Father: {fileID: 4348515124951954717}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -66.672, y: 15.343, z: 34.735}
+  m_LocalEulerAnglesHint: {x: -74.827, y: -22.451, z: 69.549}
 --- !u!108 &476292365505473940
 Light:
   m_ObjectHideFlags: 0
@@ -199,13 +199,13 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8962264, g: 0.7235806, b: 0.15641688, a: 1}
-  m_Intensity: 500
+  m_Intensity: 250
   m_Range: 19.28
-  m_SpotAngle: 121.15742
-  m_InnerSpotAngle: 35.613808
+  m_SpotAngle: 124.34352
+  m_InnerSpotAngle: 38.79991
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -233,7 +233,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -340,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 746833049942795190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.78741, y: 0, z: 60.430077}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4008392508159344960}
   - {fileID: 2168635886874068969}
@@ -387,19 +387,19 @@ MonoBehaviour:
   mostRecentAlertPosition: {x: 0, y: 0, z: 0}
   mostRecentAwarePosition: {x: 0, y: 0, z: 0}
   m_currentState: 0
-  m_visionCone: 0.428
-  m_visionDistance: 35.66
-  m_wanderSpeed: 5
-  m_patrolSpeed: 5
-  m_searchSpeed: 5
-  m_pursueSpeed: 10
-  m_fleeSpeed: 8
+  m_visionCone: 0.81
+  m_visionDistance: 20.5
+  m_wanderSpeed: 3
+  m_patrolSpeed: 3
+  m_searchSpeed: 3
+  m_pursueSpeed: 13
+  m_fleeSpeed: 25
   m_awareness: 0
   m_patrolThreshhold: 3
   m_pursueThreshhold: 7
-  m_fleeDuration: 10
-  m_attackRadius: 20.6
-  m_attackForceMult: 30
+  m_fleeDuration: 8
+  m_attackRadius: 8.63
+  m_attackForceMult: 25
   m_attackHeightOffset: 0.5
   m_idleChance: 0
   m_idleCooldown: 0
@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7120589874214756904
 Transform:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237690493678113386}
   m_LocalRotation: {x: -0.5759379, y: -0.1387352, z: 0.46627945, w: 0.6569868}
-  m_LocalPosition: {x: 0.204, y: 0.889, z: -0.1}
+  m_LocalPosition: {x: -0.023, y: 0.992, z: 0.004}
   m_LocalScale: {x: 1.0240955, y: 1.0240872, z: 1.024095}
   m_Children: []
   m_Father: {fileID: 4348515124951954717}
@@ -1473,7 +1473,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 125.72
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -2040,7 +2040,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 307.6
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -2595,7 +2595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2179936355223729460
 Transform:
   m_ObjectHideFlags: 0
