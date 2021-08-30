@@ -34,7 +34,15 @@ public class EnemyAI : MonoBehaviour
     public float m_visionDistance;
 
     [Header("Speed")]
-    public float m_wanderSpeed, m_patrolSpeed, m_searchSpeed, m_pursueSpeed, m_fleeSpeed;
+    public float m_wanderSpeed;
+    public float m_wanderTurnSpeed;
+    public float m_patrolSpeed;
+    public float m_patrolTurnSpeed;
+    public float m_searchSpeed;
+    public float m_searchTurnSpeed;
+    public float m_pursueSpeed;
+    public float m_pursueTurnSpeed;
+    public float m_fleeSpeed;
 
     [Header("Awareness")]
     public float m_awareness = 0.0f;
@@ -43,9 +51,15 @@ public class EnemyAI : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float m_pursueThreshhold;
 
+    [Range(0.0f, 1.0f)]
+    public float m_awarenessDecayRate;
+
     [Header("Flee Behaviour")]
     public float m_fleeDuration;
     float m_fleetimer;
+
+    [Header("Search Behaviour")]
+    public int m_searchChance;
 
     [Header("Attacking")]
     public float m_attackRadius;
@@ -75,12 +89,13 @@ public class EnemyAI : MonoBehaviour
     {
         m_currentState = AIState.WANDERING;
         m_idleTimer = m_idleCooldown;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_awareness -= Time.deltaTime / 2.0f;
+        m_awareness -= Time.deltaTime * m_awarenessDecayRate;
         if (m_awareness < 0.0f)
         {
             m_awareness = 0.0f;
@@ -91,7 +106,7 @@ public class EnemyAI : MonoBehaviour
         }
         if ((playerTransform.position - gameObject.transform.position).magnitude <= m_visionDistance && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)))
         {
-            m_awareness += 6.0f * Time.deltaTime;
+            m_awareness += 4.0f * Time.deltaTime;
         }
 
         anim.SetBool("WANDERING", false);
@@ -127,6 +142,7 @@ public class EnemyAI : MonoBehaviour
 
                 agent.destination = GetWanderPosition(30.0f, 40.0f, gameObject.transform.forward);
                 agent.speed = m_wanderSpeed;
+                agent.angularSpeed = m_wanderTurnSpeed;
                 if (m_idleTimer <= 0.0f)
                 {
                     m_idleTimer = m_idleCooldown;
@@ -149,12 +165,15 @@ public class EnemyAI : MonoBehaviour
                 else
                 {
                     agent.speed = m_patrolSpeed;
+                    agent.angularSpeed = m_patrolTurnSpeed;
                     agent.destination = GetWanderPosition(30.0f, 30.0f, mostRecentAwarePosition - gameObject.transform.position);
                 }
                 break;
             case AIState.SEARCHING:
                 anim.SetBool("SEARCHING", true);
                 agent.stoppingDistance = 0.0f;
+                agent.angularSpeed = m_searchTurnSpeed;
+                agent.speed = m_searchSpeed;
                 if (m_awareness > m_pursueThreshhold)
                 {
                     m_currentState = AIState.PURSUING;
@@ -171,6 +190,7 @@ public class EnemyAI : MonoBehaviour
                 agent.destination = playerTransform.position;
                 agent.stoppingDistance = m_attackRadius;
                 agent.speed = m_pursueSpeed;
+                agent.angularSpeed = m_pursueTurnSpeed;
                 if (m_awareness <= m_pursueThreshhold)
                 {
                     m_currentState = AIState.WANDERING;
@@ -238,7 +258,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void RecieveAlert(Transform _alertPos)
     {
-        if (m_currentState == AIState.WANDERING || m_currentState == AIState.PATROLLING)
+        if ((m_currentState == AIState.WANDERING || m_currentState == AIState.PATROLLING) && Random.Range(1, 100) < m_searchChance)
         {
             m_currentState = AIState.SEARCHING;
             agent.destination = _alertPos.position;
