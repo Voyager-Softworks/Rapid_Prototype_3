@@ -110,6 +110,10 @@ public class EnemyAI : MonoBehaviour
         {
             m_Stepsource.Stop();
         }
+        if (m_currentState != AIState.ATTACKING)
+        {
+            agent.enabled = true;
+        }
 
         switch (m_currentState)
         {
