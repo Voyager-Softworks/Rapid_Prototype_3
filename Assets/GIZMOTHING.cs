@@ -6,6 +6,6 @@ public class GIZMOTHING : MonoBehaviour
 {
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(transform.position, 2);
+        //Gizmos.DrawSphere(transform.position, 2);
     }
 }

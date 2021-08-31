@@ -96,6 +96,99 @@ CapsuleCollider:
   m_Height: 0.95
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &429825624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429825625}
+  - component: {fileID: 429825626}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429825625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429825624}
+  m_LocalRotation: {x: 0.13052328, y: -0.006585707, z: 0.0008670245, w: -0.9914231}
+  m_LocalPosition: {x: 0.023, y: -0.162, z: 0.199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787359198162137935}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &429825626
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429825624}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.383811, g: 0.48516455, b: 0.7075472, a: 1}
+  m_Intensity: 1
+  m_Range: 8.6
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.02
+    m_NormalBias: 0.1
+    m_NearPlane: 0.1
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: -384.60962, z: 6.64e-43, w: 1.72e-43}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &532965283
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +792,7 @@ MonoBehaviour:
   m_cam: {fileID: 1787359198162137928}
   m_player: {fileID: 1787359199434955371}
   lookSpeed: 2
+  doLook: 1
 --- !u!114 &5074632281218101417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,7 +873,8 @@ Transform:
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0.5, z: 0.241}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 429825625}
   m_Father: {fileID: 1787359198691686667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
@@ -1330,7 +1425,6 @@ MonoBehaviour:
   m_multiplier: 500
   m_decayRate: 10
   m_currentAlertRadius: 0
-  m_heartbeatSource: {fileID: 5058256251122514646}
   m_breathingSource: {fileID: 3242656586150448966}
   exertionCurve:
     serializedVersion: 2
@@ -1357,33 +1451,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   currExertion: 0
-  stressCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.015930176
-      value: 0
-      inSlope: 0.27534392
-      outSlope: 0.27534392
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.15042438
-    - serializedVersion: 3
-      time: 9.999954
-      value: 0.9473877
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  currStress: 0
-  m_visionRadius: 60
-  m_visionCone: 0.44
 --- !u!82 &5058256251122514646
 AudioSource:
   m_ObjectHideFlags: 0
