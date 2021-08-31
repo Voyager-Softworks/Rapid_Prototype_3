@@ -16,6 +16,8 @@ public class Noise : MonoBehaviour
     public float m_amountToIncrement;
     public float[] m_samples;
 
+    EnemyAI[] m_enemies;
+
     bool m_hasPlayed = false;
     void Start()
     {
@@ -27,6 +29,7 @@ public class Noise : MonoBehaviour
         m_samples = new float[m_audioSource.clip.samples * m_audioSource.clip.channels];
         m_amountToIncrement = m_audioSource.clip.samples / m_audioSource.clip.length;
         m_audioSource.clip.GetData(m_samples, 0);
+        m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
     }
 
     // Update is called once per frame
@@ -89,31 +92,52 @@ public class Noise : MonoBehaviour
     void Alert()
     {
         if (!m_triggerEnemyAlert) return;
-        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up, 500, LayerMask.GetMask("Enemies"));
-        foreach (var hit in hits)
+        foreach (var ai in m_enemies)
         {
-            if (hit.collider.gameObject.GetComponent<EnemyAI>())
+            if ((this.gameObject.transform.position - ai.gameObject.transform.position).magnitude <= m_currentAlertRadius * 3)
             {
-                hit.collider.gameObject.GetComponent<EnemyAI>().RecieveAware(this.gameObject.transform);
+                if ((this.gameObject.transform.position - ai.gameObject.transform.position).magnitude <= m_currentAlertRadius)
+                {
+                    if ((this.gameObject.transform.position - ai.gameObject.transform.position).magnitude <= m_currentAlertRadius / 3)
+                    {
+                        ai.gameObject.GetComponent<EnemyAI>().RecievePursuit();
+                    }
+                    else
+                    {
+                        ai.gameObject.GetComponent<EnemyAI>().RecieveAlert(this.gameObject.transform);
+                    }
+                }
+                else
+                {
+                    ai.gameObject.GetComponent<EnemyAI>().RecieveAware(this.gameObject.transform);
+                }
             }
         }
+        // RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up, 500, LayerMask.GetMask("Enemies"));
+        // foreach (var hit in hits)
+        // {
+        //     if (hit.collider.gameObject.GetComponent<EnemyAI>())
+        //     {
+        //         hit.collider.gameObject.GetComponent<EnemyAI>().RecieveAware(this.gameObject.transform);
+        //     }
+        // }
 
-        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius, Vector3.up, 500, LayerMask.GetMask("Enemies"));
-        foreach (var hit in hits)
-        {
-            if (hit.collider.gameObject.GetComponent<EnemyAI>())
-            {
-                hit.collider.gameObject.GetComponent<EnemyAI>().RecieveAlert(this.gameObject.transform);
-            }
-        }
+        // hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius, Vector3.up, 500, LayerMask.GetMask("Enemies"));
+        // foreach (var hit in hits)
+        // {
+        //     if (hit.collider.gameObject.GetComponent<EnemyAI>())
+        //     {
+        //         hit.collider.gameObject.GetComponent<EnemyAI>().RecieveAlert(this.gameObject.transform);
+        //     }
+        // }
 
-        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius / 3, Vector3.up, 500, LayerMask.GetMask("Enemies"));
-        foreach (var hit in hits)
-        {
-            if (hit.collider.gameObject.GetComponent<EnemyAI>())
-            {
-                hit.collider.gameObject.GetComponent<EnemyAI>().RecievePursuit();
-            }
-        }
+        // hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius / 3, Vector3.up, 500, LayerMask.GetMask("Enemies"));
+        // foreach (var hit in hits)
+        // {
+        //     if (hit.collider.gameObject.GetComponent<EnemyAI>())
+        //     {
+        //         hit.collider.gameObject.GetComponent<EnemyAI>().RecievePursuit();
+        //     }
+        // }
     }
 }
