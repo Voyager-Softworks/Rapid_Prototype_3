@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3581193795593085370}
   - component: {fileID: 1609477771836806512}
   - component: {fileID: 7326078493181808862}
+  - component: {fileID: 371628182055053798}
   m_Layer: 0
-  m_Name: post_1 (1)
+  m_Name: Fence_Post
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,3 +96,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2546692, y: 1.7715586, z: 0.27468872}
   m_Center: {x: 0.008794785, y: 0.019621491, z: 0.008142471}
+--- !u!205 &371628182055053798
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961236983837357221}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.019621491, z: 0}
+  m_Size: 1.7715586
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.09567397
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1609477771836806512}
+  m_Enabled: 1
