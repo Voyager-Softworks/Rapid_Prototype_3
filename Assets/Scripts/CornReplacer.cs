@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TESTSCRIPT : MonoBehaviour
+public class CornReplacer : MonoBehaviour
 {
 
     public GameObject[] corn;
-
-    TreeInstance[] COPYDATA;
-    TerrainData COPYTERRAIN;
 
     // Use this for initialization
     void Start()
@@ -16,8 +13,7 @@ public class TESTSCRIPT : MonoBehaviour
         // Grab the island's terrain data
         TerrainData terrain;
         terrain = GetComponent<Terrain>().terrainData;
-        COPYTERRAIN = TerrainDataCloner.Clone(terrain);
-        COPYDATA = (TreeInstance[])terrain.treeInstances.Clone();
+        terrain = TerrainDataCloner.Clone(terrain);
         List<TreeInstance> notCorn = new List<TreeInstance>();
         // For every tree on the island
         foreach (TreeInstance tree in terrain.treeInstances)
@@ -37,10 +33,5 @@ public class TESTSCRIPT : MonoBehaviour
         List<TreeInstance> newTrees = new List<TreeInstance>(0);
         newTrees.AddRange(notCorn);
         terrain.treeInstances = newTrees.ToArray();
-    }
-
-    private void OnDestroy()
-    {
-        GetComponent<Terrain>().terrainData.treeInstances = COPYDATA;
     }
 }
