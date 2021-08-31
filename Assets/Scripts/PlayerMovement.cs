@@ -80,15 +80,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (forceSlow || Input.GetKey(KeyCode.LeftControl))
         {
-            moveSpeed = sneakSpeed;
+            moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed,  2.0f * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = runSpeed;
+            moveSpeed = Mathf.Lerp(moveSpeed, runSpeed, Time.deltaTime);
         }
         else
         {
-            moveSpeed = moveSpeed_Copy;
+            moveSpeed = Mathf.Lerp(moveSpeed, moveSpeed_Copy, 3.0f * Time.deltaTime);
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
 
     float cornCount = 0;
     float lastHit = 0;
-    float countdown = 0.5f;
+    float countdown = 0.1f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -148,6 +148,14 @@ public class PlayerMovement : MonoBehaviour
             cornCount++;
             Debug.Log("Corn: " + cornCount);
             CornHit.Invoke();
+            lastHit = Time.time;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name.Contains("corn"))
+        {
             lastHit = Time.time;
         }
     }
