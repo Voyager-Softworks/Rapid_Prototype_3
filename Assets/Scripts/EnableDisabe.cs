@@ -28,8 +28,11 @@ public class EnableDisabe : MonoBehaviour
     {
         if (tempWorldPos != Vector3.zero)
         {
-            Vector3 tempPos = Camera.main.WorldToScreenPoint(tempWorldPos);
-            GetComponent<RectTransform>().position = tempPos;
+            if (Vector3.Dot(Camera.main.transform.forward, tempWorldPos - Camera.main.transform.position) > 0)
+            {
+                Vector3 tempPos = Camera.main.WorldToScreenPoint(tempWorldPos);
+                GetComponent<RectTransform>().position = tempPos;
+            }
         }
         else
         {
