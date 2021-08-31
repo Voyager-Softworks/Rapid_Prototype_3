@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6402318752347149302
 Transform:
@@ -62,7 +62,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.100709274
+  - screenRelativeHeight: 0.045749456
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 5442342376123471489}
@@ -139,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 26b5fa2e1ea4a2c4391bd124c1c44b1f, type: 3}
       propertyPath: m_Name
       value: plank_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b5fa2e1ea4a2c4391bd124c1c44b1f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b5fa2e1ea4a2c4391bd124c1c44b1f, type: 3}
@@ -223,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: post_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f31d5181e2d506942a9cac2adb792c2c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31d5181e2d506942a9cac2adb792c2c, type: 3}
 --- !u!4 &6614724980398300991 stripped
@@ -305,6 +313,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b6e2679e04f65b4787f6025fc61516d, type: 3}
       propertyPath: m_Name
       value: plank_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b6e2679e04f65b4787f6025fc61516d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b6e2679e04f65b4787f6025fc61516d, type: 3}
