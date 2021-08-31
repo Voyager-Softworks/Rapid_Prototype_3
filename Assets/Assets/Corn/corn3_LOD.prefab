@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7819015084945353048}
   - component: {fileID: 692371619593670675}
+  - component: {fileID: -631970489540296539}
   m_Layer: 0
   m_Name: corn3_LOD
   m_TagString: Untagged
@@ -51,6 +52,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 3402360449695848325}
   m_Enabled: 1
+--- !u!65 &-631970489540296539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554022734911205449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &4104478472596294401
 PrefabInstance:
   m_ObjectHideFlags: 0

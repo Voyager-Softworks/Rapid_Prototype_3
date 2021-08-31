@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TESTSCRIPT : MonoBehaviour
+{
+
+    public GameObject theTree;
+
+    TreeInstance[] COPYDATA;
+
+    // Use this for initialization
+    void Start()
+    {
+        // Grab the island's terrain data
+        TerrainData terrain;
+        terrain = GetComponent<Terrain>().terrainData;
+        COPYDATA = (TreeInstance[])terrain.treeInstances.Clone();
+        // For every tree on the island
+        foreach (TreeInstance tree in terrain.treeInstances)
+        {
+            // Find its local position scaled by the terrain size (to find the real world position)
+            Vector3 worldTreePos = Vector3.Scale(tree.position, terrain.size) + Terrain.activeTerrain.transform.position;
+            Instantiate(theTree, worldTreePos, Quaternion.AngleAxis(Random.Range(0,360), Vector3.up)); // Create a prefab tree on its pos
+        }
+        // Then delete all trees on the island
+        List<TreeInstance> newTrees = new List<TreeInstance>(0);
+        terrain.treeInstances = newTrees.ToArray();
+    }
+
+    private void OnDestroy()
+    {
+        GetComponent<Terrain>().terrainData.treeInstances = COPYDATA;
+    }
+}

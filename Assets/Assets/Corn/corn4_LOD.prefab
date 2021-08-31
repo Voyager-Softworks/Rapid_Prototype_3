@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6429320781057767771}
   - component: {fileID: 2309036308031112848}
+  - component: {fileID: -5638757016397333092}
   m_Layer: 0
   m_Name: corn4_LOD
   m_TagString: Untagged
@@ -51,6 +52,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 7150078792287459029}
   m_Enabled: 1
+--- !u!65 &-5638757016397333092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713754255285828804}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &8429537177284348497
 PrefabInstance:
   m_ObjectHideFlags: 0

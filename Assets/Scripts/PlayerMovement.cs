@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float stepLength = 1.0f;
     [SerializeField] float distanceTraveled = 0;
     public UnityEvent Step;
+    public UnityEvent CornHit;
     bool oneStep = true;
 
     private void Start()
@@ -48,6 +49,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time - lastHit >= countdown)
+        {
+            forceSlow = false; 
+        }
+        else
+        {
+            forceSlow = true;
+        }
+
         isGrounded = false;
 
         Collider[] hits = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
@@ -125,5 +135,17 @@ public class PlayerMovement : MonoBehaviour
     public void ToggleSlowWalk()
     {
         forceSlow = !forceSlow;
+    }
+
+    float cornCount = 0;
+    float lastHit = 0;
+    float countdown = 0.5f;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        cornCount++;
+        Debug.Log("Corn: " + cornCount);
+        CornHit.Invoke();
+        lastHit = Time.time;
     }
 }
