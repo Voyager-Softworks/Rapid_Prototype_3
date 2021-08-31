@@ -16,7 +16,7 @@ public class Noise : MonoBehaviour
     public float m_amountToIncrement;
     public float[] m_samples;
 
-    EnemyAI[] m_enemies;
+    public EnemyAI[] m_enemies;
 
     bool m_hasPlayed = false;
     void Start()
@@ -29,7 +29,7 @@ public class Noise : MonoBehaviour
         m_samples = new float[m_audioSource.clip.samples * m_audioSource.clip.channels];
         m_amountToIncrement = m_audioSource.clip.samples / m_audioSource.clip.length;
         m_audioSource.clip.GetData(m_samples, 0);
-        m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
+        //m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
     }
 
     // Update is called once per frame

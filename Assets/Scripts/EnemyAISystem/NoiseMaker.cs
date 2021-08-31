@@ -13,6 +13,10 @@ public class NoiseMaker : MonoBehaviour
     public bool m_triggerEnemyAlert;
     public bool m_objectSpace;
     public bool manualsoundplay = false;
+
+    EnemyAI[] m_enemies;
+
+
     public void PlayNoise()
     {
         Noise newNoise = Instantiate(m_noisePrefab, this.transform.position, this.transform.rotation).GetComponent<Noise>();
@@ -24,6 +28,7 @@ public class NoiseMaker : MonoBehaviour
         newNoise.m_baseRange = m_baseRange;
         newNoise.m_multiplier = m_distanceMultiplier;
         newNoise.m_decayRate = m_decayRate;
+        newNoise.m_enemies = m_enemies;
         if (!m_triggerEnemyAlert)
         {
             newNoise.m_triggerEnemyAlert = false;
@@ -33,7 +38,7 @@ public class NoiseMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
     }
 
     // Update is called once per frame
