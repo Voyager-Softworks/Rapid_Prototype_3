@@ -259,7 +259,7 @@ public class EnemyAI : MonoBehaviour
         agent.enabled = false;
         m_SFXsource.clip = m_LaunchSFX;
         m_SFXsource.Play();
-        Debug.Log("Attacking!");
+        //Debug.Log("Attacking!");
         m_attackTimer = m_attackDuration;
     }
 

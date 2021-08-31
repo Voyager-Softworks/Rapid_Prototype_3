@@ -23,10 +23,25 @@ public class GunScript : MonoBehaviour
     [SerializeField] bool r_chamber = true;
     [SerializeField] bool l_chamber = true;
 
+    EnemyAI[] m_enemies;
+
+    private void OnDrawGizmos()
+    {
+        float totalFOV = 40.0f;
+        float rayRange = 20.0f;
+        float halfFOV = totalFOV / 2.0f;
+        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
+        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
+        Vector3 leftRayDirection = leftRayRotation * transform.forward;
+        Vector3 rightRayDirection = rightRayRotation * transform.forward;
+        Gizmos.DrawRay(transform.position, leftRayDirection * rayRange);
+        Gizmos.DrawRay(transform.position, rightRayDirection * rayRange);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
         UpdateVisuals();
     }
 
@@ -110,6 +125,17 @@ public class GunScript : MonoBehaviour
         noiseMaker.PlayNoise();
         GameObject particles = Instantiate(shotParticles, end.position, end.rotation, null);
         Destroy(particles, 2);
+
+        foreach (EnemyAI _enemy in m_enemies)
+        {
+            Vector3 dir = (_enemy.transform.position - transform.position);
+            float angle = Vector3.Angle(dir.normalized, transform.forward);
+            float dist = dir.magnitude;
+            if (dist <= 20 && angle <= 20)
+            {
+                _enemy.RecieveFlee();
+            }
+        }
 
         transform.position -= transform.forward * 0.75f;
         transform.Rotate(new Vector3(-25,0,0), Space.Self);
