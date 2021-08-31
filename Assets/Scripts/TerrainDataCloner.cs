@@ -37,7 +37,7 @@ public class TerrainDataCloner
         dup.wavingGrassTint = original.wavingGrassTint;
 
         dup.SetAlphamaps(0, 0, original.GetAlphamaps(0, 0, original.alphamapWidth, original.alphamapHeight));
-        dup.SetHeights(0, 0, original.GetHeights(0, 0, original.heightmapWidth, original.heightmapHeight));
+        dup.SetHeights(0, 0, original.GetHeights(0, 0, original.heightmapResolution, original.heightmapResolution));
 
         for (int n = 0; n < original.detailPrototypes.Length; n++)
         {
