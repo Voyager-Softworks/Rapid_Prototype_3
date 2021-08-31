@@ -19,10 +19,10 @@ public class EnemyAI : MonoBehaviour
     [Header("Prefab Setup Options")]
     public NavMeshAgent agent;
     public Transform playerTransform;
-
+    public Rigidbody body;
     public Animator anim;
 
-    Rigidbody body;
+
 
     [Header("Debugging")]
     public Vector3 mostRecentAlertPosition, mostRecentAwarePosition;
@@ -66,6 +66,8 @@ public class EnemyAI : MonoBehaviour
     public float m_attackForceMult;
 
     public float m_attackHeightOffset;
+    public float m_attackDuration;
+    float m_attackTimer;
 
     [Header("Idling")]
     [Range(0, 100)]
@@ -128,6 +130,7 @@ public class EnemyAI : MonoBehaviour
         if (m_currentState != AIState.ATTACKING)
         {
             agent.enabled = true;
+            body.isKinematic = true;
         }
 
         switch (m_currentState)
@@ -195,7 +198,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     m_currentState = AIState.WANDERING;
                 }
-                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && body == null)
+                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius)
                 {
                     m_currentState = AIState.ATTACKING;
                     Attack();
@@ -224,6 +227,15 @@ public class EnemyAI : MonoBehaviour
             case AIState.ATTACKING:
                 anim.SetBool("ATTACKING", true);
                 m_awareness = 10.0f;
+                m_attackTimer -= Time.deltaTime;
+                if (m_attackTimer <= 0)
+                {
+                    m_currentState = AIState.RECOVERING;
+
+                    agent.enabled = true;
+                    m_SFXsource.clip = m_LandSFX;
+                    m_SFXsource.Play();
+                }
                 break;
             case AIState.IDLING:
                 agent.speed = 0.0f;
@@ -240,13 +252,15 @@ public class EnemyAI : MonoBehaviour
 
     void Attack()
     {
-        body = gameObject.AddComponent<Rigidbody>();
+        body.isKinematic = false;
         Vector3 playerPos = new Vector3(playerTransform.position.x, playerTransform.position.y + m_attackHeightOffset, playerTransform.position.z);
         Vector3 direction = (playerPos - gameObject.transform.position).normalized;
         body.AddForce(direction * m_attackForceMult, ForceMode.Impulse);
         agent.enabled = false;
         m_SFXsource.clip = m_LaunchSFX;
         m_SFXsource.Play();
+        Debug.Log("Attacking!");
+        m_attackTimer = m_attackDuration;
     }
 
     public void RecieveFlee()
@@ -301,29 +315,29 @@ public class EnemyAI : MonoBehaviour
         return new Vector3((_radius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + origin.x, origin.y, _radius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + origin.z);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (m_currentState == AIState.ATTACKING)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                //Stuff for killing the player
-                m_currentState = AIState.RECOVERING;
-                Destroy(body);
-                agent.enabled = true;
-                m_SFXsource.clip = m_LandSFX;
-                m_SFXsource.Play();
-            }
-            else if (other.gameObject.CompareTag("Ground"))
-            {
-                m_currentState = AIState.RECOVERING;
-                Destroy(body);
-                agent.enabled = true;
-                m_SFXsource.clip = m_LandSFX;
-                m_SFXsource.Play();
-            }
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (m_currentState == AIState.ATTACKING)
+    //     {
+    //         if (other.gameObject.CompareTag("Player"))
+    //         {
+    //             //Stuff for killing the player
+    //             m_currentState = AIState.RECOVERING;
+
+    //             agent.enabled = true;
+    //             m_SFXsource.clip = m_LandSFX;
+    //             m_SFXsource.Play();
+    //         }
+    //         else if (other.gameObject.CompareTag("Ground"))
+    //         {
+    //             m_currentState = AIState.RECOVERING;
+
+    //             agent.enabled = true;
+    //             m_SFXsource.clip = m_LandSFX;
+    //             m_SFXsource.Play();
+    //         }
+    //     }
+    // }
 
 
     /// <summary>
