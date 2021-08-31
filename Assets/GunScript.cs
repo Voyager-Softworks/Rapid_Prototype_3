@@ -111,6 +111,10 @@ public class GunScript : MonoBehaviour
         GameObject particles = Instantiate(shotParticles, end.position, end.rotation, null);
         Destroy(particles, 2);
 
+        transform.position -= transform.forward * 0.25f;
+        transform.Rotate(new Vector3(-45,0,0), Space.Self);
+        
+
         UpdateVisuals();
     }
 }

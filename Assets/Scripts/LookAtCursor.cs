@@ -9,10 +9,14 @@ public class LookAtCursor : MonoBehaviour
 
     [SerializeField] float lookSpeed;
 
+    public bool doLook = true;
+
+    Vector3 origPos = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        origPos = transform.localPosition;
     }
 
     private void OnDrawGizmos()
@@ -29,6 +33,8 @@ public class LookAtCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!doLook) return;
+
         RaycastHit[] HitInfo = Physics.RaycastAll(m_cam.transform.position, m_cam.transform.forward, 100f);
 
         bool doesHit = false;
@@ -56,5 +62,7 @@ public class LookAtCursor : MonoBehaviour
         {
             transform.localRotation = Quaternion.Lerp(transform.localRotation, m_cam.transform.localRotation, lookSpeed * Time.deltaTime);
         }
+
+        transform.localPosition = Vector3.Lerp(transform.localPosition, origPos, 3.0f * Time.deltaTime);
     }
 }
