@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerReaches : MonoBehaviour
 {
     public UnityEvent PlayerReached;
+    public UnityEvent<string> CantTriggerSTRING;
+    public UnityEvent<Vector3> CantTriggerVEC3;
 
     [SerializeField] GameObject m_player;
 
@@ -13,9 +16,14 @@ public class PlayerReaches : MonoBehaviour
 
     [SerializeField] bool hasPlayerReached = false;
 
+    [SerializeField] Text infoBox;
+
+    [SerializeField] string cantTriggerMessage = "";
+
     private void Start()
     {
         if (!m_player) m_player = GameObject.Find("Player");
+        if (!infoBox) infoBox = GameObject.Find("InfoMessage").GetComponent<Text>();
     }
 
     public void SetReached(bool _val)
@@ -40,9 +48,17 @@ public class PlayerReaches : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (canPlayerTrigger && !hasPlayerReached && other.transform.root.gameObject == m_player)
+        if (!hasPlayerReached && other.transform.root.gameObject == m_player)
         {
-            PlayerReached.Invoke();
+            if (canPlayerTrigger)
+            {
+                PlayerReached.Invoke();
+            }
+            else
+            {
+                CantTriggerSTRING.Invoke(cantTriggerMessage);
+                CantTriggerVEC3.Invoke(transform.position);
+            }
         }
     }
 }

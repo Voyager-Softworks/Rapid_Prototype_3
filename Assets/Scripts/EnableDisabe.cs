@@ -14,18 +14,38 @@ public class EnableDisabe : MonoBehaviour
     public UnityEvent onEnable;
     public UnityEvent onDisable;
 
+    Vector3 origPos;
+    Vector3 tempWorldPos = Vector3.zero;
+
     private void Start()
     {
+        origPos = GetComponent<RectTransform>().position;
         startTime = Time.time;
         text = GetComponent<Text>();
     }
 
     private void Update()
     {
+        if (tempWorldPos != Vector3.zero)
+        {
+            Vector3 tempPos = Camera.main.WorldToScreenPoint(tempWorldPos);
+            GetComponent<RectTransform>().position = tempPos;
+        }
+        else
+        {
+            GetComponent<RectTransform>().position = origPos;
+        }
+        
+
         if (text.enabled && Time.time - startTime >= aliveTime)
         {
             Disable();
         }
+    }
+
+    public void SetPos(Vector3 _pos)
+    {
+        tempWorldPos = _pos;
     }
 
     public void Enable(float _time = 10)
@@ -38,6 +58,9 @@ public class EnableDisabe : MonoBehaviour
 
     public void Disable()
     {
+        tempWorldPos = Vector3.zero;
+        GetComponent<RectTransform>().position = origPos;
+
         if (text.enabled)
         {
             text.enabled = false;
