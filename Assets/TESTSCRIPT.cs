@@ -5,7 +5,7 @@ using UnityEngine;
 public class TESTSCRIPT : MonoBehaviour
 {
 
-    public GameObject theTree;
+    public GameObject[] corn;
 
     TreeInstance[] COPYDATA;
 
@@ -28,7 +28,8 @@ public class TESTSCRIPT : MonoBehaviour
 
             // Find its local position scaled by the terrain size (to find the real world position)
             Vector3 worldTreePos = Vector3.Scale(tree.position, terrain.size) + Terrain.activeTerrain.transform.position;
-            Instantiate(theTree, worldTreePos, Quaternion.AngleAxis(Random.Range(0,360), Vector3.up)); // Create a prefab tree on its pos
+            GameObject tempcorn = Instantiate(corn[tree.prototypeIndex], worldTreePos, Quaternion.AngleAxis(Random.Range(0,360), Vector3.up)); // Create a prefab tree on its pos
+            tempcorn.transform.localScale *= tree.heightScale;
         }
         // Then delete all trees on the island
         List<TreeInstance> newTrees = new List<TreeInstance>(0);
