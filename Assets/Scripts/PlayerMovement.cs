@@ -143,9 +143,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        cornCount++;
-        Debug.Log("Corn: " + cornCount);
-        CornHit.Invoke();
-        lastHit = Time.time;
+        if (other.name.Contains("corn"))
+        {
+            cornCount++;
+            Debug.Log("Corn: " + cornCount);
+            CornHit.Invoke();
+            lastHit = Time.time;
+        }
     }
 }
