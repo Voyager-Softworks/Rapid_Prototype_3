@@ -67,6 +67,7 @@ public class EnemyAI : MonoBehaviour
 
     public float m_attackHeightOffset;
     public float m_attackDuration;
+
     float m_attackTimer;
 
     [Header("Idling")]
@@ -265,6 +266,7 @@ public class EnemyAI : MonoBehaviour
 
     public void RecieveFlee()
     {
+        anim.SetTrigger("SHOT");
         m_fleetimer = m_fleeDuration;
         m_currentState = AIState.FLEEING;
         m_SFXsource.clip = m_RetreatSFX;
