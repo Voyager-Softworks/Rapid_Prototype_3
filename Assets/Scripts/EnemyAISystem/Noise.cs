@@ -89,7 +89,7 @@ public class Noise : MonoBehaviour
     void Alert()
     {
         if (!m_triggerEnemyAlert) return;
-        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up);
+        RaycastHit[] hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius * 3, Vector3.up, 500, LayerMask.GetMask("Enemies"));
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.GetComponent<EnemyAI>())
@@ -98,7 +98,7 @@ public class Noise : MonoBehaviour
             }
         }
 
-        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius, Vector3.up);
+        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius, Vector3.up, 500, LayerMask.GetMask("Enemies"));
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.GetComponent<EnemyAI>())
@@ -107,7 +107,7 @@ public class Noise : MonoBehaviour
             }
         }
 
-        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius / 3, Vector3.up);
+        hits = Physics.SphereCastAll(this.gameObject.transform.position, m_currentAlertRadius / 3, Vector3.up, 500, LayerMask.GetMask("Enemies"));
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.GetComponent<EnemyAI>())
