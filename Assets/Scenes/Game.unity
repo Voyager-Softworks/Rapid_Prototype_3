@@ -23153,7 +23153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1291721160
 Light:
   m_ObjectHideFlags: 0
@@ -39925,6 +39925,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 842017841, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: m_distanceMultiplier
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
