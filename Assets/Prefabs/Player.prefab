@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
   m_baseRange: 20
-  m_distanceMultiplier: 3000
+  m_distanceMultiplier: 1500
   m_decayRate: 50
   m_noise: {fileID: 11400000, guid: 45024a3ab77f98241a50583e8461fca7, type: 2}
   m_playOnCollision: 0
@@ -1315,6 +1315,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  body: {fileID: 0}
   moveSpeed: 10
   sneakSpeed: 5
   runSpeed: 15
@@ -1383,7 +1384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
   m_baseRange: 20
-  m_distanceMultiplier: 3000
+  m_distanceMultiplier: 2500
   m_decayRate: 50
   m_noise: {fileID: 11400000, guid: e0065d9d35d45caf2ad0c26d4fb19abf, type: 2}
   m_playOnCollision: 0
