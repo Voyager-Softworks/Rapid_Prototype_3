@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class PlayerReaches : MonoBehaviour
 {
     public UnityEvent PlayerReached;
-    public UnityEvent<string> CantTriggerSTRING;
-    public UnityEvent<Vector3> CantTriggerVEC3;
+    public UnityEvent CantTrigger;
 
     [SerializeField] GameObject m_player;
 
@@ -18,7 +17,7 @@ public class PlayerReaches : MonoBehaviour
 
     [SerializeField] Text infoBox;
 
-    [SerializeField] string cantTriggerMessage = "";
+    [SerializeField] string worldMessage = "";
 
     private void Start()
     {
@@ -46,6 +45,14 @@ public class PlayerReaches : MonoBehaviour
         return canPlayerTrigger;
     }
 
+    public void DisplayWorldMessage()
+    {
+        infoBox.text = worldMessage;
+        EnableDisabe ed = infoBox.GetComponent<EnableDisabe>();
+        ed.Enable();
+        ed.SetPos(transform.position);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!hasPlayerReached && other.transform.root.gameObject == m_player)
@@ -56,8 +63,7 @@ public class PlayerReaches : MonoBehaviour
             }
             else
             {
-                CantTriggerSTRING.Invoke(cantTriggerMessage);
-                CantTriggerVEC3.Invoke(transform.position);
+                CantTrigger.Invoke();
             }
         }
     }
