@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     [Header("Movement")]
+    [SerializeField] GameObject body;
     public float moveSpeed;
     float moveSpeed_Copy;
     public float sneakSpeed;
@@ -81,13 +82,16 @@ public class PlayerMovement : MonoBehaviour
         if (forceSlow || Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed,  2.0f * Time.deltaTime);
+            body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
+            body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, Vector3.zero, 3 * Time.deltaTime);
             moveSpeed = Mathf.Lerp(moveSpeed, runSpeed, Time.deltaTime);
         }
         else
         {
+            body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, Vector3.zero, 3 * Time.deltaTime);
             moveSpeed = Mathf.Lerp(moveSpeed, moveSpeed_Copy, 3.0f * Time.deltaTime);
         }
 
