@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerReaches : MonoBehaviour
 {
     public UnityEvent PlayerReached;
+    public UnityEvent CantTrigger;
 
     [SerializeField] GameObject m_player;
 
@@ -13,9 +15,14 @@ public class PlayerReaches : MonoBehaviour
 
     [SerializeField] bool hasPlayerReached = false;
 
+    [SerializeField] Text infoBox;
+
+    [SerializeField] string worldMessage = "";
+
     private void Start()
     {
         if (!m_player) m_player = GameObject.Find("Player");
+        if (!infoBox) infoBox = GameObject.Find("InfoMessage").GetComponent<Text>();
     }
 
     public void SetReached(bool _val)
@@ -38,11 +45,26 @@ public class PlayerReaches : MonoBehaviour
         return canPlayerTrigger;
     }
 
+    public void DisplayWorldMessage()
+    {
+        infoBox.text = worldMessage;
+        EnableDisabe ed = infoBox.GetComponent<EnableDisabe>();
+        ed.Enable();
+        ed.SetPos(transform.position);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (canPlayerTrigger && !hasPlayerReached && other.transform.root.gameObject == m_player)
+        if (!hasPlayerReached && other.transform.root.gameObject == m_player)
         {
-            PlayerReached.Invoke();
+            if (canPlayerTrigger)
+            {
+                PlayerReached.Invoke();
+            }
+            else
+            {
+                CantTrigger.Invoke();
+            }
         }
     }
 }

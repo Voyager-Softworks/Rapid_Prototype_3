@@ -85,9 +85,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8283624665233289713}
+        m_TargetAssemblyTypeName: PlayerReaches, Assembly-CSharp
+        m_MethodName: DisplayWorldMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_player: {fileID: 0}
   canPlayerTrigger: 0
   hasPlayerReached: 0
+  infoBox: {fileID: 0}
+  worldMessage: Need my gun to use these...
 --- !u!1 &8283624666831122197
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +116,6 @@ GameObject:
   - component: {fileID: 8283624666831122202}
   - component: {fileID: 8283624666831122201}
   - component: {fileID: 8283624666831122200}
-  - component: {fileID: 8283624666831122203}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -115,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8283624666831122197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.424, y: 0.08, z: 0.124}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5478298, y: 0.5478298, z: 0.5478298}
   m_Children: []
   m_Father: {fileID: 8283624665233289712}
@@ -170,17 +186,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8283624666831122203
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8283624666831122197}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.11
-  m_Height: 2.73
-  m_Direction: 1
-  m_Center: {x: 0.09, y: 0, z: -0.00000008940697}

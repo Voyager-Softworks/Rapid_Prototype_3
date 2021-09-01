@@ -363,7 +363,7 @@ Animator:
   m_GameObject: {fileID: 746833049942795190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9fda5eb86580cf408e559dba886fc58, type: 2}
+  m_Controller: {fileID: 9100000, guid: 80c337523a5cfae4e8bd37e9b3c206f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -391,8 +391,8 @@ MonoBehaviour:
   mostRecentAlertPosition: {x: 0, y: 0, z: 0}
   mostRecentAwarePosition: {x: 0, y: 0, z: 0}
   m_currentState: 0
-  m_visionCone: 0.617
-  m_visionDistance: 32
+  m_visionCone: 0.564
+  m_visionDistance: 45
   m_wanderSpeed: 3
   m_wanderTurnSpeed: 90
   m_patrolSpeed: 3
@@ -1418,7 +1418,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f22920bd786bb241a692496a53d779d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.104
+  m_Volume: 0.385
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1427,7 +1427,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 35
+  MaxDistance: 46.58716
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
