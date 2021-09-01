@@ -69,6 +69,9 @@ public class EnemyAI : MonoBehaviour
     public float m_attackDuration;
 
     float m_attackTimer;
+    public float m_attackCooldown;
+
+    float m_cooldownTimer;
 
     [Header("Idling")]
     [Range(0, 100)]
@@ -79,6 +82,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Audio")]
     public AudioSource m_SFXsource;
     public AudioSource m_Stepsource;
+    public AudioSource m_IdleSource;
 
     public List<AudioClip> m_WalkSFX;
     public AudioClip m_InjureSFX;
@@ -98,6 +102,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_cooldownTimer -= Time.deltaTime;
         m_awareness -= Time.deltaTime * m_awarenessDecayRate;
         if (m_awareness < 0.0f)
         {
@@ -152,7 +157,8 @@ public class EnemyAI : MonoBehaviour
                     m_idleTimer = m_idleCooldown;
                     if (Random.Range(1, 100) <= m_idleChance)
                     {
-                        m_currentState = AIState.IDLING;
+                        m_IdleSource.clip = m_WalkSFX[Random.Range(0, m_WalkSFX.Count)];
+                        m_IdleSource.Play();
                     }
                 }
                 break;
@@ -192,17 +198,18 @@ public class EnemyAI : MonoBehaviour
                 anim.SetBool("PURSUING", true);
 
                 agent.destination = playerTransform.position;
-                agent.stoppingDistance = m_attackRadius;
+
                 agent.speed = m_pursueSpeed;
                 agent.angularSpeed = m_pursueTurnSpeed;
                 if (m_awareness <= m_pursueThreshhold)
                 {
                     m_currentState = AIState.WANDERING;
                 }
-                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius)
+                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)) && m_cooldownTimer <= 0)
                 {
                     m_currentState = AIState.ATTACKING;
                     Attack();
+                    m_cooldownTimer = m_attackCooldown;
                 }
                 break;
             case AIState.FLEEING:
