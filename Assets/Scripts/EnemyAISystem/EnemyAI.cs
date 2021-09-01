@@ -54,6 +54,10 @@ public class EnemyAI : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float m_awarenessDecayRate;
 
+    [Header("Behaviour")]
+    public float m_minimumStateDuration;
+    float m_stateTimer = 0;
+
     [Header("Flee Behaviour")]
     public float m_fleeDuration;
     float m_fleetimer;
@@ -103,6 +107,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         m_cooldownTimer -= Time.deltaTime;
+        m_stateTimer -= Time.deltaTime;
         m_awareness -= Time.deltaTime * m_awarenessDecayRate;
         if (m_awareness < 0.0f)
         {
@@ -144,9 +149,10 @@ public class EnemyAI : MonoBehaviour
             case AIState.WANDERING:
                 anim.SetBool("WANDERING", true);
                 m_idleTimer -= Time.deltaTime;
-                if (m_awareness > m_pursueThreshhold)
+                if (m_awareness > m_pursueThreshhold && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.PURSUING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
 
                 agent.destination = GetWanderPosition(30.0f, 40.0f, gameObject.transform.forward);
@@ -164,13 +170,15 @@ public class EnemyAI : MonoBehaviour
                 break;
             case AIState.PATROLLING:
                 anim.SetBool("PATROLLING", true);
-                if (m_awareness < m_patrolThreshhold)
+                if (m_awareness < m_patrolThreshhold && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.WANDERING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
-                else if (m_awareness > m_pursueThreshhold)
+                else if (m_awareness > m_pursueThreshhold && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.PURSUING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
                 else
                 {
@@ -184,13 +192,15 @@ public class EnemyAI : MonoBehaviour
                 agent.stoppingDistance = 0.0f;
                 agent.angularSpeed = m_searchTurnSpeed;
                 agent.speed = m_searchSpeed;
-                if (m_awareness > m_pursueThreshhold)
+                if (m_awareness > m_pursueThreshhold && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.PURSUING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
-                if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius * 2)
+                if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius * 2 && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.PATROLLING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
                 agent.destination = mostRecentAlertPosition;
                 break;
@@ -198,16 +208,18 @@ public class EnemyAI : MonoBehaviour
                 anim.SetBool("PURSUING", true);
 
                 agent.destination = playerTransform.position;
-
+                agent.stoppingDistance = m_attackRadius;
                 agent.speed = m_pursueSpeed;
                 agent.angularSpeed = m_pursueTurnSpeed;
-                if (m_awareness <= m_pursueThreshhold)
+                if (m_awareness <= m_pursueThreshhold && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.WANDERING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
-                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)) && m_cooldownTimer <= 0)
+                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)) && m_cooldownTimer <= 0 && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.ATTACKING;
+                    m_stateTimer = m_minimumStateDuration;
                     Attack();
                     m_cooldownTimer = m_attackCooldown;
                 }
@@ -217,18 +229,20 @@ public class EnemyAI : MonoBehaviour
                 agent.destination = GetWanderPosition(20.0f, 10.0f, gameObject.transform.position - playerTransform.position);
                 agent.speed = m_fleeSpeed;
                 m_fleetimer -= Time.deltaTime;
-                if (m_fleetimer <= 0)
+                if (m_fleetimer <= 0 && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.WANDERING;
+                    m_stateTimer = m_minimumStateDuration;
                 }
                 break;
             case AIState.RECOVERING:
                 anim.SetBool("RECOVERING", true);
                 agent.speed = 0.0f;
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Armature|LAND") &&
-                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.SEARCHING;
+                    m_currentState = AIState.WANDERING;
+                    m_stateTimer = m_minimumStateDuration;
 
                 }
                 break;
@@ -239,6 +253,7 @@ public class EnemyAI : MonoBehaviour
                 if (m_attackTimer <= 0)
                 {
                     m_currentState = AIState.RECOVERING;
+                    m_stateTimer = m_minimumStateDuration;
 
                     agent.enabled = true;
                     m_SFXsource.clip = m_LandSFX;
@@ -292,7 +307,7 @@ public class EnemyAI : MonoBehaviour
 
     public void RecievePursuit()
     {
-        if (m_currentState != AIState.FLEEING)
+        if (m_currentState != AIState.FLEEING && m_currentState != AIState.ATTACKING)
         {
             m_currentState = AIState.PURSUING;
             m_awareness = 10.0f;
@@ -307,7 +322,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            m_awareness = 7.0f;
+            //m_awareness = 7.0f;
         }
 
         mostRecentAwarePosition = _awarePos.position;
