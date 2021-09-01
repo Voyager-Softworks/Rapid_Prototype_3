@@ -25,7 +25,6 @@ public class EnableDisabe : MonoBehaviour
         origPos = GetComponent<RectTransform>().position;
         startTime = Time.time;
         text = GetComponent<Text>();
-        if (!line) line = GameObject.Find("TextLine").GetComponent<Image>();
     }
 
     private void Update()
@@ -58,7 +57,7 @@ public class EnableDisabe : MonoBehaviour
         }
 
         text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.Clamp(text.color.a, 0, 1));
-        line.color = text.color;
+        if (line && isEnabled) line.color = text.color;
     }
 
     public void SetPos(Vector3 _pos)
