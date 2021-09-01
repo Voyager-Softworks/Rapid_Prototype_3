@@ -404,7 +404,7 @@ MonoBehaviour:
   m_fleeSpeed: 25
   m_awareness: 0
   m_patrolThreshhold: 3
-  m_pursueThreshhold: 7
+  m_pursueThreshhold: 7.5
   m_awarenessDecayRate: 0.647
   m_fleeDuration: 8
   m_searchChance: 60
@@ -491,9 +491,14 @@ MonoBehaviour:
   PlayerReached:
     m_PersistentCalls:
       m_Calls: []
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   m_player: {fileID: 0}
   canPlayerTrigger: 0
   hasPlayerReached: 0
+  infoBox: {fileID: 0}
+  worldMessage: 
 --- !u!1 &767230275823175033
 GameObject:
   m_ObjectHideFlags: 0

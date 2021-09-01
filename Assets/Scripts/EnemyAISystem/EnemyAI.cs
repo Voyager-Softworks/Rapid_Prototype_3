@@ -228,7 +228,7 @@ public class EnemyAI : MonoBehaviour
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Armature|LAND") &&
                     anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 {
-                    m_currentState = AIState.WANDERING;
+                    m_currentState = AIState.SEARCHING;
 
                 }
                 break;
