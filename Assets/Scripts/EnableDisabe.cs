@@ -8,6 +8,9 @@ public class EnableDisabe : MonoBehaviour
 {
     public float aliveTime = 10;
     float startTime = float.PositiveInfinity;
+    public bool isEnabled = false;
+
+    [SerializeField] Image line;
 
     Text text;
 
@@ -22,6 +25,7 @@ public class EnableDisabe : MonoBehaviour
         origPos = GetComponent<RectTransform>().position;
         startTime = Time.time;
         text = GetComponent<Text>();
+        if (!line) line = GameObject.Find("TextLine").GetComponent<Image>();
     }
 
     private void Update()
@@ -40,10 +44,21 @@ public class EnableDisabe : MonoBehaviour
         }
         
 
-        if (text.enabled && Time.time - startTime >= aliveTime)
+        if (isEnabled && Time.time - startTime >= aliveTime)
         {
             Disable();
         }
+        else if (isEnabled)
+        {
+            text.color += new Color(0, 0, 0, 2 * Time.deltaTime);
+        }
+        else
+        {
+            text.color -= new Color(0, 0, 0, 2 * Time.deltaTime);
+        }
+
+        text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.Clamp(text.color.a, 0, 1));
+        line.color = text.color;
     }
 
     public void SetPos(Vector3 _pos)
@@ -55,18 +70,23 @@ public class EnableDisabe : MonoBehaviour
     {
         aliveTime = _time;
         startTime = Time.time;
-        text.enabled = true;
+        isEnabled = true;
         onEnable.Invoke();
     }
 
     public void Disable()
     {
+        if (tempWorldPos != Vector3.zero)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+        }
+
         tempWorldPos = Vector3.zero;
         GetComponent<RectTransform>().position = origPos;
 
-        if (text.enabled)
+        if (isEnabled)
         {
-            text.enabled = false;
+            isEnabled = false;
             onDisable.Invoke();
         }
     }
