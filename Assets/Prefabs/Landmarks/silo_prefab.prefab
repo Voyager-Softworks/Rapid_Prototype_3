@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1132358370762988703}
   - component: {fileID: 4042308753986130746}
   - component: {fileID: 2305241769154668528}
-  - component: {fileID: 8788589498070217479}
+  - component: {fileID: 1445445001}
   m_Layer: 0
   m_Name: silo_prefab
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359480227861415461}
-  m_LocalRotation: {x: -0, y: 0.16236271, z: -0, w: 0.9867311}
+  m_LocalRotation: {x: 0, y: 0.16236165, z: 0, w: 0.98673135}
   m_LocalPosition: {x: 337.78, y: -0.16, z: 10.316}
   m_LocalScale: {x: 127.45881, y: 127.45881, z: 127.45881}
   m_Children: []
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d2730f878951f14095bc266616daa43, type: 2}
+  - {fileID: 2100000, guid: e2c0afa339f4f494581ec3fe607c9d30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8788589498070217479
-BoxCollider:
+--- !u!64 &1445445001
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,6 +92,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0678362, y: 0.17615646, z: 0.06254949}
-  m_Center: {x: -0.0031684404, y: 0.084028676, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8275027017376598428, guid: 2808f25a53d3f4046bd7823474f74724, type: 3}
