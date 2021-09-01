@@ -134,22 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManBearCroc_FBX
       objectReference: {fileID: 0}
-    - target: {fileID: 630575699434088238, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 655641786172880568, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 655641786172880568, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0014
-      objectReference: {fileID: 0}
-    - target: {fileID: 655641786172880568, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0065
-      objectReference: {fileID: 0}
     - target: {fileID: 951586042749252466, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -192,42 +176,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 951586042749252466, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: ClampVelocityModule.dampen
-      value: 0.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: ClampVelocityModule.drag.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: ClampVelocityModule.magnitude.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: -0.007
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: ClampVelocityModule.multiplyDragByParticleSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093318186098567268, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
-      propertyPath: ClampVelocityModule.multiplyDragByParticleVelocity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1547,7 +1495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1291721160
 Light:
   m_ObjectHideFlags: 0
@@ -2257,11 +2205,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089799661}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2141956748 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0258cebc412f24e4fa22bdb09044c139, type: 3}
-  m_PrefabInstance: {fileID: 835112981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &543450653506563653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6563736363411822671, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
@@ -2423,7 +2366,7 @@ PrefabInstance:
     - target: {fileID: 860946515951765730, guid: 54f242fb828e4f34e909a3ca38b66b9b, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 536043585}
     - target: {fileID: 860946515951765730, guid: 54f242fb828e4f34e909a3ca38b66b9b, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
       value: 2
