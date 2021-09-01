@@ -10,7 +10,7 @@ public class EnableDisabe : MonoBehaviour
     float startTime = float.PositiveInfinity;
     public bool isEnabled = false;
 
-    [SerializeField] Image line;
+    Image line;
 
     Text text;
 
@@ -25,6 +25,7 @@ public class EnableDisabe : MonoBehaviour
         origPos = GetComponent<RectTransform>().position;
         startTime = Time.time;
         text = GetComponent<Text>();
+        line = GetComponentInChildren<Image>();
     }
 
     private void Update()
@@ -57,7 +58,7 @@ public class EnableDisabe : MonoBehaviour
         }
 
         text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.Clamp(text.color.a, 0, 1));
-        if (line && isEnabled) line.color = text.color;
+        if (line) line.color = text.color;
     }
 
     public void SetPos(Vector3 _pos)
