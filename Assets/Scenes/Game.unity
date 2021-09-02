@@ -25261,7 +25261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1291721160
 Light:
   m_ObjectHideFlags: 0
@@ -42789,6 +42789,38 @@ PrefabInstance:
     - target: {fileID: 1787359199434955371, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[1].time
+      value: 10.044006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[1].value
+      value: 0.9943466
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[0].inSlope
+      value: 0.3164964
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[0].outSlope
+      value: 0.3164964
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970972223775407849, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: exertionCurve.m_Curve.Array.data[0].outWeight
+      value: 0.019649696
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
