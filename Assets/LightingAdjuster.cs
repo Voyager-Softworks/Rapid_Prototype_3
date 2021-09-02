@@ -13,12 +13,12 @@ public class LightingAdjuster : MonoBehaviour
     public VolumeProfile m_pp;
     public LiftGammaGain m_LGG;
 
-    float m_gamma;
+    float m_gamma = 0;
     // Start is called before the first frame update
     void Start()
     {
         m_pp.TryGet<LiftGammaGain>(out m_LGG);
-        m_gamma = m_LGG.gamma.value.z;
+
     }
 
     // Update is called once per frame
