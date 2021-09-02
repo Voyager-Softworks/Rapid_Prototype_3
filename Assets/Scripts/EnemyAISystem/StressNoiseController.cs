@@ -96,7 +96,7 @@ public class StressNoiseController : MonoBehaviour
             m_currentAlertRadius = 0.0f;
         }
         m_vignette.intensity.value = Mathf.Clamp(m_vignetteBase + (((1 - m_vignetteBase) * (Mathf.Abs(m_breathingSource.volume * Mathf.Sin(Time.timeSinceLevelLoad * 4)))) / 4), 0, 1);
-        m_distortion.intensity.value = Mathf.Lerp(m_distortion.intensity.value, Mathf.Clamp(1 - (m_playerMovement.velocity.magnitude / 10), -1, 0), Time.deltaTime * 4);
+        m_distortion.intensity.value = Mathf.Lerp(m_distortion.intensity.value, Mathf.Clamp(1 - (m_playerMovement.velocity.magnitude / 14), -1, 0), Time.deltaTime * 4);
 
 
     }
