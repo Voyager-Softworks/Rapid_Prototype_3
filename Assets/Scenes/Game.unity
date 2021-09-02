@@ -6493,7 +6493,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 468205973999823305, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
   m_PrefabInstance: {fileID: 30037655}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 419440489}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f51e20e8b25373b0921d2f6a09f5ac0, type: 3}
@@ -8329,6 +8329,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 78417303022926092, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
   m_PrefabInstance: {fileID: 1454403111}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &419440489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 468205973999823304, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
+  m_PrefabInstance: {fileID: 30037655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &419440494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419440489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5651391616184423004}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  m_player: {fileID: 0}
+  canPlayerTrigger: 1
+  hasPlayerReached: 0
+  infoBox: {fileID: 0}
+  worldMessage: 
+--- !u!135 &419440495
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419440489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &421826570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11412,14 +11465,6 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 78417303022926092, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.40000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 78417303022926092, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.40000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 78417303022926092, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -80.6371
       objectReference: {fileID: 0}
@@ -11459,26 +11504,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.271
       objectReference: {fileID: 0}
-    - target: {fileID: 476292365505473940, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_Lightmapping
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 476292365505473940, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 0.0000000037252903
-      objectReference: {fileID: 0}
-    - target: {fileID: 476292365505473940, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476292365505473940, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 2.3509887e-38
-      objectReference: {fileID: 0}
-    - target: {fileID: 476292365505473940, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0.0000000018777087
-      objectReference: {fileID: 0}
     - target: {fileID: 746833049942795190, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: m_Name
       value: CatDemon
@@ -11488,37 +11513,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 842017842}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: canPlayerTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5651391616184423004}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
 --- !u!4 &573056516 stripped
@@ -12627,18 +12624,18 @@ PrefabInstance:
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
+      objectReference: {fileID: 5651391616184423004}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
+      value: LoadDeath
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -20272,18 +20269,18 @@ PrefabInstance:
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
+      objectReference: {fileID: 5651391616184423004}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
+      value: LoadDeath
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -21705,18 +21702,18 @@ PrefabInstance:
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
+      objectReference: {fileID: 5651391616184423004}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
+      value: LoadDeath
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -24077,18 +24074,18 @@ PrefabInstance:
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
+      objectReference: {fileID: 5651391616184423004}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
+      value: LoadDeath
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -28075,18 +28072,18 @@ PrefabInstance:
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
+      objectReference: {fileID: 5651391616184423004}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
+      value: LoadDeath
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -32495,6 +32492,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1132461405971577853, guid: 4cc4a97411b3cef4ab05527827cc4f7c, type: 3}
   m_PrefabInstance: {fileID: 1362242751}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1693278247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6245766296811639022, guid: 8d7bdd4814213c5d19fc0b5d01b3c758, type: 3}
+  m_PrefabInstance: {fileID: 30037655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1693278250
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693278247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2408595335180366771, guid: 87c17ed59b76bfb4cae76c1b6b8043e0, type: 3}
 --- !u!4 &1693694203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6402318752347149302, guid: 2f36818059478f54ba4f38587e592a9a, type: 3}
@@ -41780,18 +41796,18 @@ PrefabInstance:
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5651391616184423003}
+      objectReference: {fileID: 5651391616184423004}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableLoseScreen
+      value: LoadDeath
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7918391911075330769, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -43310,6 +43326,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 847ab3d8cb1465b4f9902e19d63d2461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5651391616184423004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5651391617800714230, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+  m_PrefabInstance: {fileID: 5651391616184423002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981358a0b5f799c4099887e1e98fa6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5651391616184423005 stripped

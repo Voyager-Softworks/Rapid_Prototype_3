@@ -7,6 +7,8 @@ public class SceneController : MonoBehaviour
 {
     public void LoadMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(0);
     }
 
@@ -15,8 +17,17 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void LoadDeath()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene(2);
+    }
+
     public void Exit()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Application.Quit();
     }
 }
