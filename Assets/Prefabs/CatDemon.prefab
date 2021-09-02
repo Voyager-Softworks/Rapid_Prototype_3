@@ -3455,17 +3455,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat_EyeDrops
       objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723953826411572998, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.02
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.0075
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: EmissionModule.rateOverTime.minScalar
@@ -3473,12 +3525,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: InitialModule.gravityModifier.minScalar
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6795555632307739677, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: InitialModule.gravityModifier.minMaxState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8591473892645171229, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591473892645171229, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba2ec1ad211b5614bb0f63ca380da90a, type: 2}
     - target: {fileID: 8939724105544941744, guid: 264b1428bbee013419985221fdf8db6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.376
