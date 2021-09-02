@@ -148,6 +148,7 @@ public class EnemyAI : MonoBehaviour
         {
             case AIState.WANDERING:
                 anim.SetBool("WANDERING", true);
+                agent.enabled = true;
                 m_idleTimer -= Time.deltaTime;
                 if (m_awareness > m_pursueThreshhold && m_stateTimer <= 0)
                 {
@@ -170,6 +171,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case AIState.PATROLLING:
                 anim.SetBool("PATROLLING", true);
+                agent.enabled = true;
                 if (m_awareness < m_patrolThreshhold && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.WANDERING;
@@ -189,6 +191,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case AIState.SEARCHING:
                 anim.SetBool("SEARCHING", true);
+                agent.enabled = true;
                 agent.stoppingDistance = 0.0f;
                 agent.angularSpeed = m_searchTurnSpeed;
                 agent.speed = m_searchSpeed;
@@ -206,7 +209,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case AIState.PURSUING:
                 anim.SetBool("PURSUING", true);
-
+                agent.enabled = true;
                 agent.destination = playerTransform.position;
                 agent.stoppingDistance = m_attackRadius;
                 agent.speed = m_pursueSpeed;
