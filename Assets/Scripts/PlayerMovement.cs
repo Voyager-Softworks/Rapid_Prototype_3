@@ -40,9 +40,9 @@ public class PlayerMovement : MonoBehaviour
     public UnityEvent CornHit;
     bool oneStep = true;
     [SerializeField] AudioClip jump_sound;
-    [SerializeField] AudioClip land_sound;
 
     AudioSource source;
+    [SerializeField] NoiseMaker landingNoiseMaker;
 
     private void Start()
     {
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded)
             {
-                source.PlayOneShot(land_sound);
+                landingNoiseMaker.PlayNoise();
             }
             isGrounded = true;
         }

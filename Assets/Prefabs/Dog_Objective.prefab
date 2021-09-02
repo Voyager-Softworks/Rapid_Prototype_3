@@ -233,6 +233,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EnableDisabe, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   CantTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -355,5 +379,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9acd6cfc42ab6c64f8ab97e98e6f4be3, type: 3}
   loudBarks:
   - {fileID: 8300000, guid: 09e7649de12d27d4191a365b2981fe0d, type: 3}
+  deathSound: {fileID: 8300000, guid: 7d4d625bf677c41428779c6b5f6f71f9, type: 3}
   averageBarkTime: 7.5
   randomOffset: 2.5

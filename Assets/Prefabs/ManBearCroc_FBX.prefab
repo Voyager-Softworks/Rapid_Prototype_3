@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 468205973999823305}
   - component: {fileID: 468205973999823303}
   - component: {fileID: 468205973999823302}
+  - component: {fileID: 419440495}
+  - component: {fileID: 419440494}
   m_Layer: 0
   m_Name: ManBearCroc_FBX
   m_TagString: Untagged
@@ -412,6 +414,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &419440495
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468205973999823304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &419440494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468205973999823304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  m_player: {fileID: 0}
+  canPlayerTrigger: 1
+  hasPlayerReached: 0
+  infoBox: {fileID: 0}
+  worldMessage: 
 --- !u!1 &517202355146825010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435414219001347316}
   - component: {fileID: 1618227947472625862}
+  - component: {fileID: 1693278250}
   m_Layer: 0
   m_Name: EnemyLarge_Mesh
   m_TagString: Untagged
@@ -1530,6 +1581,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.020878315, y: 1.8576398, z: 1.1159133}
     m_Extent: {x: 3.399562, y: 5.341265, z: 3.57452}
   m_DirtyAABB: 0
+--- !u!64 &1693278250
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245766296811639022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2408595335180366771, guid: 87c17ed59b76bfb4cae76c1b6b8043e0, type: 3}
 --- !u!1 &6483081605170073332
 GameObject:
   m_ObjectHideFlags: 0
