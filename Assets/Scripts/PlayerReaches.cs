@@ -22,7 +22,7 @@ public class PlayerReaches : MonoBehaviour
     private void Start()
     {
         if (!m_player) m_player = GameObject.Find("Player");
-        if (!infoBox) infoBox = GameObject.Find("InfoMessage").GetComponent<Text>();
+        if (!infoBox && GameObject.Find("InfoMessage")) infoBox = GameObject.Find("InfoMessage").GetComponent<Text>();
     }
 
     public void SetReached(bool _val)
@@ -47,6 +47,7 @@ public class PlayerReaches : MonoBehaviour
 
     public void DisplayWorldMessage()
     {
+        if (!infoBox) return;
         infoBox.text = worldMessage;
         EnableDisabe ed = infoBox.GetComponent<EnableDisabe>();
         ed.Enable();
