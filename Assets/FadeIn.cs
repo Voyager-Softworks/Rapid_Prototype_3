@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class FadeIn : MonoBehaviour
 {
+    public UnityEvent fadeInDone;
+
     [SerializeField] bool startFade = false;
     [SerializeField] bool startFadeOut = false;
     Image img;
@@ -24,6 +27,7 @@ public class FadeIn : MonoBehaviour
             img.color += new Color(0, 0, 0, 1 * Time.deltaTime);
             if (img.color.a >= 1)
             {
+                fadeInDone.Invoke();
                 startFade = false;
                 img.color = new Color(img.color.r, img.color.g, img.color.b, 1);
             }
