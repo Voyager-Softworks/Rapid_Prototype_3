@@ -244,7 +244,7 @@ Light:
   m_BounceIntensity: 42
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 4.5918e-41, z: 0, w: -2.232655e-39}
+  m_BoundingSphereOverride: {x: 0, y: 2.3509887e-38, z: 0.0000000018777087, w: 0.0000000037252903}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -342,7 +342,7 @@ Transform:
   m_GameObject: {fileID: 746833049942795190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.78741, y: 0, z: 60.430077}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 0.4}
   m_Children:
   - {fileID: 4008392508159344960}
   - {fileID: 2168635886874068969}
@@ -491,12 +491,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerReached:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   CantTrigger:
     m_PersistentCalls:
       m_Calls: []
   m_player: {fileID: 0}
-  canPlayerTrigger: 0
+  canPlayerTrigger: 1
   hasPlayerReached: 0
   infoBox: {fileID: 0}
   worldMessage: 
