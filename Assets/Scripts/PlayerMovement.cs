@@ -129,6 +129,8 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
 
+        velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -10, 10), velocity.z);
+
         if (isGrounded)
         {
             distanceTraveled += new Vector3(velocity.x, 0, velocity.z).magnitude * Time.deltaTime;
