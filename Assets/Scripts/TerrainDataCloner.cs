@@ -1,5 +1,11 @@
 using UnityEngine;
 
+///NOT MY CODE
+///-
+///Code taken from this link:
+///https://gist.github.com/Eldoir/d5a438dfedee55552915b55097dda1d4
+///-
+
 /// <summary>
 /// Provides means to deep-copy a TerrainData object because Unitys' built-in "Instantiate" method
 /// will miss some things and the resulting copy still shares data with the original.
