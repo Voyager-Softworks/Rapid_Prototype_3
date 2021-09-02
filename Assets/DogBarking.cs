@@ -49,6 +49,8 @@ public class DogBarking : MonoBehaviour
 
         canbark = false;
 
+        source.pitch = 1;
+
         source.PlayOneShot(deathSound);
     }
 
@@ -57,6 +59,8 @@ public class DogBarking : MonoBehaviour
         if (!canbark) return;
         if (normalBarks.Length <= 0) return;
         if (!source) return;
+
+        source.pitch = Random.Range(0.9f, 1.1f);
 
         AudioClip sound = normalBarks[Random.Range(0, normalBarks.Length - 1)];
 
@@ -68,6 +72,8 @@ public class DogBarking : MonoBehaviour
         if (!canbark) return;
         if (loudBarks.Length <= 0) return;
         if (!source) return;
+
+        source.pitch = Random.Range(0.9f, 1.1f);
 
         AudioClip sound = loudBarks[Random.Range(0, loudBarks.Length - 1)];
 
