@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class StressNoiseController : MonoBehaviour
 {
@@ -22,6 +24,14 @@ public class StressNoiseController : MonoBehaviour
     public AnimationCurve exertionCurve;
     public float currExertion = 0.0f;
 
+    [Header("PP")]
+    public VolumeProfile m_pp;
+    public float m_vignetteBase;
+    Vignette m_vignette;
+    LensDistortion m_distortion;
+
+    [Header("Player")]
+    public PlayerMovement m_playerMovement;
 
 
 
@@ -29,7 +39,8 @@ public class StressNoiseController : MonoBehaviour
 
     void Start()
     {
-
+        m_pp.TryGet<Vignette>(out m_vignette);
+        m_pp.TryGet<LensDistortion>(out m_distortion);
 
         m_breathingSource.Play();
         m_currentAlertRadius = m_baseRange;
@@ -84,6 +95,9 @@ public class StressNoiseController : MonoBehaviour
         {
             m_currentAlertRadius = 0.0f;
         }
+        m_vignette.intensity.value = Mathf.Clamp(m_vignetteBase + (((1 - m_vignetteBase) * (Mathf.Abs(m_breathingSource.volume * Mathf.Sin(Time.timeSinceLevelLoad * 4)))) / 4), 0, 1);
+        m_distortion.intensity.value = Mathf.Lerp(m_distortion.intensity.value, Mathf.Clamp(1 - (m_playerMovement.velocity.magnitude / 9), -1, 0), Time.deltaTime * 4);
+
 
     }
 
