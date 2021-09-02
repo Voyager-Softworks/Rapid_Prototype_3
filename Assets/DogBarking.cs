@@ -9,12 +9,13 @@ public class DogBarking : MonoBehaviour
 
     [SerializeField] AudioClip[] normalBarks;
     [SerializeField] AudioClip[] loudBarks;
+    [SerializeField] AudioClip deathSound;
 
     [Header("Bark Intervals")]
     [SerializeField] float averageBarkTime;
     [SerializeField] float randomOffset;
 
-    public bool canbark = true;
+    bool canbark = true;
 
     float nextBarkTime = 0;
     float lastBarkTime = 0;
@@ -42,8 +43,18 @@ public class DogBarking : MonoBehaviour
         }
     }
 
+    public void Die()
+    {
+        source.Stop();
+
+        canbark = false;
+
+        source.PlayOneShot(deathSound);
+    }
+
     public void PlayNormalBark()
     {
+        if (!canbark) return;
         if (normalBarks.Length <= 0) return;
         if (!source) return;
 
@@ -54,6 +65,7 @@ public class DogBarking : MonoBehaviour
 
     public void PlayLoudBark()
     {
+        if (!canbark) return;
         if (loudBarks.Length <= 0) return;
         if (!source) return;
 

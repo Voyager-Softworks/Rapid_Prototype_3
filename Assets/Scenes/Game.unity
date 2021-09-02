@@ -550,9 +550,105 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: worldMessage
+      value: THAT WAS MY DOG!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 13613510}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 860946514122624514}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 13613510}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 13613510}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetReached
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisplayWorldMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: DisplayWorldMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerReaches, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DogBarking, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PlayerReaches, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: PlayerReaches, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
 --- !u!4 &13613509 stripped
@@ -560,6 +656,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6530910007538709510, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
   m_PrefabInstance: {fileID: 13613508}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &13613510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6530910007538709511, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+  m_PrefabInstance: {fileID: 13613508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &15069440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1132461405971577853, guid: 4cc4a97411b3cef4ab05527827cc4f7c, type: 3}
@@ -39799,6 +39906,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860946514122624514, guid: 54f242fb828e4f34e909a3ca38b66b9b, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f8153a40966f7444ad06e4ad69edb1f, type: 3}
     - target: {fileID: 860946515951765725, guid: 54f242fb828e4f34e909a3ca38b66b9b, type: 3}
       propertyPath: m_Name
       value: Dog_Objective

@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (forceSlow || Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed,  2.0f * Time.deltaTime);
-            body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
+            if (Input.GetKey(KeyCode.LeftControl)) body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
