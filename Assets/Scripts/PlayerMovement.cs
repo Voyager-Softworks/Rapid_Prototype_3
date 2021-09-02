@@ -39,9 +39,14 @@ public class PlayerMovement : MonoBehaviour
     public UnityEvent Step;
     public UnityEvent CornHit;
     bool oneStep = true;
+    [SerializeField] AudioClip jump_sound;
+    [SerializeField] AudioClip land_sound;
+
+    AudioSource source;
 
     private void Start()
     {
+        source = GetComponent<AudioSource>(); ;
         moveSpeed_Copy = moveSpeed;
         distanceTraveled = 0;
         camY = m_cam.transform.localPosition.y;
@@ -59,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             forceSlow = true;
         }
 
-        isGrounded = false;
+        bool hitsGround = false;
 
         Collider[] hits = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -70,8 +75,21 @@ public class PlayerMovement : MonoBehaviour
                 continue;
             }
 
-            isGrounded = true;
+            hitsGround = true;
             break;
+        }
+
+        if (hitsGround)
+        {
+            if (!isGrounded)
+            {
+                source.PlayOneShot(land_sound);
+            }
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
 
         if (isGrounded && velocity.y < 0)
@@ -105,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            source.PlayOneShot(jump_sound);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
