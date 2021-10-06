@@ -76,6 +76,11 @@ public class PlayerReaches : MonoBehaviour
         return canPlayerTrigger;
     }
 
+    public void SetWorldMessage(string _message)
+    {
+        worldMessage = _message;
+    }
+
     public void DisplayWorldMessage()
     {
         if (!infoBox) return;
@@ -103,7 +108,6 @@ public class PlayerReaches : MonoBehaviour
             if (canPlayerTrigger)
             {
                 PlayerReached.Invoke();
-                HideWorldMessage();
             }
             else
             {
