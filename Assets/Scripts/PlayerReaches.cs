@@ -8,8 +8,11 @@ public class PlayerReaches : MonoBehaviour
 {
     public UnityEvent PlayerReached;
     public UnityEvent CantTrigger;
+    public UnityEvent ConditionsMet;
 
-    [SerializeField] GameObject m_player;
+    [SerializeField] List<PlayerReaches> Conditions;
+
+    GameObject m_player;
 
     [SerializeField] bool canPlayerTrigger = false;
 
@@ -23,6 +26,34 @@ public class PlayerReaches : MonoBehaviour
     {
         if (!m_player) m_player = GameObject.Find("Player");
         if (!infoBox && GameObject.Find("InfoMessage")) infoBox = GameObject.Find("InfoMessage").GetComponent<Text>();
+
+        foreach (PlayerReaches _condition in Conditions)
+        {
+            _condition.PlayerReached.AddListener(CheckCoditions);
+        }
+
+        PlayerReached.AddListener(()=> { 
+            hasPlayerReached = true; 
+        });
+    }
+
+    void CheckCoditions()
+    {
+        bool allreached = true;
+
+        foreach (PlayerReaches _condition in Conditions)
+        {
+            if (!_condition.hasPlayerReached)
+            {
+                allreached = false;
+                break;
+            }
+        }
+
+        if (allreached)
+        {
+            ConditionsMet.Invoke();
+        }
     }
 
     public void SetReached(bool _val)
@@ -54,13 +85,25 @@ public class PlayerReaches : MonoBehaviour
         ed.SetPos(transform.position);
     }
 
+    public void HideWorldMessage()
+    {
+        if (!infoBox) return;
+        infoBox.text = "";
+        EnableDisabe ed = infoBox.GetComponent<EnableDisabe>();
+        ed.Disable();
+        ed.SetPos(transform.position);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!hasPlayerReached && other.transform.root.gameObject == m_player)
         {
+            CheckCoditions();
+
             if (canPlayerTrigger)
             {
                 PlayerReached.Invoke();
+                HideWorldMessage();
             }
             else
             {

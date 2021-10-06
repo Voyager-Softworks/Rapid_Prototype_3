@@ -31,6 +31,12 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void LoadStage(int _stage)
+    {
+        SceneManager.LoadScene(_stage);
+    }
+
+
     public void Exit()
     {
         Cursor.lockState = CursorLockMode.None;
