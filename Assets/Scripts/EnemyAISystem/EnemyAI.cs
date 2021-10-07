@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
     [Range(0.1f, 1)]
     public float m_visionCone;
     public float m_visionDistance;
+    public Transform m_headTransform;
+    Vector3 m_lookVector;
 
     [Header("Speed")]
     public float m_wanderSpeed;
@@ -110,6 +112,9 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);
+        m_lookVector.y = 0.0f;
+
         m_cooldownTimer -= Time.deltaTime;
         m_stateTimer -= Time.deltaTime;
         m_awareness -= Time.deltaTime * m_awarenessDecayRate;
@@ -121,7 +126,7 @@ public class EnemyAI : MonoBehaviour
         {
             m_awareness = 10.0f;
         }
-        if ((playerTransform.position - gameObject.transform.position).magnitude <= m_visionDistance && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)))
+        if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Dot((m_headTransform.position - gameObject.transform.position).normalized, m_lookVector) > (1 - (m_visionCone / 2)))
         {
             m_awareness += 4.0f * Time.deltaTime;
         }
@@ -400,17 +405,19 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void OnDrawGizmosSelected()
     {
+        m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);
+        m_lookVector.y = 0.0f;
         Gizmos.color = Color.yellow;
-        Vector3 leftRay = Quaternion.AngleAxis(m_visionCone * -90.0f, Vector3.up) * transform.forward;
-        Vector3 rightRay = Quaternion.AngleAxis(m_visionCone * 90.0f, Vector3.up) * transform.forward;
+        Vector3 leftRay = Quaternion.AngleAxis(m_visionCone * -90.0f, Vector3.up) * m_lookVector;
+        Vector3 rightRay = Quaternion.AngleAxis(m_visionCone * 90.0f, Vector3.up) * m_lookVector;
         Vector3[] curvepositions = new Vector3[5];
-        curvepositions[0] = transform.position + (leftRay.normalized * m_visionDistance);
-        curvepositions[4] = transform.position + (rightRay.normalized * m_visionDistance);
-        curvepositions[2] = transform.position + (transform.forward.normalized * m_visionDistance);
+        curvepositions[0] = m_headTransform.position + (leftRay.normalized * m_visionDistance);
+        curvepositions[4] = m_headTransform.position + (rightRay.normalized * m_visionDistance);
+        curvepositions[2] = m_headTransform.position + (m_lookVector.normalized * m_visionDistance);
 
 
-        Gizmos.DrawRay(transform.position, leftRay.normalized * m_visionDistance);
-        Gizmos.DrawRay(transform.position, rightRay.normalized * m_visionDistance);
+        Gizmos.DrawRay(m_headTransform.position, leftRay.normalized * m_visionDistance);
+        Gizmos.DrawRay(m_headTransform.position, rightRay.normalized * m_visionDistance);
         Gizmos.DrawLine(curvepositions[0], curvepositions[2]);
         Gizmos.DrawLine(curvepositions[2], curvepositions[4]);
         Gizmos.color = Color.red;

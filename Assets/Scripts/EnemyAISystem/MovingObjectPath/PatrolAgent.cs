@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class PatrolAgent : MonoBehaviour
 {
-    public NavMeshAgent m_agent;
+    NavMeshAgent m_agent;
     public MovementPath m_Path;
     public bool m_AlwaysMoving = true;
     bool m_IsMoving;
@@ -22,8 +22,8 @@ public class PatrolAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_agent = GetComponent<NavMeshAgent>();
         m_currentnode = m_Path.GetNode(0);
-        this.gameObject.transform.position = m_currentnode.Position;
         m_nextnode = m_Path.GetNextNode();
         m_direction = (m_nextnode.Position - this.gameObject.transform.position);
         m_distancetonextnode = m_direction.magnitude;
