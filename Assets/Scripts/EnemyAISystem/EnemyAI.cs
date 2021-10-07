@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     {
         WANDERING,
         PATROLLING,
+        INVESTIGATING,
         SEARCHING,
         PURSUING,
         FLEEING,
@@ -36,8 +37,8 @@ public class EnemyAI : MonoBehaviour
     [Header("Speed")]
     public float m_wanderSpeed;
     public float m_wanderTurnSpeed;
-    public float m_patrolSpeed;
-    public float m_patrolTurnSpeed;
+    public float m_investigateSpeed;
+    public float m_investigateTurnSpeed;
     public float m_searchSpeed;
     public float m_searchTurnSpeed;
     public float m_pursueSpeed;
@@ -47,7 +48,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Awareness")]
     public float m_awareness = 0.0f;
     [Range(0.0f, 10.0f)]
-    public float m_patrolThreshhold;
+    public float m_investigateThreshhold;
     [Range(0.0f, 10.0f)]
     public float m_pursueThreshhold;
 
@@ -57,6 +58,9 @@ public class EnemyAI : MonoBehaviour
     [Header("Behaviour")]
     public float m_minimumStateDuration;
     float m_stateTimer = 0;
+
+    [Header("Patrol Behaviour")]
+    public PatrolAgent m_patrolAgent;
 
     [Header("Flee Behaviour")]
     public float m_fleeDuration;
@@ -98,7 +102,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_currentState = AIState.WANDERING;
+        m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
         m_idleTimer = m_idleCooldown;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -121,6 +125,8 @@ public class EnemyAI : MonoBehaviour
         {
             m_awareness += 4.0f * Time.deltaTime;
         }
+        if(m_patrolAgent != null)
+            m_patrolAgent.SetMoving(m_currentState == AIState.PATROLLING);
 
         anim.SetBool("WANDERING", false);
         anim.SetBool("PATROLLING", false);
@@ -170,11 +176,33 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case AIState.PATROLLING:
+                anim.SetBool("WANDERING", true);
+                agent.enabled = true;
+                m_idleTimer -= Time.deltaTime;
+                if (m_awareness > m_pursueThreshhold && m_stateTimer <= 0)
+                {
+                    m_currentState = AIState.PURSUING;
+                    m_stateTimer = m_minimumStateDuration;
+                }
+
+                
+
+                if (m_idleTimer <= 0.0f)
+                {
+                    m_idleTimer = m_idleCooldown;
+                    if (Random.Range(1, 100) <= m_idleChance)
+                    {
+                        m_IdleSource.clip = m_WalkSFX[Random.Range(0, m_WalkSFX.Count)];
+                        m_IdleSource.Play();
+                    }
+                }
+                break;
+            case AIState.INVESTIGATING:
                 anim.SetBool("PATROLLING", true);
                 agent.enabled = true;
-                if (m_awareness < m_patrolThreshhold && m_stateTimer <= 0)
+                if (m_awareness < m_investigateThreshhold && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.WANDERING;
+                    m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
                     m_stateTimer = m_minimumStateDuration;
                 }
                 else if (m_awareness > m_pursueThreshhold && m_stateTimer <= 0)
@@ -184,8 +212,8 @@ public class EnemyAI : MonoBehaviour
                 }
                 else
                 {
-                    agent.speed = m_patrolSpeed;
-                    agent.angularSpeed = m_patrolTurnSpeed;
+                    agent.speed = m_investigateSpeed;
+                    agent.angularSpeed = m_investigateTurnSpeed;
                     agent.destination = GetWanderPosition(30.0f, 30.0f, mostRecentAwarePosition - gameObject.transform.position);
                 }
                 break;
@@ -202,7 +230,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius * 2 && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.PATROLLING;
+                    m_currentState = AIState.INVESTIGATING;
                     m_stateTimer = m_minimumStateDuration;
                 }
                 agent.destination = mostRecentAlertPosition;
@@ -216,7 +244,7 @@ public class EnemyAI : MonoBehaviour
                 agent.angularSpeed = m_pursueTurnSpeed;
                 if (m_awareness <= m_pursueThreshhold && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.WANDERING;
+                    m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
                     m_stateTimer = m_minimumStateDuration;
                 }
                 if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)) && m_cooldownTimer <= 0 && m_stateTimer <= 0)
@@ -234,7 +262,7 @@ public class EnemyAI : MonoBehaviour
                 m_fleetimer -= Time.deltaTime;
                 if (m_fleetimer <= 0 && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.WANDERING;
+                    m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
                     m_stateTimer = m_minimumStateDuration;
                 }
                 break;
@@ -244,7 +272,7 @@ public class EnemyAI : MonoBehaviour
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Armature|LAND") &&
                     anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.WANDERING;
+                    m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
                     m_stateTimer = m_minimumStateDuration;
 
                 }
@@ -268,7 +296,7 @@ public class EnemyAI : MonoBehaviour
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") &&
                     anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 {
-                    m_currentState = AIState.WANDERING;
+                    m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
                 }
                 break;
             default:
@@ -299,7 +327,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void RecieveAlert(Transform _alertPos)
     {
-        if ((m_currentState == AIState.WANDERING || m_currentState == AIState.PATROLLING) && Random.Range(1, 100) < m_searchChance)
+        if ((m_currentState == (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING) || m_currentState == AIState.INVESTIGATING) && Random.Range(1, 100) < m_searchChance)
         {
             m_currentState = AIState.SEARCHING;
             agent.destination = _alertPos.position;
@@ -329,9 +357,9 @@ public class EnemyAI : MonoBehaviour
         }
 
         mostRecentAwarePosition = _awarePos.position;
-        if (m_awareness > m_patrolThreshhold && m_currentState == AIState.WANDERING)
+        if (m_awareness > m_investigateThreshhold && m_currentState == (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING))
         {
-            m_currentState = AIState.PATROLLING;
+            m_currentState = AIState.INVESTIGATING;
         }
 
     }
@@ -404,7 +432,7 @@ public class EnemyAI : MonoBehaviour
             case AIState.WANDERING:
                 Gizmos.color = Color.blue;
                 break;
-            case AIState.PATROLLING:
+            case AIState.INVESTIGATING:
                 Gizmos.color = Color.green;
                 break;
             case AIState.SEARCHING:

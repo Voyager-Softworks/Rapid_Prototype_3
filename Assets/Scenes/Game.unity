@@ -11577,7 +11577,8 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5651391616184423004}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
 --- !u!4 &573056516 stripped
 Transform:
@@ -12702,7 +12703,8 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
 --- !u!1001 &638873395
 PrefabInstance:
@@ -20305,6 +20307,10 @@ PrefabInstance:
       value: CatDemon (11)
       objectReference: {fileID: 0}
     - target: {fileID: 2259215264036879041, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
+      propertyPath: m_patrolAgent
+      value: 
+      objectReference: {fileID: 1030607460}
+    - target: {fileID: 2259215264036879041, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 842017842}
@@ -20350,6 +20356,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
+--- !u!1 &1030607458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 746833049942795190, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
+  m_PrefabInstance: {fileID: 1030607457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1030607459 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3425410442699558197, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
+  m_PrefabInstance: {fileID: 1030607457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1030607460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030607458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17eed8eabaca7d40ab802294a6f6c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_agent: {fileID: 1030607459}
+  m_Path: {fileID: 1291721162}
+  m_AlwaysMoving: 1
+  m_OnNodeReach:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1030607460}
+        m_TargetAssemblyTypeName: PatrolAgent, Assembly-CSharp
+        m_MethodName: WaitFor
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_OnReachStartNode:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnReachLastNode:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Speed: 0
+  m_distancetonextnode: 0
 --- !u!1001 &1032552818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21781,7 +21835,8 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
 --- !u!4 &1097396294 stripped
 Transform:
@@ -25568,7 +25623,7 @@ MonoBehaviour:
   m_PathColor: {r: 1, g: 0, b: 0, a: 1}
   m_Mode: 0
   m_Path:
-  - Position: {x: 78.34956, y: 1.8128567, z: 51.206028}
+  - Position: {x: 75.96019, y: 1, z: 47.537823}
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -25593,7 +25648,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - Position: {x: 81.6316, y: 2.2408035, z: 40.9745}
+  - Position: {x: 74.23825, y: 1, z: 40.28506}
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -25618,7 +25673,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - Position: {x: 96.73381, y: 2.2408035, z: 33.480087}
+  - Position: {x: 79.60915, y: 1, z: 34.667244}
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -25643,7 +25698,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - Position: {x: 109.044975, y: 2.2408035, z: 36.133175}
+  - Position: {x: 86.4844, y: 1, z: 35.443676}
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -25668,7 +25723,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - Position: {x: 115.61899, y: 2.2408035, z: 46.85859}
+  - Position: {x: 90.33231, y: 1, z: 42.30057}
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -25693,7 +25748,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - Position: {x: 123.845024, y: 2.2408035, z: 47.428185}
+  - Position: {x: 84.05446, y: 1, z: 49.442112}
     SpeedCurve:
       serializedVersion: 2
       m_Curve:
@@ -25718,306 +25773,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - Position: {x: 129.11185, y: 2.2408035, z: 51.58925}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 126.31298, y: 2.2408035, z: 54.34169}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 126.87327, y: 2.2408035, z: 61.56618}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 130.3524, y: 2.2408035, z: 67.25968}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 110.28468, y: 2.2408035, z: 88.3564}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 99.20293, y: 2.2408035, z: 99.37015}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 88.13727, y: 2.2408035, z: 109.02267}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-  - Position: {x: 86.63848, y: 2.2408035, z: 118.98499}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - Position: {x: 69.31394, y: 2.2408035, z: 115.47252}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - Position: {x: 70.36998, y: 2.2408035, z: 96.2113}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - Position: {x: 72.09992, y: 2.2408035, z: 81.083496}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  - Position: {x: 78.22575, y: 2.2408035, z: 71.8163}
-    SpeedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
 --- !u!4 &1291796845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6402318752347149302, guid: 2f36818059478f54ba4f38587e592a9a, type: 3}
@@ -28766,7 +28521,8 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
 --- !u!1 &1454811635
 GameObject:
@@ -42610,7 +42366,8 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 115d3a3427f9ff548a7cb7da2dc5cc77, type: 3}
 --- !u!4 &2117928987 stripped
 Transform:
