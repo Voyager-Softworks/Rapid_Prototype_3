@@ -30,8 +30,8 @@ public class EnemyAI : MonoBehaviour
     public AIState m_currentState;
 
     [Header("Vision")]
-    [Range(0.1f, 1)]
-    public float m_visionCone;
+    [Range(1.0f, 360.0f)]
+    public float m_visionAngle;
     public float m_visionDistance;
     public Transform m_headTransform;
     Vector3 m_lookVector;
@@ -113,7 +113,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);
-        m_lookVector.y = 0.0f;
+        
 
         m_cooldownTimer -= Time.deltaTime;
         m_stateTimer -= Time.deltaTime;
@@ -126,7 +126,7 @@ public class EnemyAI : MonoBehaviour
         {
             m_awareness = 10.0f;
         }
-        if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Dot((m_headTransform.position - gameObject.transform.position).normalized, m_lookVector) > (1 - (m_visionCone / 2)))
+        if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Angle(transform.forward, (playerTransform.position - m_headTransform.position)) < m_visionAngle / 2)
         {
             m_awareness += 4.0f * Time.deltaTime;
         }
@@ -252,7 +252,7 @@ public class EnemyAI : MonoBehaviour
                     m_currentState = (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING);
                     m_stateTimer = m_minimumStateDuration;
                 }
-                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionCone / 2)) && m_cooldownTimer <= 0 && m_stateTimer <= 0)
+                if ((playerTransform.position - gameObject.transform.position).magnitude <= m_attackRadius && Vector3.Dot((playerTransform.position - gameObject.transform.position).normalized, gameObject.transform.forward) > (1 - (m_visionAngle / 2)) && m_cooldownTimer <= 0 && m_stateTimer <= 0)
                 {
                     m_currentState = AIState.ATTACKING;
                     m_stateTimer = m_minimumStateDuration;
@@ -405,21 +405,32 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void OnDrawGizmosSelected()
     {
+        
         m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);
-        m_lookVector.y = 0.0f;
+        
         Gizmos.color = Color.yellow;
-        Vector3 leftRay = Quaternion.AngleAxis(m_visionCone * -90.0f, Vector3.up) * m_lookVector;
-        Vector3 rightRay = Quaternion.AngleAxis(m_visionCone * 90.0f, Vector3.up) * m_lookVector;
-        Vector3[] curvepositions = new Vector3[5];
-        curvepositions[0] = m_headTransform.position + (leftRay.normalized * m_visionDistance);
-        curvepositions[4] = m_headTransform.position + (rightRay.normalized * m_visionDistance);
-        curvepositions[2] = m_headTransform.position + (m_lookVector.normalized * m_visionDistance);
-
-
-        Gizmos.DrawRay(m_headTransform.position, leftRay.normalized * m_visionDistance);
-        Gizmos.DrawRay(m_headTransform.position, rightRay.normalized * m_visionDistance);
-        Gizmos.DrawLine(curvepositions[0], curvepositions[2]);
-        Gizmos.DrawLine(curvepositions[2], curvepositions[4]);
+        Vector3 coneRay1 = Quaternion.AngleAxis(m_visionAngle/2, Vector3.up) * m_lookVector;
+        Vector3 coneRay2 = Quaternion.AngleAxis(m_visionAngle/3, Vector3.up) * m_lookVector;
+        Vector3 coneRay3 = Quaternion.AngleAxis(m_visionAngle/4, Vector3.up) * m_lookVector;
+        Vector3 coneRay4 = Quaternion.AngleAxis(m_visionAngle/5, Vector3.up) * m_lookVector;
+        Vector3 coneRay5 = Quaternion.AngleAxis(m_visionAngle/6, Vector3.up) * m_lookVector;
+        Vector3 forwardRay = m_headTransform.position + (m_lookVector.normalized * m_visionDistance);
+        for (int i = 0; i < 20; i++)
+        {
+            Gizmos.DrawRay(m_headTransform.position, coneRay1.normalized * m_visionDistance);
+            Gizmos.DrawLine((coneRay1.normalized * m_visionDistance) + m_headTransform.position, (coneRay2.normalized * m_visionDistance) + m_headTransform.position);
+            Gizmos.DrawLine((coneRay2.normalized * m_visionDistance) + m_headTransform.position, (coneRay3.normalized * m_visionDistance) + m_headTransform.position);
+            Gizmos.DrawLine((coneRay3.normalized * m_visionDistance) + m_headTransform.position, (coneRay4.normalized * m_visionDistance) + m_headTransform.position);
+            Gizmos.DrawLine((coneRay4.normalized * m_visionDistance) + m_headTransform.position, (coneRay5.normalized * m_visionDistance) + m_headTransform.position);
+            Gizmos.DrawLine((coneRay5.normalized * m_visionDistance) + m_headTransform.position, forwardRay);
+            Vector3 temp = coneRay1;
+            coneRay1 = Quaternion.AngleAxis(18.0f, m_lookVector) * coneRay1;
+            coneRay2 = Quaternion.AngleAxis(18.0f, m_lookVector) * coneRay2;
+            coneRay3 = Quaternion.AngleAxis(18.0f, m_lookVector) * coneRay3;
+            coneRay4 = Quaternion.AngleAxis(18.0f, m_lookVector) * coneRay4;
+            coneRay5 = Quaternion.AngleAxis(18.0f, m_lookVector) * coneRay5;
+            Gizmos.DrawLine((temp.normalized * m_visionDistance) + m_headTransform.position, (coneRay1.normalized * m_visionDistance) + m_headTransform.position);
+        }
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, m_attackRadius);
 
