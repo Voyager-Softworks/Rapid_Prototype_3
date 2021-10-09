@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject m_cam;
     float camY = 0;
 
+    [Header("Equipment")]
+    [SerializeField] GameObject m_shotgun;
+    [SerializeField] GameObject m_flashlight;
+    public bool m_shotgunUnlocked = false;
+
     [Header("Ground")]
     public CharacterController controller;
     public Transform groundCheck;
@@ -55,6 +60,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (m_shotgunUnlocked) m_shotgun.SetActive(!m_shotgun.activeSelf);
+            m_flashlight.SetActive(m_shotgun.activeSelf ? false : !m_flashlight.activeSelf);
+        }
+
         if (Time.time - lastHit >= countdown)
         {
             forceSlow = false; 
@@ -155,6 +166,11 @@ public class PlayerMovement : MonoBehaviour
         {
             oneStep = true;
         }
+    }
+
+    public void UnlockShotgun()
+    {
+        m_shotgunUnlocked = true;
     }
 
     public void ToggleSlowWalk()
