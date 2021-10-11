@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SentryAI : MonoBehaviour
 {
+    public GameObject m_verminPrefab;
+    public int m_verminGroupCount;
+    public int m_verminGroupSize;
+
+    public float m_verminSpreadRadius;
+    public float m_groupSpreadRadius;
+
     public Transform m_headTransform;
     Transform m_playerTransform;
     Vector3 m_lookVector;
@@ -42,6 +49,22 @@ public class SentryAI : MonoBehaviour
 
     public SentryState m_state;
 
+    void SpawnVermin()
+    {
+        for (int i = 0; i < m_verminGroupCount; i++)
+        {
+            Vector3 origin = m_playerTransform.position;
+            Vector3 groupOrigin = new Vector3((m_groupSpreadRadius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + origin.x, origin.y, m_groupSpreadRadius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + origin.z);
+            for (int j = 0; j < m_verminGroupSize; j++)
+            {
+                Instantiate(m_verminPrefab, 
+                new Vector3((m_verminSpreadRadius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + groupOrigin.x, groupOrigin.y, m_verminSpreadRadius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + groupOrigin.z),
+                Quaternion.identity * Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up)
+                );
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +101,7 @@ public class SentryAI : MonoBehaviour
             if((m_screechTimer -= Time.deltaTime) < 0.0f)
             {
                 m_state = SentryState.FLYING;
+                SpawnVermin();
                 m_flightTimer = m_flightDuration;
             }
             break;
