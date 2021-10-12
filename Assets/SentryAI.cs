@@ -98,10 +98,14 @@ public class SentryAI : MonoBehaviour
                 (m_playerTransform.position - m_headTransform.position).magnitude, 
                 layerMask: LayerMask.GetMask("Obstacles")))
                 {
-                    m_state = SentryState.DETECTED;
-                    m_screechTimer = m_screechDuration;
-                    m_anim.SetTrigger("Detect");
-                    m_ScreamFX.Play();
+                    if(!(m_playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking && 
+                    Random.Range(0, 100) > (m_playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f)))
+                    {
+                        m_state = SentryState.DETECTED;
+                        m_screechTimer = m_screechDuration;
+                        m_anim.SetTrigger("Detect");
+                        m_ScreamFX.Play();
+                    }
                 }
             }
             break;
@@ -134,7 +138,7 @@ public class SentryAI : MonoBehaviour
                 if(transform.position.y > m_flightAltitude) m_direction.y = -0.2f;
             }
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(m_direction, Vector3.up), 10.0f);
-            transform.position += m_direction * Time.deltaTime * 5.0f;
+            transform.position += m_direction * Time.deltaTime * 10.0f;
             
             break;
         default:
