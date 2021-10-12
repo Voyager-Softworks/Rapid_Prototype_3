@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PlayerReaches : Condition
+public class PlayerInteracts : Condition
 {
-    public UnityEvent PlayerReached;
+    public UnityEvent PlayerInteracted;
     public UnityEvent CantTrigger;
     public UnityEvent ConditionsMet;
 
     [SerializeField] List<Condition> Conditions;
 
     GameObject m_player;
+
+    [SerializeField] public float m_interactDistance = 3.0f;
 
     [SerializeField] bool canPlayerTrigger = false;
 
@@ -24,6 +26,12 @@ public class PlayerReaches : Condition
     {
         if (!m_player) m_player = GameObject.Find("Player");
         if (!infoBox && GameObject.Find("InfoMessage")) infoBox = GameObject.Find("InfoMessage").GetComponent<Text>();
+    }
+
+    bool once = true;
+    private void LateUpdate()
+    {
+        if (once && GetComponent<Outline>()) { once = false; GetComponent<Outline>().OutlineWidth = 0.0f; }
     }
 
     void CheckCoditions()
@@ -78,16 +86,16 @@ public class PlayerReaches : Condition
         ed.SetPos(transform.position);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TryComplete()
     {
-        if (!m_isComplete && other.transform.root.gameObject == m_player)
+        if (!m_isComplete)
         {
             CheckCoditions();
 
             if (canPlayerTrigger)
             {
                 m_isComplete = true;
-                PlayerReached.Invoke();
+                PlayerInteracted.Invoke();
             }
             else
             {
