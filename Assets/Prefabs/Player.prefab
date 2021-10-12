@@ -1620,6 +1620,9 @@ MonoBehaviour:
         m_CallState: 2
   jump_sound: {fileID: 8300000, guid: 5b19a5e12982b1c4dbeeb0748020c004, type: 3}
   landingNoiseMaker: {fileID: 189915984}
+  isSneaking: 0
+  sneakNoiseReduction: 0
+  sneakDetectionChance: 0.1
 --- !u!114 &1787359199434955374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,7 +2043,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  currExertion: 0
   m_pp: {fileID: 11400000, guid: 627881ecf8ee14b41bb19b7c38c63fd4, type: 2}
   m_vignetteBase: 0.25
   m_playerMovement: {fileID: 1787359199434955368}
