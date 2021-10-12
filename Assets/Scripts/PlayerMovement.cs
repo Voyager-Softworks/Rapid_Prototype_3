@@ -30,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     float moveSpeed_Copy;
     public float sneakSpeed;
     public float runSpeed;
+
+    public float stamina = 5.0f;
+    public float staminaRegenRate = 1.0f;
+    float currStamina;
     bool forceSlow = false;
     public float jumpHeight;
 
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed_Copy = moveSpeed;
         distanceTraveled = 0;
         camY = m_cam.transform.localPosition.y;
+        currStamina = stamina;
     }
 
     // Update is called once per frame
@@ -111,9 +116,13 @@ public class PlayerMovement : MonoBehaviour
         if (forceSlow || Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed,  2.0f * Time.deltaTime);
-            if (Input.GetKey(KeyCode.LeftControl)) body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
+            if (Input.GetKey(KeyCode.LeftControl)) 
+            {
+                body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
+
+            }
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
+        else if (Input.GetKey(KeyCode.LeftShift) && (currStamina -= Time.deltaTime) > 0.0f)
         {
             body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, Vector3.zero, 3 * Time.deltaTime);
             moveSpeed = Mathf.Lerp(moveSpeed, runSpeed, Time.deltaTime);
@@ -124,6 +133,8 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = Mathf.Lerp(moveSpeed, moveSpeed_Copy, 3.0f * Time.deltaTime);
         }
 
+
+        if(currStamina < stamina) currStamina += Time.deltaTime * staminaRegenRate;
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 

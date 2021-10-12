@@ -75,10 +75,12 @@ public class SentryAI : MonoBehaviour
         m_origRot = transform.rotation;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
-        m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);
+        m_lookVector = m_headTransform.up;
         
         switch (m_state)
         {
@@ -89,12 +91,18 @@ public class SentryAI : MonoBehaviour
                 m_lookBackTimer = m_lookBackInterval;
             }
             
-            if((m_playerTransform.position - m_headTransform.position).magnitude <= m_viewDistance && Vector3.Angle(transform.forward, (m_playerTransform.position - m_headTransform.position)) < m_viewAngle / 2)
+            if((m_playerTransform.position - m_headTransform.position).magnitude <= m_viewDistance && Vector3.Angle(m_lookVector, (m_playerTransform.position - m_headTransform.position)) < m_viewAngle / 2)
             {
-                m_state = SentryState.DETECTED;
-                m_screechTimer = m_screechDuration;
-                m_anim.SetTrigger("Detect");
-                m_ScreamFX.Play();
+                if(!Physics.Raycast(m_headTransform.position, 
+                (m_playerTransform.position - m_headTransform.position), 
+                (m_playerTransform.position - m_headTransform.position).magnitude, 
+                layerMask: LayerMask.GetMask("Obstacles")))
+                {
+                    m_state = SentryState.DETECTED;
+                    m_screechTimer = m_screechDuration;
+                    m_anim.SetTrigger("Detect");
+                    m_ScreamFX.Play();
+                }
             }
             break;
         case SentryState.DETECTED:
@@ -151,7 +159,7 @@ public class SentryAI : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);
+        m_lookVector = m_headTransform.up;
         
         Gizmos.color = Color.yellow;
         Vector3 coneRay1 = Quaternion.AngleAxis(m_viewAngle/2, Vector3.up) * m_lookVector;
