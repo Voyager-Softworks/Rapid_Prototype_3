@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class StressNoiseController : MonoBehaviour
 {
+    
     [Header("AI Trigger")]
     public Color m_Near, m_Mid, m_Far;
     public bool m_triggerEnemyAlert = true;
@@ -22,7 +23,7 @@ public class StressNoiseController : MonoBehaviour
 
     [Header("Levels")]
     public AnimationCurve exertionCurve;
-    public float currExertion = 0.0f;
+    
 
     [Header("PP")]
     public VolumeProfile m_pp;
@@ -55,17 +56,10 @@ public class StressNoiseController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            currExertion += Time.deltaTime * 1.5f;
-        }
-
-        currExertion -= Time.deltaTime;
-
-        currExertion = Mathf.Clamp(currExertion, 0, 10);
+        
 
 
-        m_breathingSource.volume = exertionCurve.Evaluate(currExertion);
+        m_breathingSource.volume = exertionCurve.Evaluate(m_playerMovement.currExertion);
 
 
         if (m_currentAlertRadius > 0)

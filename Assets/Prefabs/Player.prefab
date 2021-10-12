@@ -1538,8 +1538,50 @@ MonoBehaviour:
   moveSpeed: 10
   sneakSpeed: 5
   runSpeed: 15
-  stamina: 5
-  staminaRegenRate: 0.5
+  maxExertion: 10
+  exertionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.021646209
+      outSlope: -0.021646209
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 4.8816905
+      value: 0.8943299
+      inSlope: -0.101731725
+      outSlope: -0.101731725
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 8.203794
+      value: 0.253936
+      inSlope: -0.08340208
+      outSlope: -0.08340208
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05029611
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 9.996582
+      value: 0.02166748
+      inSlope: -0.12955712
+      outSlope: -0.12955712
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  currExertion: 0
   jumpHeight: 2
   gravity: -19.62
   velocity: {x: 0, y: 0, z: 0}

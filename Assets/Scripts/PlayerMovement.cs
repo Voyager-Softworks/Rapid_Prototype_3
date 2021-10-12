@@ -31,10 +31,13 @@ public class PlayerMovement : MonoBehaviour
     public float sneakSpeed;
     public float runSpeed;
 
-    public float stamina = 5.0f;
-    public float staminaRegenRate = 1.0f;
-    float currStamina;
+    [Header("Exertion")]
+    public float maxExertion = 5.0f;
+    public AnimationCurve exertionCurve;
+    public float currExertion;
     bool forceSlow = false;
+
+    [Header("Jumping")]
     public float jumpHeight;
 
     public float gravity;
@@ -59,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed_Copy = moveSpeed;
         distanceTraveled = 0;
         camY = m_cam.transform.localPosition.y;
-        currStamina = stamina;
+        currExertion = 0.0f;
     }
 
     // Update is called once per frame
@@ -122,10 +125,11 @@ public class PlayerMovement : MonoBehaviour
 
             }
         }
-        else if (Input.GetKey(KeyCode.LeftShift) && (currStamina -= Time.deltaTime) > 0.0f)
+        else if (Input.GetKey(KeyCode.LeftShift) && currExertion < maxExertion)
         {
             body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, Vector3.zero, 3 * Time.deltaTime);
             moveSpeed = Mathf.Lerp(moveSpeed, runSpeed, Time.deltaTime);
+            currExertion += Time.deltaTime * 1.5f;
         }
         else
         {
@@ -133,13 +137,15 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = Mathf.Lerp(moveSpeed, moveSpeed_Copy, 3.0f * Time.deltaTime);
         }
 
-
-        if(currStamina < stamina) currStamina += Time.deltaTime * staminaRegenRate;
+        currExertion -= Time.deltaTime;
+        currExertion = Mathf.Clamp(currExertion, 0, 10);
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = Vector3.ClampMagnitude((transform.right * x) + (transform.forward * z), 1.0f);
-        move *= moveSpeed;
+        if(currExertion > (0.75f * maxExertion) && move.magnitude > 0.1f) currExertion += (Time.deltaTime * 1.2f);
+        move *= (moveSpeed);
 
         velocity = new Vector3(move.x, velocity.y, move.z);
 
@@ -158,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
             distanceTraveled += new Vector3(velocity.x, 0, velocity.z).magnitude * Time.deltaTime;
         }
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime  * exertionCurve.Evaluate(currExertion));
 
         m_cam.transform.localPosition =
             (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength))) * stepHeight)
