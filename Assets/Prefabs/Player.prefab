@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 639557448}
   m_Father: {fileID: 1787359198691686667}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &137303257
 MeshFilter:
@@ -1189,8 +1189,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.241}
+  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: -0.00000044563785, y: 0.5, z: 0.24099924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710477fd21b05904dab4d8528fe556d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cam: {fileID: 1787359198162137930}
+  m_cam: {fileID: 3689897955803055985}
   m_shotgun: {fileID: 1444688361403533388}
   m_flashlight: {fileID: 137303253}
   m_shotgunUnlocked: 0
@@ -1590,7 +1590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
   player: {fileID: 1787359199434955371}
-  cam: {fileID: 7238144094898214327}
+  cam: {fileID: 1787359198162137935}
 --- !u!114 &842017841
 MonoBehaviour:
   m_ObjectHideFlags: 0
