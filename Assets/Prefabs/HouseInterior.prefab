@@ -2355,6 +2355,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 869009159}
     m_Modifications:
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: DoSpook
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978662, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: m_Name
       value: Trigger_EnterRoom
