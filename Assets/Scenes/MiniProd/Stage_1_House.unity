@@ -180,6 +180,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+--- !u!114 &444347827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863372528, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+  m_PrefabInstance: {fileID: 9130812747399162717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &635645556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9130812749117674206, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+  m_PrefabInstance: {fileID: 9130812747399162717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &662740636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,6 +299,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+--- !u!114 &662740637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5779716845602722194, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+  m_PrefabInstance: {fileID: 662740636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67336666d87a13a448480141a7cdc661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &686960050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6794363800496247158, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+  m_PrefabInstance: {fileID: 9130812747399162717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &686960055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686960050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010000002, y: 0.022000002, z: 0.0009999991}
+  m_Center: {x: 0.004999987, y: 0.011000001, z: -7.105428e-17}
 --- !u!114 &861666287 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
@@ -286,6 +337,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e967fe2673532474fb176e160d34e09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &977838922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9130812748536878881, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+  m_PrefabInstance: {fileID: 9130812747399162717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1193288659 stripped
@@ -392,6 +454,108 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1833513547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7218457519068168633, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+  m_PrefabInstance: {fileID: 9130812747399162717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1833513549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833513547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1833513550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833513547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isComplete: 0
+  PlayerInteracted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 662740637}
+        m_TargetAssemblyTypeName: FadeIn, Assembly-CSharp
+        m_MethodName: StartFade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1833513550}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: DisplayWorldMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ConditionsMet:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1833513550}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: SetCanTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  Conditions:
+  - {fileID: 444347827}
+  - {fileID: 977838922}
+  - {fileID: 635645556}
+  m_interactDistance: 3
+  canPlayerTrigger: 0
+  infoBox: {fileID: 0}
+  worldMessage: Need my gun, ammo, and flashlight first
+--- !u!65 &1833513551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833513547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009999999, y: 0.022, z: 0.000999999}
+  m_Center: {x: 4.6566123e-10, y: 0.011, z: 0.000000029802322}
 --- !u!1 &2045666444
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +705,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 686960054, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: canPlayerTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 863372528, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
