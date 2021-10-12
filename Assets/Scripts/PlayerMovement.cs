@@ -57,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
     AudioSource source;
     [SerializeField] NoiseMaker landingNoiseMaker;
 
+    [Header("Sneak")]
+    public bool isSneaking = false;
+    public float sneakNoiseReduction = 0.0f;
+    public float sneakDetectionChance = 0.5f;
+
     private void Start()
     {
         source = GetComponent<AudioSource>(); ;
@@ -116,14 +121,14 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
-
+        isSneaking = false;
         if (forceSlow || Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed,  2.0f * Time.deltaTime);
             if (Input.GetKey(KeyCode.LeftControl)) 
             {
                 body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
-
+                isSneaking = true;
             }
         }
         else if (Input.GetKey(KeyCode.LeftShift) && currExertion < maxExertion)
@@ -145,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = Vector3.ClampMagnitude((transform.right * x) + (transform.forward * z), 1.0f);
-        if(currExertion > (0.75f * maxExertion) && move.magnitude > 0.1f) currExertion += (Time.deltaTime * 1.2f);
+        if(currExertion > (0.75f * maxExertion) && move.magnitude > 0.1f) currExertion += (Time.deltaTime * 0.5f);
         move *= (moveSpeed);
 
         velocity = new Vector3(move.x, velocity.y, move.z);

@@ -134,7 +134,11 @@ public class EnemyAI : MonoBehaviour
                 (playerTransform.position - m_headTransform.position).magnitude, 
                 layerMask: LayerMask.GetMask("Obstacles")))
                 {
-                    m_awareness += 4.0f * Time.deltaTime;
+                    if(!(playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking && 
+                    Random.Range(0, 100) > (playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f)))
+                    {
+                        m_awareness += 4.0f * Time.deltaTime;
+                    }
                 }
         }
         if(m_patrolAgent != null)
