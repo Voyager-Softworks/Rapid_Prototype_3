@@ -801,6 +801,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1444688361403533388, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
   m_PrefabInstance: {fileID: 138384217}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &780034640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 780034640, guid: a237a61745d3201449c101c8953e4d95, type: 3}
+  m_PrefabInstance: {fileID: 1913495084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &861666287 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
@@ -1045,6 +1056,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24f3f2323f0ed03439ac2bcba07777ef, type: 3}
+--- !u!114 &1051188457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1051188457, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
+  m_PrefabInstance: {fileID: 1144415594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1144415594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1052,6 +1074,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1051188457, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
+      propertyPath: Conditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 780034640}
+    - target: {fileID: 1051188457, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
+      propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 861666287}
     - target: {fileID: 8283624665233289712, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -1095,42 +1125,6 @@ PrefabInstance:
     - target: {fileID: 8283624665233289712, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: Conditions.Array.data[0]
-      value: 
-      objectReference: {fileID: 1913495085}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 861666287}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 1144415595}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: HideWorldMessage
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PlayerReaches, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8283624665233289715, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
       propertyPath: m_Name
@@ -1217,115 +1211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710477fd21b05904dab4d8528fe556d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1247741733
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1247741734}
-  - component: {fileID: 1247741735}
-  - component: {fileID: 1247741736}
-  m_Layer: 0
-  m_Name: Trigger_LeaveHouse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1247741734
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247741733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1834661190}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1247741735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247741733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 662740637}
-        m_TargetAssemblyTypeName: FadeIn, Assembly-CSharp
-        m_MethodName: StartFade
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  CantTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1247741735}
-        m_TargetAssemblyTypeName: PlayerReaches, Assembly-CSharp
-        m_MethodName: DisplayWorldMessage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  ConditionsMet:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1247741735}
-        m_TargetAssemblyTypeName: PlayerReaches, Assembly-CSharp
-        m_MethodName: SetCanTrigger
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  Conditions:
-  - {fileID: 1913495085}
-  - {fileID: 1144415595}
-  canPlayerTrigger: 0
-  hasPlayerReached: 0
-  infoBox: {fileID: 0}
-  worldMessage: I need my gun and light first...
---- !u!65 &1247741736
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247741733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1356687104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +1930,8 @@ GameObject:
   - component: {fileID: 1834661193}
   - component: {fileID: 1834661192}
   - component: {fileID: 1834661191}
+  - component: {fileID: 1834661194}
+  - component: {fileID: 1834661195}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2062,8 +1949,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 4.5}
   m_LocalScale: {x: 2, y: 3, z: 0.25}
-  m_Children:
-  - {fileID: 1247741734}
+  m_Children: []
   m_Father: {fileID: 1627099425}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2129,6 +2015,89 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834661189}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1834661194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834661189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isComplete: 0
+  PlayerInteracted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 662740637}
+        m_TargetAssemblyTypeName: FadeIn, Assembly-CSharp
+        m_MethodName: StartFade
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1834661194}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: DisplayWorldMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ConditionsMet:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1834661194}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: SetCanTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  Conditions:
+  - {fileID: 1051188457}
+  - {fileID: 780034640}
+  m_interactDistance: 3
+  canPlayerTrigger: 0
+  infoBox: {fileID: 0}
+  worldMessage: I need my gun, ammo, and light first
+--- !u!114 &1834661195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834661189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.707, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1884714929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,14 +2200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1439981259329538453, guid: a237a61745d3201449c101c8953e4d95, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 780034640, guid: a237a61745d3201449c101c8953e4d95, type: 3}
+      propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1193288659}
-    - target: {fileID: 1439981259329538453, guid: a237a61745d3201449c101c8953e4d95, type: 3}
-      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnlockShotgun
-      objectReference: {fileID: 0}
     - target: {fileID: 1473079697162366576, guid: a237a61745d3201449c101c8953e4d95, type: 3}
       propertyPath: m_RootOrder
       value: 19
