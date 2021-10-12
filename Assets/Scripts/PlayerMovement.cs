@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject m_shotgun;
     [SerializeField] GameObject m_flashlight;
     public bool m_shotgunUnlocked = false;
+    public bool m_flashlightUnlocked = false;
 
     [Header("Ground")]
     public CharacterController controller;
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (m_shotgunUnlocked) m_shotgun.SetActive(!m_shotgun.activeSelf);
-            m_flashlight.SetActive(m_shotgun.activeSelf ? false : !m_flashlight.activeSelf);
+            if (m_flashlightUnlocked) m_flashlight.SetActive(m_shotgun.activeSelf ? false : !m_flashlight.activeSelf);
         }
 
         if (Time.time - lastHit >= countdown)
@@ -188,6 +189,11 @@ public class PlayerMovement : MonoBehaviour
     public void UnlockShotgun()
     {
         m_shotgunUnlocked = true;
+    }
+
+    public void UnlockFlashlight()
+    {
+        m_flashlightUnlocked = true;
     }
 
     public void ToggleSlowWalk()
