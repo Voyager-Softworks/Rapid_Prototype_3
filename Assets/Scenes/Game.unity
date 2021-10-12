@@ -15422,17 +15422,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3731773701635308032, guid: d949be1a0ef51994bad57d3641c350e3, type: 3}
   m_PrefabInstance: {fileID: 1504734529}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &749074383 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1439981259329538453, guid: a237a61745d3201449c101c8953e4d95, type: 3}
-  m_PrefabInstance: {fileID: 1439981257778093660}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &751116728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1132461405971577853, guid: 4cc4a97411b3cef4ab05527827cc4f7c, type: 3}
@@ -44227,7 +44216,7 @@ PrefabInstance:
     - target: {fileID: 169876670635299167, guid: 77fb68e0d318b464cbe32960dbf3e7d5, type: 3}
       propertyPath: Conditions.Array.data[0]
       value: 
-      objectReference: {fileID: 749074383}
+      objectReference: {fileID: 0}
     - target: {fileID: 169876670635299167, guid: 77fb68e0d318b464cbe32960dbf3e7d5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -44293,7 +44282,7 @@ PrefabInstance:
     - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
       propertyPath: Conditions.Array.data[0]
       value: 
-      objectReference: {fileID: 749074383}
+      objectReference: {fileID: 0}
     - target: {fileID: 8283624665233289713, guid: 39aac925a62df0044bfc07c970c7ce94, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
