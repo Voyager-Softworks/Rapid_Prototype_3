@@ -288,17 +288,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67336666d87a13a448480141a7cdc661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &861666284 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1444688361403533388, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-  m_PrefabInstance: {fileID: 138384217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &861666287 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
   m_PrefabInstance: {fileID: 138384217}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861666284}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e967fe2673532474fb176e160d34e09a, type: 3}
@@ -501,6 +496,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1193288659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+  m_PrefabInstance: {fileID: 138384217}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710477fd21b05904dab4d8528fe556d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1247741733
@@ -1451,7 +1457,11 @@ PrefabInstance:
     - target: {fileID: 1439981259329538453, guid: a237a61745d3201449c101c8953e4d95, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 861666284}
+      objectReference: {fileID: 1193288659}
+    - target: {fileID: 1439981259329538453, guid: a237a61745d3201449c101c8953e4d95, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnlockShotgun
+      objectReference: {fileID: 0}
     - target: {fileID: 1473079697162366576, guid: a237a61745d3201449c101c8953e4d95, type: 3}
       propertyPath: m_RootOrder
       value: 7
