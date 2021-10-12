@@ -126,9 +126,16 @@ public class EnemyAI : MonoBehaviour
         {
             m_awareness = 10.0f;
         }
-        if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Angle(transform.forward, (playerTransform.position - m_headTransform.position)) < m_visionAngle / 2)
+        if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && 
+            Vector3.Angle(m_lookVector, (playerTransform.position - m_headTransform.position)) < m_visionAngle / 2)
         {
-            m_awareness += 4.0f * Time.deltaTime;
+            if(!Physics.Raycast(m_headTransform.position, 
+                (playerTransform.position - m_headTransform.position), 
+                (playerTransform.position - m_headTransform.position).magnitude, 
+                layerMask: LayerMask.GetMask("Obstacles")))
+                {
+                    m_awareness += 4.0f * Time.deltaTime;
+                }
         }
         if(m_patrolAgent != null)
             m_patrolAgent.SetMoving(m_currentState == AIState.PATROLLING);
