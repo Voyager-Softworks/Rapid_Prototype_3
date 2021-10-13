@@ -27,6 +27,7 @@ public class SFX_Effect : MonoBehaviour
         public AudioSource m_source;
         public ParticleSystem m_particle;
         public Vector2 m_screenShakeAmplitude;
+        public Vector2 m_screenShakeFrequency;
 
         public GameObject m_prefab;
     }
@@ -115,6 +116,8 @@ public class SFX_Effect : MonoBehaviour
                     {
                         m_noiseSettingsData.PositionNoise[0].X.Amplitude = currEffect.m_screenShakeAmplitude.x;
                         m_noiseSettingsData.PositionNoise[0].Y.Amplitude = currEffect.m_screenShakeAmplitude.y;
+                        m_noiseSettingsData.PositionNoise[0].X.Frequency = currEffect.m_screenShakeFrequency.x;
+                        m_noiseSettingsData.PositionNoise[0].Y.Frequency = currEffect.m_screenShakeFrequency.y;
                     }
                     break;
                 case SFXtype.WAIT:
