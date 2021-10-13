@@ -392,7 +392,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (other.transform.root.gameObject.CompareTag("Player"))
             {
-                other.transform.root.gameObject.GetComponent<PlayerDeath>().KillPlayer(PlayerDeath.EnemyType.CAT);
+                other.transform.root.gameObject.GetComponent<PlayerDeath>().KillPlayer(PlayerDeath.EnemyType.CAT, this.transform.position);
                 Destroy(this.gameObject);
             }
             
