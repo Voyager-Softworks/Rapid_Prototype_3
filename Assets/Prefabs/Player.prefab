@@ -2151,7 +2151,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.2
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -2200,7 +2200,7 @@ Transform:
   - {fileID: 7238144094898214327}
   - {fileID: 2253841355692905206}
   - {fileID: 137303254}
-  - {fileID: 4762264796874956530}
+  - {fileID: 1215449267492531967}
   m_Father: {fileID: 1787359199434955369}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2412,6 +2412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8cafe0dbc51ec1c99faf96465f4640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_deathAnimationsObj: {fileID: 1915630060899460287}
   m_catDeath: {fileID: 6404081094269548004}
   OnDeathAnimComplete:
     m_PersistentCalls:
@@ -2802,6 +2803,37 @@ Transform:
   - {fileID: 429825625}
   m_Father: {fileID: 1787359198691686667}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1915630060899460287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215449267492531967}
+  m_Layer: 0
+  m_Name: DeathAnimations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1215449267492531967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915630060899460287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4762264796874956530}
+  m_Father: {fileID: 1787359198691686667}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004412962116612804
 GameObject:
@@ -4084,7 +4116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4762264796874956530}
   m_Layer: 0
-  m_Name: CatDeathStuff
+  m_Name: CatDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4097,14 +4129,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6404081094269548004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 926860492958213452}
   - {fileID: 2350102690291235300}
-  m_Father: {fileID: 1787359198691686667}
-  m_RootOrder: 4
+  m_Father: {fileID: 1215449267492531967}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6448049670132765447
 GameObject:

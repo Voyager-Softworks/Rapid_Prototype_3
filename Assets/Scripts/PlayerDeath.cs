@@ -11,6 +11,7 @@ public class PlayerDeath : MonoBehaviour
         CAT,
         RAT,
     }
+    public GameObject m_deathAnimationsObj;
     public GameObject m_catDeath;
     PlayerMovement m_pMovement;
     MouseLook m_mouseLook;
@@ -32,7 +33,7 @@ public class PlayerDeath : MonoBehaviour
         
     }
 
-    public void KillPlayer(EnemyType _type)
+    public void KillPlayer(EnemyType _type, Vector3 _attackerPos)
     {
         switch (_type)
         {
@@ -44,6 +45,7 @@ public class PlayerDeath : MonoBehaviour
             default:
             break;
         }
+        m_deathAnimationsObj.transform.LookAt(_attackerPos, Vector3.up);
         m_pMovement.enabled = false;
         m_mouseLook.enabled = false;
         m_fading = true;
