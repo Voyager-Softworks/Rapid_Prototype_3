@@ -26,8 +26,22 @@ public class CornReplacer : MonoBehaviour
 
             // Find its local position scaled by the terrain size (to find the real world position)
             Vector3 worldTreePos = Vector3.Scale(tree.position, terrain.size) + Terrain.activeTerrain.transform.position;
-            GameObject tempcorn = Instantiate(corn[tree.prototypeIndex], worldTreePos, Quaternion.AngleAxis(Random.Range(0,360), Vector3.up), transform); // Create a prefab tree on its pos
-            tempcorn.transform.localScale *= tree.heightScale;
+            string _name = terrain.treePrototypes[tree.prototypeIndex].prefab.name;
+            GameObject m_realPrefab = null;
+            foreach (GameObject _corn in corn)
+            {
+                if (_corn.name == _name)
+                {
+                    m_realPrefab = _corn;
+                    break;
+                }
+            }
+
+            if (m_realPrefab != null)
+            {
+                GameObject tempcorn = Instantiate(corn[tree.prototypeIndex], worldTreePos, Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up), transform); // Create a prefab tree on its pos
+                tempcorn.transform.localScale *= tree.heightScale;
+            }
         }
         // Then delete all trees on the island
         List<TreeInstance> newTrees = new List<TreeInstance>(0);
