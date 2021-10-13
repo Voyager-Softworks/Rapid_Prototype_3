@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 98782783141223632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 6298137894451533591}
   - {fileID: 8470211375476525838}
@@ -266,6 +266,7 @@ MonoBehaviour:
     m_source: {fileID: 0}
     m_particle: {fileID: 0}
     m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
     m_prefab: {fileID: 0}
   - m_type: 2
     m_waitDuration: 5
@@ -273,6 +274,7 @@ MonoBehaviour:
     m_source: {fileID: 8694252339226035975}
     m_particle: {fileID: 0}
     m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
     m_prefab: {fileID: 0}
 --- !u!1 &981674472293582032
 GameObject:
@@ -1795,6 +1797,7 @@ MonoBehaviour:
     m_source: {fileID: 2705858509639478245}
     m_particle: {fileID: 0}
     m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
     m_prefab: {fileID: 0}
 --- !u!1 &5940129410133225797
 GameObject:
