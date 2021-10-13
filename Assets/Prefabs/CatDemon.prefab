@@ -325,7 +325,6 @@ GameObject:
   - component: {fileID: 3425410442699558197}
   - component: {fileID: 8718527831534107636}
   - component: {fileID: 1644892716904289988}
-  - component: {fileID: 7918391911075330769}
   m_Layer: 3
   m_Name: CatDemon
   m_TagString: Enemy
@@ -396,15 +395,15 @@ MonoBehaviour:
   m_headTransform: {fileID: 4348515124951954717}
   m_wanderSpeed: 3
   m_wanderTurnSpeed: 90
-  m_investigateSpeed: 0
-  m_investigateTurnSpeed: 0
+  m_investigateSpeed: 2
+  m_investigateTurnSpeed: 90
   m_searchSpeed: 3
   m_searchTurnSpeed: 200
   m_pursueSpeed: 13
   m_pursueTurnSpeed: 120
   m_fleeSpeed: 25
   m_awareness: 0
-  m_investigateThreshhold: 0
+  m_investigateThreshhold: 0.82
   m_pursueThreshhold: 7.5
   m_awarenessDecayRate: 0.313
   m_minimumStateDuration: 1
@@ -479,44 +478,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7918391911075330769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746833049942795190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: LoadDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  CantTrigger:
-    m_PersistentCalls:
-      m_Calls: []
-  ConditionsMet:
-    m_PersistentCalls:
-      m_Calls: []
-  Conditions: []
-  canPlayerTrigger: 1
-  hasPlayerReached: 0
-  infoBox: {fileID: 0}
-  worldMessage: 
 --- !u!1 &767230275823175033
 GameObject:
   m_ObjectHideFlags: 0
