@@ -10,9 +10,10 @@ public class PlayerDeath : MonoBehaviour
     {
         CAT,
         RAT,
+        BEAR,
     }
     public GameObject m_deathAnimationsObj;
-    public GameObject m_catDeath;
+    public GameObject m_catDeath, m_verminDeath, m_bearDeath;
     PlayerMovement m_pMovement;
     MouseLook m_mouseLook;
 
@@ -41,6 +42,10 @@ public class PlayerDeath : MonoBehaviour
             m_catDeath.SetActive(true);
             break;
             case EnemyType.RAT:
+            m_verminDeath.SetActive(true);
+            break;
+            case EnemyType.BEAR:
+            m_bearDeath.SetActive(true);
             break;
             default:
             break;

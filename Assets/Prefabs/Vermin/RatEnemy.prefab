@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 4959113514057540851}
   - component: {fileID: 1305177310232775177}
   - component: {fileID: 4448429533629248978}
+  - component: {fileID: 7204882775044943659}
   m_Layer: 0
   m_Name: RatEnemy
   m_TagString: Untagged
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_visionAngle: 93
-  m_visionDistance: 1.69
+  m_visionDistance: 0.7
   m_headTransform: {fileID: 6765628101815324672}
   m_attackCooldown: 1.5
   m_attackSource: {fileID: 4448429533629248978}
@@ -531,6 +532,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &7204882775044943659
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553192748229756678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.44
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.53, z: 0}
 --- !u!1 &608122162940473749
 GameObject:
   m_ObjectHideFlags: 0
