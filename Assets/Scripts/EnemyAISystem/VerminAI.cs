@@ -56,6 +56,18 @@ public class VerminAI : MonoBehaviour
         
     }
 
+     void OnTriggerEnter(Collider other)
+    {
+        
+            if (other.transform.root.gameObject.CompareTag("Player"))
+            {
+                other.transform.root.gameObject.GetComponent<PlayerDeath>().KillPlayer(PlayerDeath.EnemyType.RAT, this.transform.position);
+                Destroy(this.gameObject);
+            }
+            
+        
+    }
+
     void OnDrawGizmosSelected()
     {
         m_lookVector = m_headTransform.TransformVector(-m_headTransform.forward);

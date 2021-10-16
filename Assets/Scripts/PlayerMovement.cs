@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name.Contains("corn"))
+        if (other.name.Contains("Corn"))
         {
             cornCount++;
             Debug.Log("Corn: " + cornCount);
@@ -223,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name.Contains("corn"))
+        if (other.name.Contains("Corn"))
         {
             lastHit = Time.time;
         }

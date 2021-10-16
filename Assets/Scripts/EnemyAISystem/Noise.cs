@@ -94,6 +94,7 @@ public class Noise : MonoBehaviour
         if (!m_triggerEnemyAlert) return;
         foreach (var ai in m_enemies)
         {
+            if (ai == null) continue;
             if ((this.gameObject.transform.position - ai.gameObject.transform.position).magnitude <= m_currentAlertRadius * 3)
             {
                 if ((this.gameObject.transform.position - ai.gameObject.transform.position).magnitude <= m_currentAlertRadius)

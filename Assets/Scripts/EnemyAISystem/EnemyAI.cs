@@ -386,29 +386,18 @@ public class EnemyAI : MonoBehaviour
         return new Vector3((_radius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + origin.x, origin.y, _radius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + origin.z);
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if (m_currentState == AIState.ATTACKING)
-    //     {
-    //         if (other.gameObject.CompareTag("Player"))
-    //         {
-    //             //Stuff for killing the player
-    //             m_currentState = AIState.RECOVERING;
-
-    //             agent.enabled = true;
-    //             m_SFXsource.clip = m_LandSFX;
-    //             m_SFXsource.Play();
-    //         }
-    //         else if (other.gameObject.CompareTag("Ground"))
-    //         {
-    //             m_currentState = AIState.RECOVERING;
-
-    //             agent.enabled = true;
-    //             m_SFXsource.clip = m_LandSFX;
-    //             m_SFXsource.Play();
-    //         }
-    //     }
-    // }
+    void OnTriggerEnter(Collider other)
+    {
+        if (m_currentState == AIState.ATTACKING)
+        {
+            if (other.transform.root.gameObject.CompareTag("Player"))
+            {
+                other.transform.root.gameObject.GetComponent<PlayerDeath>().KillPlayer(PlayerDeath.EnemyType.CAT, this.transform.position);
+                Destroy(this.gameObject);
+            }
+            
+        }
+    }
 
 
     /// <summary>

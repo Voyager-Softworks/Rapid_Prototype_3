@@ -90,23 +90,30 @@ public class SFX_Effect_Editor : Editor
             case SFX_Effect.SFXtype.PLAY_SOUND:
                 EditorGUI.LabelField(new Rect(rect.x, rect.y + (EditorGUIUtility.singleLineHeight + 5) * 2, 150, EditorGUIUtility.singleLineHeight), "[ Play a Sound ]");
                 EditorGUI.PropertyField(
-            new Rect(rect.x + 150, rect.y, (rect.width - 150) / 2, EditorGUIUtility.singleLineHeight * 4),
-            element.FindPropertyRelative("m_clip"),
-            GUIContent.none
-            );
+                new Rect(rect.x + 150, rect.y, (rect.width - 150) / 2, EditorGUIUtility.singleLineHeight * 4),
+                element.FindPropertyRelative("m_clip"),
+                GUIContent.none
+                );
                 EditorGUI.PropertyField(
-            new Rect(rect.x + 150 + ((rect.width - 150) / 2), rect.y, (rect.width - 150) / 2, EditorGUIUtility.singleLineHeight * 4),
-            element.FindPropertyRelative("m_source"),
-            GUIContent.none
-            );
+                new Rect(rect.x + 150 + ((rect.width - 150) / 2), rect.y, (rect.width - 150) / 2, EditorGUIUtility.singleLineHeight * 4),
+                element.FindPropertyRelative("m_source"),
+                GUIContent.none
+                );
                 break;
             case SFX_Effect.SFXtype.SET_SCREEN_SHAKE:
                 EditorGUI.LabelField(new Rect(rect.x, rect.y + (EditorGUIUtility.singleLineHeight + 5) * 2, 170, EditorGUIUtility.singleLineHeight), "[ Set Screen Shake Amount ]");
                 EditorGUI.PropertyField(
-            new Rect(rect.x + 170, rect.y + EditorGUIUtility.singleLineHeight + 5, (rect.width - 170), EditorGUIUtility.singleLineHeight * 4),
-            element.FindPropertyRelative("m_screenShakeAmplitude"),
-            GUIContent.none
-            );
+                new Rect(rect.x + 250, rect.y + EditorGUIUtility.singleLineHeight - 5 , (rect.width - 250), EditorGUIUtility.singleLineHeight * 4),
+                element.FindPropertyRelative("m_screenShakeAmplitude"),
+                GUIContent.none
+                );
+                EditorGUI.LabelField(new Rect(rect.x + 180, rect.y + (EditorGUIUtility.singleLineHeight + 3) * 2, 80, EditorGUIUtility.singleLineHeight), "Frequency:");
+                EditorGUI.PropertyField(
+                new Rect(rect.x + 250, rect.y + EditorGUIUtility.singleLineHeight + 25, (rect.width - 250), EditorGUIUtility.singleLineHeight * 4),
+                element.FindPropertyRelative("m_screenShakeFrequency"),
+                GUIContent.none
+                );
+                EditorGUI.LabelField(new Rect(rect.x + 180, rect.y + (EditorGUIUtility.singleLineHeight - 5) , 80, EditorGUIUtility.singleLineHeight), "Amplitude:");
                 break;
             case SFX_Effect.SFXtype.STOP_PARTICLE:
                 EditorGUI.LabelField(new Rect(rect.x, rect.y + (EditorGUIUtility.singleLineHeight + 5) * 2, 150, EditorGUIUtility.singleLineHeight), "[ Stop a Particle Effect ]");
