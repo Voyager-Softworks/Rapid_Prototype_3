@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5511283823671491885}
   - component: {fileID: 6193233106930546030}
   m_Layer: 0
-  m_Name: wind_test
+  m_Name: Pine02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +34,7 @@ Transform:
   - {fileID: 8550936070293287324}
   - {fileID: 4774701280258415320}
   - {fileID: 6049250824447284166}
+  - {fileID: 4089744105217020973}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,7 +102,7 @@ GameObject:
   - component: {fileID: 3853270786784978886}
   - component: {fileID: 3550744886524206996}
   - component: {fileID: 7787261251516107751}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pine02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,6 +196,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b341ed202a0607148b2bc903990fc091, type: 3}
+--- !u!1 &2429569185914187008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4089744105217020973}
+  - component: {fileID: 5533425865835115486}
+  m_Layer: 0
+  m_Name: collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4089744105217020973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2429569185914187008}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.18, y: 4.39, z: 0}
+  m_LocalScale: {x: 1.14, y: 10.454113, z: 1.14}
+  m_Children: []
+  m_Father: {fileID: 731303709396765276}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5533425865835115486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2429569185914187008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2510315367619151713
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +436,7 @@ GameObject:
   - component: {fileID: 7671527509891724807}
   - component: {fileID: 4451397022664980273}
   - component: {fileID: 8439030130793435209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pine02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -125,6 +125,7 @@ Transform:
   - {fileID: 6083815518117720804}
   - {fileID: 2807600841294921458}
   - {fileID: 1903265877116047243}
+  - {fileID: 2947000980473261574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,6 +263,50 @@ Tree:
   m_GameObject: {fileID: 5173154104054394940}
   m_SpeedTreeWindAsset: {fileID: 22800000, guid: d28041060633fca41a1e2563042611b7, type: 3}
   m_TreeData: {fileID: 0}
+--- !u!1 &6923157478533565065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2947000980473261574}
+  - component: {fileID: 160128796660329377}
+  m_Layer: 0
+  m_Name: colider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2947000980473261574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923157478533565065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.284, y: 0.551, z: 0}
+  m_LocalScale: {x: 0.8148148, y: 1.4812518, z: 0.8148148}
+  m_Children: []
+  m_Father: {fileID: 3481166783604148146}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &160128796660329377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923157478533565065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7269917104040887651
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +411,7 @@ GameObject:
   - component: {fileID: 110972885491444259}
   - component: {fileID: 8443677740342533498}
   - component: {fileID: 2132394283211426302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stump01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +518,7 @@ GameObject:
   - component: {fileID: 3707093159715395992}
   - component: {fileID: 1886723262414929227}
   - component: {fileID: 8631796571172528223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stump01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
