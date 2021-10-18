@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2103542077238935503}
   - component: {fileID: 4938395775202554119}
   - component: {fileID: 4474043757107117055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pine01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 4997135392013911952}
   - component: {fileID: 1546154618460638602}
   - component: {fileID: 991921931175490604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pine01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,6 +431,7 @@ Transform:
   - {fileID: 3747377164220740374}
   - {fileID: 1898962103606249350}
   - {fileID: 7803133490882201526}
+  - {fileID: 2563187078498311129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -485,6 +486,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &6238315644655277872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2563187078498311129}
+  - component: {fileID: 7660516949955623412}
+  m_Layer: 0
+  m_Name: collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2563187078498311129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6238315644655277872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0}
+  m_LocalScale: {x: 2.114964, y: 12.321398, z: 2.114964}
+  m_Children: []
+  m_Father: {fileID: 5151340889619684157}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7660516949955623412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6238315644655277872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8575627001225770360
 GameObject:
   m_ObjectHideFlags: 0
