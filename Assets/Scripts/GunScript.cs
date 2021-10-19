@@ -25,6 +25,9 @@ public class GunScript : MonoBehaviour
 
     EnemyAI[] m_enemies;
 
+    GameObject m_meteor;
+    GameObject m_jerrycanManager;
+
     private void OnDrawGizmos()
     {
         float totalFOV = 40.0f;
@@ -41,6 +44,8 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!m_meteor) m_meteor = GameObject.Find("Meteor");
+        if (!m_jerrycanManager) m_jerrycanManager = GameObject.Find("JerrycanManager");
         m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
         UpdateVisuals();
     }
@@ -134,6 +139,24 @@ public class GunScript : MonoBehaviour
             if (dist <= 20 && angle <= 20)
             {
                 _enemy.RecieveFlee();
+            }
+        }
+
+        if (m_meteor)
+        {
+            foreach (Transform child in m_meteor.transform)
+            {
+                if (child.name.ToLower().Contains("jerrycan"))
+                {
+                    Vector3 dir = (child.transform.position - transform.position);
+                    float angle = Vector3.Angle(dir.normalized, transform.forward);
+                    float dist = dir.magnitude;
+                    if (dist <= 20 && angle <= 20)
+                    {
+                        if (m_jerrycanManager) m_jerrycanManager.GetComponent<JerrycanManager>().BlowMeteorCans();
+                        break;
+                    }
+                }
             }
         }
 
