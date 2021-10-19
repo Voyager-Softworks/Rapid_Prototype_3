@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     bool forceSlow = false;
 
     [Header("Jumping")]
+    public bool allowedJump = true;
     public float jumpHeight;
 
     public float gravity;
@@ -155,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
         velocity = new Vector3(move.x, velocity.y, move.z);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && allowedJump)
         {
             source.PlayOneShot(jump_sound);
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
