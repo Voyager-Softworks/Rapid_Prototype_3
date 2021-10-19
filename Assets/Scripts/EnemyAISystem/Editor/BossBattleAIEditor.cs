@@ -46,6 +46,8 @@ public class BossBattleAIEditor : Editor
         DrawCircle(1.0f, m_AI.m_nextSpawnPosition);
         Handles.color = Color.red;
         DrawCircle(1.0f, m_AI.m_nextRetreatPosition);
+        Handles.color = Color.white;
+        DrawCircle(m_AI.m_screenShakeRange, m_AI.gameObject.transform.position);
     }
 }
 

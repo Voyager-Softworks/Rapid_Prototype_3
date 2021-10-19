@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &137303254
 Transform:
   m_ObjectHideFlags: 0
@@ -2703,8 +2703,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: 0.13052617, y: -0, z: -0.0000000037252903, w: 0.99144495}
-  m_LocalPosition: {x: 0.0000009834766, y: 0.5000038, z: 0.24099842}
+  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 0.49999976, z: 0.24099731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
@@ -3097,8 +3097,8 @@ MonoBehaviour:
   m_cam: {fileID: 3689897955803055985}
   m_shotgun: {fileID: 1444688361403533388}
   m_flashlight: {fileID: 137303253}
-  m_shotgunUnlocked: 0
-  m_flashlightUnlocked: 0
+  m_shotgunUnlocked: 1
+  m_flashlightUnlocked: 1
   controller: {fileID: 1787359199434955370}
   groundCheck: {fileID: 1787359198751704711}
   groundDistance: 0.2
@@ -3153,7 +3153,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   currExertion: 0
-  allowedJump: 1
+  allowedJump: 0
   jumpHeight: 2
   gravity: -19.62
   velocity: {x: 0, y: 0, z: 0}
@@ -7026,7 +7026,7 @@ GameObject:
   - component: {fileID: 6796037131882024935}
   - component: {fileID: 7834982420959283632}
   m_Layer: 0
-  m_Name: Jerrycan
+  m_Name: Jerrycan_Spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7145,8 +7145,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2194568600511673090, guid: 00fb1ea60b49d88429030bbb81449f22, type: 3}
-  - {fileID: 3135633201493890723, guid: 00fb1ea60b49d88429030bbb81449f22, type: 3}
+  - {fileID: 2100000, guid: be30053e325b7fd4fbd028cff5dac427, type: 2}
+  - {fileID: 2100000, guid: 9e4c01827a9893b91b30a2c303b560a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8050,6 +8050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3164882482303515252}
   - component: {fileID: 8458481408534094323}
+  - component: {fileID: 1639426648}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -8083,6 +8084,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1639426648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011177246270147892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 1a503a2f0a9a91563be79908807165b3, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &7025548797858185634
 GameObject:
   m_ObjectHideFlags: 0
