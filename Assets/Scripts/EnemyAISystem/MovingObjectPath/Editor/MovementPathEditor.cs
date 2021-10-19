@@ -11,7 +11,7 @@ public class MovementPathEditor : Editor
     MovementPath path;
     SerializedProperty nodes;
     public ReorderableList list;
-    public bool editPath;
+    public bool editPath = false;
 
 
     private void OnEnable()
@@ -72,15 +72,8 @@ public class MovementPathEditor : Editor
     {
         SerializedProperty element = list.serializedProperty.GetArrayElementAtIndex(index);
 
-        EditorGUI.LabelField(new Rect(rect.x + 160, rect.y, 100, EditorGUIUtility.singleLineHeight), "Speed Curve");
-
         EditorGUI.PropertyField(
-        new Rect(rect.x + 250, rect.y, 150, EditorGUIUtility.singleLineHeight),
-        element.FindPropertyRelative("SpeedCurve"),
-        GUIContent.none
-        );
-        EditorGUI.PropertyField(
-        new Rect(rect.x, rect.y, 150, EditorGUIUtility.singleLineHeight),
+        new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
         element.FindPropertyRelative("Position"),
         GUIContent.none
         );

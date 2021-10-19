@@ -15,10 +15,21 @@ public class VerminAI : MonoBehaviour
     public float m_attackCooldown = 0.0f;
     float m_attackCooldownTimer = 0.0f;
 
+    public float m_attackForceMult;
+
+    public float m_attackHeightOffset;
+    public float m_attackDuration;
+
+    float m_attackTimer;
+
     public AudioSource m_attackSource, m_runSource;
+
+    public float m_speed = 1.5f;
     Vector3 m_lookVector;
     NavMeshAgent m_agent;
     Animator m_anim;
+
+    Rigidbody m_body;
 
     Transform playerTransform;
     // Start is called before the first frame update
@@ -27,15 +38,18 @@ public class VerminAI : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_anim = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        m_body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((m_attackCooldownTimer -= Time.deltaTime ) <= 0.0f)
+        if((m_attackTimer -= Time.deltaTime ) <= 0.0f)
         {
-            m_agent.speed = 1.5f;
-            m_attackCooldownTimer = 0.0f;
+            m_agent.enabled = true;
+            m_agent.speed = m_speed;
+            m_attackTimer = 0.0f;
+            m_body.isKinematic = false;
             if(!m_runSource.isPlaying)
             {
                 m_runSource.Play();
@@ -44,10 +58,10 @@ public class VerminAI : MonoBehaviour
         m_agent.destination = playerTransform.position;
         if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Angle(transform.forward, (playerTransform.position - m_headTransform.position)) < m_visionAngle / 2)
         {
-            if(m_attackCooldownTimer <= 0.0f)
+            if(m_attackTimer <= 0.0f)
             {
                 m_anim.SetTrigger("Attack");
-                m_attackCooldownTimer = m_attackCooldown;
+                Attack();
                 m_agent.speed = 0.0f;
                 m_attackSource.Play();
                 m_runSource.Stop();
@@ -66,6 +80,18 @@ public class VerminAI : MonoBehaviour
             }
             
         
+    }
+
+     void Attack()
+    {
+        m_body.isKinematic = false;
+        Vector3 playerPos = new Vector3(playerTransform.position.x, playerTransform.position.y + m_attackHeightOffset, playerTransform.position.z);
+        Vector3 direction = (playerPos - gameObject.transform.position).normalized;
+        m_body.AddForce(direction * m_attackForceMult, ForceMode.Impulse);
+        m_agent.enabled = false;
+        
+        //Debug.Log("Attacking!");
+        m_attackTimer = m_attackDuration;
     }
 
     void OnDrawGizmosSelected()
