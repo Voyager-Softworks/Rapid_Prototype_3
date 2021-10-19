@@ -121,7 +121,7 @@ public class BossBattleAI : MonoBehaviour
                 }
             break;
             case BossAIState.RETREATING:
-                if ((m_nextRetreatPosition - this.transform.position).magnitude < 0.2f)
+                if ((m_nextRetreatPosition - this.transform.position).magnitude < 1.0f)
                 {
                     m_currState = BossAIState.WAITING;
                     m_cooldownTimer = m_cooldownTime;
