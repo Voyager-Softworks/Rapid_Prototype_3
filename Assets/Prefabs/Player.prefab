@@ -1133,6 +1133,7 @@ GameObject:
   - component: {fileID: 3828823072425693665}
   - component: {fileID: 39178318049733583}
   - component: {fileID: 243203425938411024}
+  - component: {fileID: 6713658537235806087}
   m_Layer: 0
   m_Name: DeathCam
   m_TagString: Untagged
@@ -1354,6 +1355,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6713658537235806087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705802947163508424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e120cd91a1b54ae8b06485e65f0acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &714501621545504404
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +4672,7 @@ GameObject:
   - component: {fileID: 5178277527510094537}
   - component: {fileID: 9218644761154008832}
   - component: {fileID: 8906493600701340637}
+  - component: {fileID: 6132746275743671994}
   m_Layer: 0
   m_Name: DeathCam
   m_TagString: Untagged
@@ -4878,6 +4895,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6132746275743671994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017613849476924419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e120cd91a1b54ae8b06485e65f0acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3102805256273575409
 GameObject:
   m_ObjectHideFlags: 0
@@ -9001,6 +9033,7 @@ GameObject:
   - component: {fileID: 7226311848692675235}
   - component: {fileID: 169951480226657225}
   - component: {fileID: 2022360754}
+  - component: {fileID: 4125316119154163120}
   m_Layer: 0
   m_Name: DeathCam
   m_TagString: Untagged
@@ -9223,6 +9256,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4125316119154163120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8346132487285346646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e120cd91a1b54ae8b06485e65f0acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8379876911389598042
 GameObject:
   m_ObjectHideFlags: 0
