@@ -81,7 +81,6 @@ Transform:
   m_Children:
   - {fileID: 6835914002563966074}
   - {fileID: 7391249686693670913}
-  - {fileID: 981674472293582033}
   m_Father: {fileID: 1119606938934547067}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 7.900523, y: 1.3565254, z: -3.9944615}
@@ -169,9 +168,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -204,7 +203,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -300,12 +299,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981674472293582032}
-  m_LocalRotation: {x: -0.7384875, y: -0.31427667, z: -0.19166832, w: 0.5649157}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.6764446, y: -0.17285535, z: -0.14815886, w: 0.70042324}
+  m_LocalPosition: {x: -0.049, y: 0.238, z: 0.096}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8457876379128189157}
-  m_RootOrder: 2
+  m_Father: {fileID: 439292038952399414}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -107.285, y: 14.022003, z: -56.451996}
 --- !u!108 &981674472293582034
 Light:
@@ -318,14 +317,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 10.1
-  m_Range: 9.91
-  m_SpotAngle: 96.85141
+  m_Color: {r: 1, g: 0.6713127, b: 0.13679248, a: 1}
+  m_Intensity: 200
+  m_Range: 13.738378
+  m_SpotAngle: 45.185925
   m_InnerSpotAngle: 42.708828
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -361,7 +360,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 20
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -419,9 +418,10 @@ MonoBehaviour:
   m_verminGroupSize: 2
   m_verminSpreadRadius: 2
   m_groupSpreadRadius: 15
-  m_headTransform: {fileID: 1119606938934547067}
+  m_headTransform: {fileID: 439292038952399414}
   m_viewDistance: 13.8
   m_viewAngle: 43.8
+  m_viewVerticalRotation: 0
   m_lookBackInterval: 5
   m_screechDuration: 2.5
   m_flightDuration: 20
@@ -1700,9 +1700,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1735,7 +1735,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2106,6 +2106,37 @@ Transform:
   m_Father: {fileID: 597674618257442615}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 28.804714, y: 97.8762, z: -43.421577}
+--- !u!1 &7039809450275400178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439292038952399414}
+  m_Layer: 0
+  m_Name: LightHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439292038952399414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039809450275400178}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.182}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 981674472293582033}
+  m_Father: {fileID: 1119606938934547067}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 52.14, y: 0, z: 0}
 --- !u!1 &7103901527369589786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2292,7 @@ Transform:
   - {fileID: 8457876379128189157}
   - {fileID: 8991154571287608708}
   - {fileID: 1805558663836712159}
+  - {fileID: 439292038952399414}
   m_Father: {fileID: 1942511895942162382}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -23.870485, y: 10.569317, z: 2.113712}
@@ -2499,9 +2531,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2534,7 +2566,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -17,6 +17,7 @@ public class SentryAI : MonoBehaviour
 
     public float m_viewDistance;
     public float m_viewAngle;
+    public float m_viewVerticalRotation;
 
     public float m_lookBackInterval;
     float m_lookBackTimer;
@@ -77,6 +78,7 @@ public class SentryAI : MonoBehaviour
     void Start()
     {
         m_state = SentryState.SEARCHING;
+        m_lookBackInterval += Random.Range(-2.0f, 2.0f);
         m_lookBackTimer = m_lookBackInterval;
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         m_origPos = transform.position;
@@ -88,6 +90,7 @@ public class SentryAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
         m_lookVector = m_headTransform.up;
         
         switch (m_state)
@@ -172,7 +175,7 @@ public class SentryAI : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         m_lookVector = m_headTransform.up;
-        
+        m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
         Gizmos.color = Color.yellow;
         Vector3 coneRay1 = Quaternion.AngleAxis(m_viewAngle/2, Vector3.up) * m_lookVector;
         Vector3 coneRay2 = Quaternion.AngleAxis(m_viewAngle/3, Vector3.up) * m_lookVector;
