@@ -32,6 +32,8 @@ public class VerminAI : MonoBehaviour
     Rigidbody m_body;
 
     Transform playerTransform;
+
+    public GameObject m_deathPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +94,12 @@ public class VerminAI : MonoBehaviour
         
         //Debug.Log("Attacking!");
         m_attackTimer = m_attackDuration;
+    }
+
+    public void Shoot()
+    {
+        Instantiate(m_deathPrefab, this.transform.position, this.transform.rotation);
+        Destroy(this.gameObject);
     }
 
     void OnDrawGizmosSelected()
