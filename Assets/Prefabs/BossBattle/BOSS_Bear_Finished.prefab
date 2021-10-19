@@ -186,6 +186,7 @@ Transform:
   - {fileID: 563683929487243215}
   - {fileID: 1825461688002975497}
   - {fileID: 1028428791227469607}
+  - {fileID: 7902226190267208907}
   m_Father: {fileID: 7038934701789017416}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -558,6 +559,133 @@ Transform:
   m_Father: {fileID: 4631881269008202873}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.797632, y: 1.8865105, z: 5.21829}
+--- !u!1 &1955028784491628801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7902226190267208907}
+  - component: {fileID: 2132264917168156247}
+  m_Layer: 0
+  m_Name: BossMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7902226190267208907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955028784491628801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1003974437820656268}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2132264917168156247
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955028784491628801}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 51fa0cdc0621d10448db32a7f6586e64, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2037327513643353281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1954,6 @@ GameObject:
   - component: {fileID: 7702423640272121841}
   - component: {fileID: 7702423640272121840}
   - component: {fileID: 8119340572078644395}
-  - component: {fileID: 1546358479274019175}
   - component: {fileID: 2510629907309010964}
   m_Layer: 0
   m_Name: BOSS_Bear_Finished
@@ -1895,6 +2022,7 @@ MonoBehaviour:
   m_injuredSFX: {fileID: 7626341167523592276}
   m_dieSFX: {fileID: 2663037189230076440}
   m_footstepSFX: {fileID: 2128997988045389485}
+  m_bossmusicSFX: {fileID: 2132264917168156247}
   m_footstepClips:
   - {fileID: 8300000, guid: e9abafb588ffdbb9d84ad73f582cac92, type: 3}
   - {fileID: 8300000, guid: 39a4e616348e9cb9eaa6c034105bde3f, type: 3}
@@ -1936,27 +2064,6 @@ CapsuleCollider:
   m_Height: 6.45
   m_Direction: 2
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &1546358479274019175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7702423640272121842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ded7fe0d74f598f4986571240256a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
-  m_baseRange: 0
-  m_distanceMultiplier: 0
-  m_decayRate: 0
-  m_noise: {fileID: 11400000, guid: 16642419b08c47b44898f3489d0b9270, type: 2}
-  m_playOnCollision: 0
-  m_triggerEnemyAlert: 0
-  m_objectSpace: 1
-  manualsoundplay: 0
 --- !u!114 &2510629907309010964
 MonoBehaviour:
   m_ObjectHideFlags: 0
