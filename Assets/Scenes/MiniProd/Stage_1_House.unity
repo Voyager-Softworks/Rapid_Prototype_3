@@ -139,6 +139,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 360788413182244423, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnDeathAnimComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 144350003}
+    - target: {fileID: 360788413182244423, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnDeathAnimComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1787359198162137935, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000009834766
@@ -225,6 +233,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+--- !u!114 &144350003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5651391617800714230, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+  m_PrefabInstance: {fileID: 662740636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981358a0b5f799c4099887e1e98fa6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &283911158
 PrefabInstance:
   m_ObjectHideFlags: 0

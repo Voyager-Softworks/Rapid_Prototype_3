@@ -36,6 +36,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(_stage);
     }
 
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 
     public void Exit()
     {
