@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 163154600}
   - component: {fileID: 1384388903}
   m_Layer: 5
-  m_Name: WhereDog
+  m_Name: CurtainBed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Where did that dang dog get to...
+  m_Text: I should close the curtains and head to bed.
 --- !u!114 &163154600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 179939052}
   - component: {fileID: 1642789213}
   m_Layer: 5
-  m_Name: DontForgetGun
+  m_Name: GetItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +291,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I really should get my gun...
+  m_Text: 'Can''t let that thing stay on my farm...
+
+    I need my gun, ammo, and
+    flashlight.'
 --- !u!114 &179939052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +516,7 @@ GameObject:
   - component: {fileID: 425814032}
   - component: {fileID: 425814035}
   m_Layer: 5
-  m_Name: TakeHerInside
+  m_Name: KillIt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I need to take ber back to the house!
+  m_Text: I gonna kill that thing!
 --- !u!114 &425814032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,7 +1113,7 @@ GameObject:
   - component: {fileID: 7217584166577917186}
   - component: {fileID: 1720919382}
   m_Layer: 5
-  m_Name: GetGun
+  m_Name: ItsLate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,9 +1180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'I should get my gun.
-
-    Left it in the shed with some shells...'
+  m_Text: Its Late.
 --- !u!114 &7217584166577917186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2036,7 +2037,7 @@ GameObject:
   - component: {fileID: 5651391616184423005}
   - component: {fileID: 1964224991}
   m_Layer: 5
-  m_Name: GetOut
+  m_Name: Surprise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2105,8 +2106,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'OH JESUS!
 
-
-    I gotta get back to the house.'
+    WHAT WAS THAT'
 --- !u!114 &5651391616184423005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,9 +2136,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7217584166577917186}
+        m_TargetAssemblyTypeName: EnableDisabe, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 163154600}
+        m_TargetAssemblyTypeName: EnableDisabe, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDisable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 179939052}
+        m_TargetAssemblyTypeName: EnableDisabe, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &1964224991
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5302,6 +5302,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EnableDisabe, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EnableDisabe, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   CantTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -6790,14 +6814,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
@@ -6805,8 +6837,20 @@ PrefabInstance:
       value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Enable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: EnableDisabe, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_FloatArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -6814,6 +6858,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976677992588978656, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4976677992588978662, guid: c1f88387eb26f6242b26b53b1947dad5, type: 3}
@@ -9251,6 +9299,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1761474847}
     m_Modifications:
+    - target: {fileID: 556592881284091090, guid: c28d7a799fbe05048930e125ffedcf18, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 8e-44
+      objectReference: {fileID: 0}
     - target: {fileID: 1523182745353681146, guid: c28d7a799fbe05048930e125ffedcf18, type: 3}
       propertyPath: m_Name
       value: Lamp
