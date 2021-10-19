@@ -27,7 +27,7 @@ public class BossBattleAI : MonoBehaviour
 
     Transform m_playerTransform;
 
-    public AudioSource m_injuredSFX, m_dieSFX, m_footstepSFX;
+    public AudioSource m_injuredSFX, m_dieSFX, m_footstepSFX, m_bossmusicSFX;
     public List<AudioClip> m_footstepClips;
     SFX_Effect m_effect;
 
@@ -67,6 +67,7 @@ public class BossBattleAI : MonoBehaviour
         {
             this.transform.position = m_nextSpawnPosition;
             m_currState = BossAIState.CHARGING;
+            m_bossmusicSFX.Play();
         }
     }
 
@@ -77,6 +78,11 @@ public class BossBattleAI : MonoBehaviour
         if ((this.transform.position - m_playerTransform.position).magnitude < m_screenShakeRange)
         {
             m_effect.m_effectsList[0].m_screenShakeAmplitude = (new Vector2(0.2f, 0.2f) * (1.0f - ((this.transform.position - m_playerTransform.position).magnitude / m_screenShakeRange)));
+            m_effect.Play();
+        }
+        else
+        {
+            m_effect.m_effectsList[0].m_screenShakeAmplitude = new Vector2(0.0f, 0.0f);
             m_effect.Play();
         }
     }
@@ -100,6 +106,7 @@ public class BossBattleAI : MonoBehaviour
         m_agent.speed = 0.0f;
         m_agent.angularSpeed = 0.0f;
         m_dieSFX.Play();
+        m_bossmusicSFX.Stop();
     }
 
     void OnTriggerEnter(Collider other)
