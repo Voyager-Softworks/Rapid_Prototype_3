@@ -19,13 +19,17 @@ public class BossBattleAI : MonoBehaviour
 
     public float m_injureAnimLength;
     float m_injureAnimTimer;
+
+    public float m_screenShakeRange;
     
     Animator m_anim;
     NavMeshAgent m_agent;
 
     Transform m_playerTransform;
 
-    public AudioSource m_injuredSFX, m_dieSFX;
+    public AudioSource m_injuredSFX, m_dieSFX, m_footstepSFX;
+    public List<AudioClip> m_footstepClips;
+    SFX_Effect m_effect;
 
     public enum BossAIState
     {
@@ -54,6 +58,7 @@ public class BossBattleAI : MonoBehaviour
         m_playerTransform = GameObject.FindWithTag("Player").transform;
         m_anim = GetComponent<Animator>();
         m_agent = GetComponent<NavMeshAgent>();
+        m_effect = GetComponent<SFX_Effect>();
     }
 
     public void StartBattle()
@@ -62,6 +67,17 @@ public class BossBattleAI : MonoBehaviour
         {
             this.transform.position = m_nextSpawnPosition;
             m_currState = BossAIState.CHARGING;
+        }
+    }
+
+    public void Footstep()
+    {
+        m_footstepSFX.clip = m_footstepClips[Random.Range(0, m_footstepClips.Count)];
+        m_footstepSFX.Play();
+        if ((this.transform.position - m_playerTransform.position).magnitude < m_screenShakeRange)
+        {
+            m_effect.m_effectsList[0].m_screenShakeAmplitude = (new Vector2(0.2f, 0.2f) * (1.0f - ((this.transform.position - m_playerTransform.position).magnitude / m_screenShakeRange)));
+            m_effect.Play();
         }
     }
 
