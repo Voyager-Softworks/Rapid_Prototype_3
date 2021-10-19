@@ -4382,9 +4382,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1027543292403976598}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125316119154163120, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4393,10 +4421,50 @@ PrefabInstance:
     - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1027543292403976599}
+      objectReference: {fileID: 1027543292403976598}
     - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132746275743671994, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1027543292403976598}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713658537235806087, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
@@ -6107,17 +6175,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4625011643500478616, guid: c0c982f346a36e046b9794178aae1d61, type: 3}
   m_PrefabInstance: {fileID: 1027543292403976597}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027543292403976599}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 981358a0b5f799c4099887e1e98fa6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1027543292403976599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4625011643500478611, guid: c0c982f346a36e046b9794178aae1d61, type: 3}
-  m_PrefabInstance: {fileID: 1027543292403976597}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2383327919566020624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2904055919282788621, guid: 471f5b7645007584ea5f270cc5b1f908, type: 3}
