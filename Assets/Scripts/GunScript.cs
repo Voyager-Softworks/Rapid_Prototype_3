@@ -28,6 +28,8 @@ public class GunScript : MonoBehaviour
     GameObject m_meteor;
     GameObject m_jerrycanManager;
 
+    GameObject m_boss;
+
     private void OnDrawGizmos()
     {
         float totalFOV = 40.0f;
@@ -45,6 +47,7 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         if (!m_meteor) m_meteor = GameObject.Find("Meteor");
+        if (!m_boss) m_boss = GameObject.Find("BOSS_Bear_Finished");
         if (!m_jerrycanManager) m_jerrycanManager = GameObject.Find("JerrycanManager");
         m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
         UpdateVisuals();
@@ -157,6 +160,17 @@ public class GunScript : MonoBehaviour
                         break;
                     }
                 }
+            }
+        }
+
+        if (m_boss)
+        {
+            Vector3 dir = (m_boss.transform.position - transform.position);
+            float angle = Vector3.Angle(dir.normalized, transform.forward);
+            float dist = dir.magnitude;
+            if (dist <= 20 && angle <= 20)
+            {
+                m_boss.GetComponent<BossBattleAI>().Shoot();
             }
         }
 
