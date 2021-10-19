@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class JerrycanManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class JerrycanManager : MonoBehaviour
         Placed,
         Battle
     }
+
+    public UnityEvent FirstBlown;
+    public UnityEvent AllBlown;
 
     [Header("Cans")]
     public List<GameObject> m_jerryCans;
@@ -98,7 +102,11 @@ public class JerrycanManager : MonoBehaviour
                     }
                 }
 
-                if (m_totalBlown >= 1) NextStage();
+                if (m_totalBlown >= 1)
+                {
+                    FirstBlown.Invoke();
+                    NextStage();
+                }
                 break;
 
             case Stage.Battle:
@@ -164,6 +172,7 @@ public class JerrycanManager : MonoBehaviour
         if (m_totalBlown >= m_numToWin)
         {
             m_meteor.SetActive(false);
+            AllBlown.Invoke();
         }
     }
 }
