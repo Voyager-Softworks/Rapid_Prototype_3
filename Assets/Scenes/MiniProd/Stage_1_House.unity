@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c3e54e881323b4f4a8b3edcd367c96f1, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -135,6 +135,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429825626, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429825626, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 429825626, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 4.5904e-41
+      objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1326,7 +1338,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.0504977e-10, y: 2.424548e+28, z: 4.5905e-41, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 4.2e-44, w: 4.2e-44}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -1419,6 +1431,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1303313950}
     m_Modifications:
+    - target: {fileID: 556592881643239043, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556592881643239043, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556592881643239043, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 556592881643239043, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3980117033395790138, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.597
@@ -1430,6 +1458,22 @@ PrefabInstance:
     - target: {fileID: 5790718582879519477, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
       propertyPath: m_Name
       value: Shed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497498434765691530, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497498434765691530, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 6.1e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497498434765691530, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.0000000032649226
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497498434765691530, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 6.1e-43
       objectReference: {fileID: 0}
     - target: {fileID: 6563736363411822671, guid: a677c518c6b770d4f8a4ac8ec4832e55, type: 3}
       propertyPath: m_RootOrder
@@ -1639,6 +1683,10 @@ PrefabInstance:
     - target: {fileID: 8247850139935313069, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: m_Name
       value: HouseInterior
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722983846285039187, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 8e-44
       objectReference: {fileID: 0}
     - target: {fileID: 8736297921872418327, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: m_RootOrder
