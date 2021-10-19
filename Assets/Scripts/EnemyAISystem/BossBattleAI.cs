@@ -25,6 +25,8 @@ public class BossBattleAI : MonoBehaviour
 
     Transform m_playerTransform;
 
+    public AudioSource m_injuredSFX, m_dieSFX;
+
     public enum BossAIState
     {
         CHARGING,
@@ -71,6 +73,7 @@ public class BossBattleAI : MonoBehaviour
             m_currState = BossAIState.INJURED;
             m_anim.SetTrigger("Shot");
             m_injureAnimTimer = m_injureAnimLength;
+            m_injuredSFX.Play();
         }
     }
 
@@ -80,6 +83,7 @@ public class BossBattleAI : MonoBehaviour
         m_anim.SetTrigger("Dead");
         m_agent.speed = 0.0f;
         m_agent.angularSpeed = 0.0f;
+        m_dieSFX.Play();
     }
 
     void OnTriggerEnter(Collider other)
