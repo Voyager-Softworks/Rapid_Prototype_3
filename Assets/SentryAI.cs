@@ -54,13 +54,21 @@ public class SentryAI : MonoBehaviour
         for (int i = 0; i < m_verminGroupCount; i++)
         {
             Vector3 origin = m_playerTransform.position;
-            Vector3 groupOrigin = new Vector3((m_groupSpreadRadius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + origin.x, origin.y, m_groupSpreadRadius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + origin.z);
+            float rand1 = Random.Range(0, Mathf.PI * 2);
+            Vector3 spawndir = (m_playerTransform.position - new Vector3((m_groupSpreadRadius * Mathf.Cos(rand1)) + origin.x, origin.y, m_groupSpreadRadius * Mathf.Sin(rand1) + origin.z));
+            if(Vector3.Dot(spawndir, m_playerTransform.forward) < 0.0f) rand1 += Mathf.PI;
+            float rand2 = Random.Range(0, Mathf.PI * 2);
+            Vector3 groupOrigin = new Vector3((m_groupSpreadRadius * Mathf.Cos(rand1)) + origin.x, origin.y, m_groupSpreadRadius * Mathf.Sin(rand1) + origin.z);
             for (int j = 0; j < m_verminGroupSize; j++)
             {
-                Instantiate(m_verminPrefab, 
-                new Vector3((m_verminSpreadRadius * Mathf.Cos(Random.Range(0, Mathf.PI * 2))) + groupOrigin.x, groupOrigin.y, m_verminSpreadRadius * Mathf.Sin(Random.Range(0, Mathf.PI * 2)) + groupOrigin.z),
+                GameObject newRat = Instantiate(m_verminPrefab, 
+                new Vector3((m_verminSpreadRadius * Mathf.Cos(rand2)) + groupOrigin.x, groupOrigin.y, m_verminSpreadRadius * Mathf.Sin(rand2) + groupOrigin.z),
                 Quaternion.identity * Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up)
                 );
+                float rand3 = Random.Range(-0.3f, 0.3f);
+                newRat.GetComponent<Animator>().speed += rand3;
+                newRat.GetComponent<VerminAI>().m_speed += rand3;
+                newRat.GetComponent<AudioSource>().pitch += rand3;
             }
         }
     }

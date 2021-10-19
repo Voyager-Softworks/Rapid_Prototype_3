@@ -7,8 +7,8 @@ using UnityEngine;
 public class MovementPath : MonoBehaviour
 {
 
-    public Color m_PathColor;
-    public PathType m_Mode;
+    public Color m_PathColor = Color.white;
+    public PathType m_Mode = PathType.SINGLE;
     bool m_returning = false;
     int m_index = 0;
     public enum PathType
@@ -22,11 +22,11 @@ public class MovementPath : MonoBehaviour
     public class PathNode
     {
         public Vector3 Position;
-        public AnimationCurve SpeedCurve;
+        
         public PathNode(Vector3 _prevpos)
         {
             Position = _prevpos;
-            SpeedCurve = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
+            
         }
     }
 
