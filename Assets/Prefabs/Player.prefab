@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &137303254
 Transform:
   m_ObjectHideFlags: 0
@@ -2703,8 +2703,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: 0.13052617, y: -0, z: -0.0000000037252903, w: 0.99144495}
-  m_LocalPosition: {x: 0.0000009834766, y: 0.5000038, z: 0.24099842}
+  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 0.49999976, z: 0.24099731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
@@ -3097,8 +3097,8 @@ MonoBehaviour:
   m_cam: {fileID: 3689897955803055985}
   m_shotgun: {fileID: 1444688361403533388}
   m_flashlight: {fileID: 137303253}
-  m_shotgunUnlocked: 0
-  m_flashlightUnlocked: 0
+  m_shotgunUnlocked: 1
+  m_flashlightUnlocked: 1
   controller: {fileID: 1787359199434955370}
   groundCheck: {fileID: 1787359198751704711}
   groundDistance: 0.2
@@ -3153,7 +3153,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   currExertion: 0
-  allowedJump: 1
+  allowedJump: 0
   jumpHeight: 2
   gravity: -19.62
   velocity: {x: 0, y: 0, z: 0}
@@ -7026,7 +7026,7 @@ GameObject:
   - component: {fileID: 6796037131882024935}
   - component: {fileID: 7834982420959283632}
   m_Layer: 0
-  m_Name: Jerrycan
+  m_Name: Jerrycan_Spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
