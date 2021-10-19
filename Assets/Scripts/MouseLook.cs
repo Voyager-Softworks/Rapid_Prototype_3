@@ -49,7 +49,7 @@ public class MouseLook : MonoBehaviour
 
     private void CheckLookingAt()
     {
-        if (bestHit.transform && bestHit.transform.GetComponent<Outline>()) bestHit.transform.GetComponent<Outline>().OutlineWidth = 0.0f;
+        if (bestHit.transform && bestHit.transform.GetComponent<Outline>()) bestHit.transform.GetComponent<Outline>().enabled = false;
         bestHit = new RaycastHit();
         bestHit.distance = Mathf.Infinity;
 
@@ -64,7 +64,7 @@ public class MouseLook : MonoBehaviour
 
             if (_hit.distance <= bestHit.distance)
             {
-                if (_hit.transform && _hit.transform.GetComponent<Outline>()) _hit.transform.GetComponent<Outline>().OutlineWidth = 0.0f;
+                if (_hit.transform && _hit.transform.GetComponent<Outline>()) _hit.transform.GetComponent<Outline>().enabled = false;
                 bestHit = _hit;
             }
         }
