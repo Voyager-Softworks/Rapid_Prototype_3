@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     bool forceSlow = false;
 
     [Header("Jumping")]
-    public bool allowedJump = true;
+    public bool allowedJump = false;
     public float jumpHeight;
 
     public float gravity;
