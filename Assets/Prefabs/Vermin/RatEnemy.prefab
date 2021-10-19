@@ -440,6 +440,8 @@ MonoBehaviour:
   m_attackDuration: 1
   m_attackSource: {fileID: 4448429533629248978}
   m_runSource: {fileID: 2332560654894106511}
+  m_speed: 1.5
+  m_deathPrefab: {fileID: 0}
 --- !u!82 &4448429533629248978
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2577,9 +2579,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8866496482341596279, guid: 78bb99aa64fa0454d9b5d51af2ec8d50, type: 3}
-  - {fileID: 1695841675134466970, guid: 78bb99aa64fa0454d9b5d51af2ec8d50, type: 3}
-  - {fileID: 4095652626191366352, guid: 78bb99aa64fa0454d9b5d51af2ec8d50, type: 3}
+  - {fileID: 2100000, guid: c12a685c332773e43a18796cf7c28c4a, type: 2}
+  - {fileID: 2100000, guid: c12a685c332773e43a18796cf7c28c4a, type: 2}
+  - {fileID: 2100000, guid: 9e4c01827a9893b91b30a2c303b560a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
