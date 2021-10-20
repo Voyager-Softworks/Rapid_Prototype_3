@@ -366,8 +366,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.73140156, b: 0.374466, a: 1}
-  m_Intensity: 7
-  m_Range: 50
+  m_Intensity: 15
+  m_Range: 75
   m_SpotAngle: 52.965515
   m_InnerSpotAngle: 46.29655
   m_CookieSize: 10
@@ -400,7 +400,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2731,8 +2731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: 0.10215698, y: 0.61713016, z: -0.081246704, w: 0.77595955}
-  m_LocalPosition: {x: 162.49481, y: 0.9, z: 48.46425}
+  m_LocalRotation: {x: 0.089839384, y: 0.71923286, z: -0.09468877, w: 0.6823981}
+  m_LocalPosition: {x: 84.640656, y: 0.763, z: 41.57734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
@@ -3135,10 +3135,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cam: {fileID: 3689897955803055985}
-  m_shotgun: {fileID: 1444688361403533388}
   m_flashlight: {fileID: 137303253}
-  m_shotgunUnlocked: 1
+  m_shotgun: {fileID: 1444688361403533388}
+  m_currentlyEquipped: 0
   m_flashlightUnlocked: 1
+  m_shotgunUnlocked: 1
+  EquipFlashlight: {fileID: 0}
+  EquipShotgun: {fileID: 0}
   controller: {fileID: 1787359199434955370}
   groundCheck: {fileID: 1787359198751704711}
   groundDistance: 0.2
