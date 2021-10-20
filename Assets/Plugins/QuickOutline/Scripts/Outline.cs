@@ -56,8 +56,8 @@ public class Outline : MonoBehaviour
         }
     }
 
-    private float initialOutlineWidth = 0.0f;
-    public float GetInitialOutlineWidth() { return initialOutlineWidth; }
+    //private float initialOutlineWidth = 0.0f;
+    //public float GetInitialOutlineWidth() { return initialOutlineWidth; }
 
     [Serializable]
     private class ListVector3
@@ -73,6 +73,7 @@ public class Outline : MonoBehaviour
 
     [SerializeField, Range(0f, 10f)]
     private float outlineWidth = 2f;
+    [SerializeField] private bool setWidthTo10 = true;
 
     [Header("Optional")]
 
@@ -94,7 +95,8 @@ public class Outline : MonoBehaviour
 
     void Awake()
     {
-        initialOutlineWidth = OutlineWidth;
+        if (setWidthTo10) OutlineWidth = 10.0f;
+        //initialOutlineWidth = OutlineWidth;
 
         // Cache renderers
         renderers = GetComponentsInChildren<Renderer>();

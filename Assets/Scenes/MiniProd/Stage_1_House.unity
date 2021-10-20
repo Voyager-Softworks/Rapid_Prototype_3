@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 1787359198162137928, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 8400000, guid: c1cc3e1a9c84ccc40b8b539589d2b471, type: 2}
+      objectReference: {fileID: 8400000, guid: 294b2c47813e5904d8d47d9d95a942ec, type: 2}
     - target: {fileID: 1787359198162137935, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000000057742
@@ -1302,15 +1302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 2b67f20e441a0ca48a3b9fca8e29f38e, type: 2}
+  sharedProfile: {fileID: 0}
   isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
-  m_PreviousLayer: 0
-  m_PreviousPriority: 0
-  m_TempColliders: []
-  m_InternalProfile: {fileID: 0}
 --- !u!114 &1690293106 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 425814032, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
@@ -1834,6 +1830,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8262512419717217852, guid: 88fa429e09689c74b8691f237e961889, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fa429e09689c74b8691f237e961889, type: 3}
 --- !u!1001 &9130812747399162717
@@ -1867,6 +1867,14 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1184902121}
+    - target: {fileID: 6097310835252903878, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: Notes
+      value: e
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097310835252903878, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: outlineWidth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8247850139935313069, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: m_Name
       value: HouseInterior

@@ -73,7 +73,6 @@ public class MouseLook : MonoBehaviour
         {
             Outline ol = bestHit.transform.GetComponent<Outline>();
             ol.enabled = true;
-            ol.OutlineWidth = ol.GetInitialOutlineWidth();
         }
     }
 }
