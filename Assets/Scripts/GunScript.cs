@@ -136,6 +136,7 @@ public class GunScript : MonoBehaviour
         GameObject particles = Instantiate(shotParticles, end.position, end.rotation, null);
         Destroy(particles, 2);
 
+        m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
         foreach (EnemyAI _enemy in m_enemies)
         {
             Vector3 dir = (_enemy.transform.position - transform.position);
