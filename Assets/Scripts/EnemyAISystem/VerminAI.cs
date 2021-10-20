@@ -98,7 +98,7 @@ public class VerminAI : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(m_deathPrefab, this.transform.position, this.transform.rotation);
+        Destroy(Instantiate(m_deathPrefab, this.transform.position, this.transform.rotation), 2.0f);
         Destroy(this.gameObject);
     }
 

@@ -2211,7 +2211,7 @@ MonoBehaviour:
   shotParticles: {fileID: 3816971866841486247, guid: a5052a24690b1d14f81d2a1dc34cafe9, type: 3}
   shotSound: {fileID: 0}
   noiseMaker: {fileID: 7115408418560647538}
-  ammo: 0
+  ammo: 5
   r_chamber: 1
   l_chamber: 1
 --- !u!114 &7115408418560647538
@@ -2731,8 +2731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: 0.089839384, y: 0.71923286, z: -0.09468877, w: 0.6823981}
-  m_LocalPosition: {x: 84.640656, y: 0.763, z: 41.57734}
+  m_LocalRotation: {x: 0.13052616, y: -0.000000029802322, z: -0, w: 0.99144495}
+  m_LocalPosition: {x: -0.0000007515773, y: 0.5, z: 0.24099424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
@@ -3240,6 +3240,8 @@ MonoBehaviour:
   isSneaking: 0
   sneakNoiseReduction: 0
   sneakDetectionChance: 0.1
+  normalFootstep: {fileID: 11400000, guid: e0065d9d35d45caf2ad0c26d4fb19abf, type: 2}
+  sneakFootstep: {fileID: 11400000, guid: 8b3af5cd167765e88b11ff8bffdf654b, type: 2}
 --- !u!114 &1787359199434955374
 MonoBehaviour:
   m_ObjectHideFlags: 0

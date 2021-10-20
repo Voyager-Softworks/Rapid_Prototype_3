@@ -24,6 +24,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] bool l_chamber = true;
 
     EnemyAI[] m_enemies;
+    VerminAI[] m_rats;
 
     GameObject m_meteor;
     GameObject m_jerrycanManager;
@@ -50,6 +51,7 @@ public class GunScript : MonoBehaviour
         if (!m_boss) m_boss = GameObject.Find("BOSS_Bear_Finished");
         if (!m_jerrycanManager) m_jerrycanManager = GameObject.Find("JerrycanManager");
         m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
+        m_rats = GameObject.FindObjectsOfType<VerminAI>();
         UpdateVisuals();
     }
 
@@ -142,6 +144,18 @@ public class GunScript : MonoBehaviour
             if (dist <= 20 && angle <= 20)
             {
                 _enemy.RecieveFlee();
+            }
+        }
+
+        m_rats = GameObject.FindObjectsOfType<VerminAI>();
+        foreach (VerminAI _enemy in m_rats)
+        {
+            Vector3 dir = (_enemy.transform.position - transform.position);
+            float angle = Vector3.Angle(dir.normalized, transform.forward);
+            float dist = dir.magnitude;
+            if (dist <= 20 && angle <= 20)
+            {
+                _enemy.Shoot();
             }
         }
 
