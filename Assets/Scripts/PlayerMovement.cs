@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) || Input.mouseScrollDelta.y != 0)
         {
-            NextEquipment(Input.mouseScrollDelta.y != 0 ? Input.mouseScrollDelta.y < 0 ? false : true : true);
+            NextEquipment(Input.mouseScrollDelta.y != 0 ? Input.mouseScrollDelta.y > 0 ? true : false : false);
             UpdateHeldEquipment();
         }
 
