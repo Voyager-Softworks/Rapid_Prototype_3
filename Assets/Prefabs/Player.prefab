@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &429825625
 Transform:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639557447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.06}
+  m_LocalPosition: {x: 0, y: 0.041, z: 1.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 137303254}
@@ -365,14 +365,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 5
-  m_Range: 20
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 50
+  m_Color: {r: 0.9339623, g: 0.73140156, b: 0.374466, a: 1}
+  m_Intensity: 7
+  m_Range: 50
+  m_SpotAngle: 52.965515
+  m_InnerSpotAngle: 46.29655
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -408,7 +408,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -2731,8 +2731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 0.49999976, z: 0.24099731}
+  m_LocalRotation: {x: 0.10215698, y: 0.61713016, z: -0.081246704, w: 0.77595955}
+  m_LocalPosition: {x: 162.49481, y: 0.9, z: 48.46425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
@@ -3146,8 +3146,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   body: {fileID: 1787359198691686676}
-  moveSpeed: 10
-  sneakSpeed: 5
+  moveSpeed: 5
+  sneakSpeed: 2.5
   runSpeed: 15
   maxExertion: 10
   exertionCurve:
@@ -3264,7 +3264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_noisePrefab: {fileID: 1835079300825276290, guid: ee7bda371cf32ce6aa8374feb1ec6ac6, type: 3}
   m_baseRange: 20
-  m_distanceMultiplier: 3000
+  m_distanceMultiplier: 1500
   m_decayRate: 50
   m_noise: {fileID: 11400000, guid: e0065d9d35d45caf2ad0c26d4fb19abf, type: 2}
   m_playOnCollision: 0
@@ -8168,7 +8168,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -330.22818, y: -555.35266, z: 625.8152}
 --- !u!1 &7025548797858185634
 GameObject:
   m_ObjectHideFlags: 0
