@@ -31,7 +31,10 @@ public class PlayerInteracts : Condition
     bool once = true;
     private void LateUpdate()
     {
-        if (once && GetComponent<Outline>()) { once = false; GetComponent<Outline>().enabled = false; }
+        if (once && GetComponent<Outline>()) { 
+            once = false;
+            GetComponent<Outline>().enabled = false; 
+        }
     }
 
     void CheckCoditions()

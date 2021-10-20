@@ -28,13 +28,14 @@ public class EnableDisabe : MonoBehaviour
         line = GetComponentInChildren<Image>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (tempWorldPos != Vector3.zero)
         {
             if (Vector3.Dot(Camera.main.transform.forward, tempWorldPos - Camera.main.transform.position) > 0)
             {
-                Vector3 tempPos = Camera.main.WorldToScreenPoint(tempWorldPos);
+                Vector3 tempPos = Camera.main.WorldToViewportPoint(tempWorldPos);
+                tempPos = new Vector3(tempPos.x * Screen.width, tempPos.y * Screen.height, tempPos.y);
                 GetComponent<RectTransform>().position = tempPos;
             }
         }
