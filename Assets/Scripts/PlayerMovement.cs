@@ -8,15 +8,27 @@ using UnityEngine.Events;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
+    public enum Equipment
+    {
+        None,
+        Shotgun,
+        Flashlight,
+        END
+    }
+
     [Header("Camera")]
     [SerializeField] GameObject m_cam;
     float camY = 0;
 
     [Header("Equipment")]
-    [SerializeField] GameObject m_shotgun;
     [SerializeField] GameObject m_flashlight;
-    public bool m_shotgunUnlocked = false;
+    [SerializeField] GameObject m_shotgun;
+    public Equipment m_currentlyEquipped = Equipment.None;
     public bool m_flashlightUnlocked = false;
+    public bool m_shotgunUnlocked = false;
+
+    [SerializeField] AudioClip EquipFlashlight;
+    [SerializeField] AudioClip EquipShotgun;
 
     [Header("Ground")]
     public CharacterController controller;
@@ -70,20 +82,22 @@ public class PlayerMovement : MonoBehaviour
         distanceTraveled = 0;
         camY = m_cam.transform.localPosition.y;
         currExertion = 0.0f;
+
+        UpdateHeldEquipment();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.mouseScrollDelta.y != 0)
         {
-            if (m_shotgunUnlocked) m_shotgun.SetActive(!m_shotgun.activeSelf);
-            if (m_flashlightUnlocked) m_flashlight.SetActive(m_shotgun.activeSelf ? false : !m_flashlight.activeSelf);
+            NextEquipment(false);
+            UpdateHeldEquipment();
         }
 
         if (Time.time - lastHit >= countdown)
         {
-            forceSlow = false; 
+            forceSlow = false;
         }
         else
         {
@@ -125,8 +139,8 @@ public class PlayerMovement : MonoBehaviour
         isSneaking = false;
         if (forceSlow || Input.GetKey(KeyCode.LeftControl))
         {
-            moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed,  2.0f * Time.deltaTime);
-            if (Input.GetKey(KeyCode.LeftControl)) 
+            moveSpeed = Mathf.Lerp(moveSpeed, sneakSpeed, 2.0f * Time.deltaTime);
+            if (Input.GetKey(KeyCode.LeftControl))
             {
                 body.transform.localPosition = Vector3.Lerp(body.transform.localPosition, -body.transform.up * 0.5f, 3 * Time.deltaTime);
                 isSneaking = true;
@@ -146,12 +160,12 @@ public class PlayerMovement : MonoBehaviour
 
         currExertion -= Time.deltaTime;
         currExertion = Mathf.Clamp(currExertion, 0, 10);
-        
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = Vector3.ClampMagnitude((transform.right * x) + (transform.forward * z), 1.0f);
-        if(currExertion > (0.75f * maxExertion) && move.magnitude > 0.1f) currExertion += (Time.deltaTime * 0.5f);
+        if (currExertion > (0.75f * maxExertion) && move.magnitude > 0.1f) currExertion += (Time.deltaTime * 0.5f);
         move *= (moveSpeed);
 
         velocity = new Vector3(move.x, velocity.y, move.z);
@@ -171,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
             distanceTraveled += new Vector3(velocity.x, 0, velocity.z).magnitude * Time.deltaTime;
         }
 
-        controller.Move(velocity * Time.deltaTime  * exertionCurve.Evaluate(currExertion));
+        controller.Move(velocity * Time.deltaTime * exertionCurve.Evaluate(currExertion));
 
         m_cam.transform.localPosition =
             (transform.up * camY * (1.0f - Mathf.Sin(distanceTraveled * (1.0f / stepLength))) * stepHeight)
@@ -189,6 +203,51 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             oneStep = true;
+        }
+    }
+
+    private void UpdateHeldEquipment()
+    {
+        switch (m_currentlyEquipped)
+        {
+            case Equipment.None:
+                if (m_flashlight.activeSelf) m_flashlight.SetActive(false);
+                if (m_shotgun.activeSelf) m_shotgun.SetActive(false);
+                break;
+
+            case Equipment.Flashlight:
+                if (!m_flashlight.activeSelf) m_flashlight.SetActive(true);
+                if (m_shotgun.activeSelf) m_shotgun.SetActive(false);
+                GetComponent<AudioSource>().PlayOneShot(EquipFlashlight);
+                break;
+
+            case Equipment.Shotgun:
+                if (m_flashlight.activeSelf) m_flashlight.SetActive(false);
+                if (!m_shotgun.activeSelf) m_shotgun.SetActive(true);
+                GetComponent<AudioSource>().PlayOneShot(EquipShotgun);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void NextEquipment(bool increase = true)
+    {
+        m_currentlyEquipped += increase ? 1 : -1;
+
+        if (m_currentlyEquipped < 0) m_currentlyEquipped = Equipment.END - 1;
+        if (m_currentlyEquipped > Equipment.END - 1) m_currentlyEquipped = 0;
+
+        switch (m_currentlyEquipped)
+        {
+            case Equipment.Flashlight:
+                if (!m_flashlightUnlocked) NextEquipment(increase);
+                break;
+
+            case Equipment.Shotgun:
+                if (!m_shotgunUnlocked) NextEquipment(increase);
+                break;
         }
     }
 
