@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
 
 
     [Header("Debugging")]
-    public Vector3 mostRecentAlertPosition, mostRecentAwarePosition;
+    public Vector3 mostRecentAlertPosition, mostRecentAwarePosition, currentSearchPosition, currentSearchAreaPosition;
     public AIState m_currentState;
 
     [Header("Vision")]
@@ -70,6 +70,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Search Behaviour")]
     public int m_searchChance;
+    public float m_searchRadius;
 
     [Header("Attacking")]
     public float m_attackRadius;
@@ -230,7 +231,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     agent.speed = m_investigateSpeed;
                     agent.angularSpeed = m_investigateTurnSpeed;
-                    agent.destination = GetWanderPosition(30.0f, 30.0f, mostRecentAwarePosition - gameObject.transform.position);
+                    agent.destination = GetWanderPosition(50.0f, 50.0f, mostRecentAwarePosition - gameObject.transform.position);
                 }
                 break;
             case AIState.SEARCHING:
@@ -244,12 +245,20 @@ public class EnemyAI : MonoBehaviour
                     m_currentState = AIState.PURSUING;
                     m_stateTimer = m_minimumStateDuration;
                 }
-                if ((mostRecentAwarePosition - gameObject.transform.position).magnitude <= m_attackRadius * 2 && m_stateTimer <= 0)
+                if ((currentSearchPosition - gameObject.transform.position).magnitude <= m_attackRadius * 0.2f && m_stateTimer <= 0)
                 {
-                    m_currentState = AIState.INVESTIGATING;
-                    m_stateTimer = m_minimumStateDuration;
+                    if(m_awareness < m_investigateThreshhold)
+                    {
+                        m_currentState = AIState.PATROLLING;
+                        m_stateTimer = m_minimumStateDuration;
+                    }
+                    else
+                    {
+                        float rand = Random.Range(0, Mathf.PI * 2);
+                        currentSearchPosition =  new Vector3((Random.Range(0.0f, m_searchRadius) * Mathf.Cos(rand)) + currentSearchAreaPosition.x, currentSearchAreaPosition.y, (Random.Range(0.0f, m_searchRadius) * Mathf.Sin(rand)) + currentSearchAreaPosition.z);
+                    }
                 }
-                agent.destination = mostRecentAlertPosition;
+                agent.destination = currentSearchPosition;
                 break;
             case AIState.PURSUING:
                 anim.SetBool("PURSUING", true);
@@ -348,6 +357,10 @@ public class EnemyAI : MonoBehaviour
             m_currentState = AIState.SEARCHING;
             agent.destination = _alertPos.position;
             mostRecentAlertPosition = _alertPos.position;
+            currentSearchAreaPosition = _alertPos.position;
+            float rand = Random.Range(0, Mathf.PI * 2);
+            currentSearchPosition =  new Vector3((Random.Range(0.0f, m_searchRadius) * Mathf.Cos(rand)) + currentSearchAreaPosition.x, currentSearchAreaPosition.y, (Random.Range(0.0f, m_searchRadius) * Mathf.Sin(rand)) + currentSearchAreaPosition.z);
+            
         }
 
     }
@@ -363,9 +376,9 @@ public class EnemyAI : MonoBehaviour
 
     public void RecieveAware(Transform _awarePos)
     {
-        if (m_awareness + Time.deltaTime * 2 <= 7.0f)
+        if (m_awareness + Time.deltaTime <= 7.0f)
         {
-            m_awareness += Time.deltaTime * 2;
+            m_awareness += Time.deltaTime;
         }
         else
         {
@@ -397,6 +410,19 @@ public class EnemyAI : MonoBehaviour
             }
             
         }
+    }
+
+     void DrawCircle(float _radius, Vector3 _center)
+    {
+        Vector3 dir = Vector3.forward;
+        int fidelity = (int)(50);
+        for (int i = 0; i < fidelity-1; i++)
+        {
+            Vector3 newDir = Quaternion.AngleAxis(360/fidelity, Vector3.up) * dir;
+            Gizmos.DrawLine((_center + (dir * _radius)), (_center + (newDir * _radius)));
+            dir = newDir;
+        }
+        Gizmos.DrawLine((_center + (dir * _radius)), (_center + (Vector3.forward * _radius)));
     }
 
 
@@ -454,6 +480,14 @@ public class EnemyAI : MonoBehaviour
                 Gizmos.color = Color.green;
                 break;
             case AIState.SEARCHING:
+                Gizmos.color = Color.yellow;
+                DrawCircle(m_searchRadius, currentSearchAreaPosition);
+                Vector3 toSearchPos = (currentSearchAreaPosition - transform.position);
+                Vector3 radiusIntersect = (toSearchPos * (1.0f - (m_searchRadius/toSearchPos.magnitude))) + this.transform.position;
+                Gizmos.DrawLine(this.transform.position, radiusIntersect);
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(radiusIntersect, currentSearchPosition);
+                DrawCircle(m_attackRadius * 0.2f, currentSearchPosition);
                 Gizmos.color = Color.yellow;
                 break;
             case AIState.PURSUING:

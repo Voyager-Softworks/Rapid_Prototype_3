@@ -3141,7 +3141,9 @@ MonoBehaviour:
   m_flashlightUnlocked: 1
   m_shotgunUnlocked: 1
   EquipFlashlight: {fileID: 0}
+  UnequipFlashlight: {fileID: 0}
   EquipShotgun: {fileID: 0}
+  UnequipShotgun: {fileID: 0}
   controller: {fileID: 1787359199434955370}
   groundCheck: {fileID: 1787359198751704711}
   groundDistance: 0.2
@@ -3205,19 +3207,7 @@ MonoBehaviour:
   distanceTraveled: 0
   Step:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 842017841}
-        m_TargetAssemblyTypeName: NoiseMaker, Assembly-CSharp
-        m_MethodName: PlayNoise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   CornHit:
     m_PersistentCalls:
       m_Calls:
@@ -3238,6 +3228,8 @@ MonoBehaviour:
   isSneaking: 0
   sneakNoiseReduction: 0
   sneakDetectionChance: 0.1
+  normalFootstep: {fileID: 11400000, guid: e0065d9d35d45caf2ad0c26d4fb19abf, type: 2}
+  sneakFootstep: {fileID: 11400000, guid: 8b3af5cd167765e88b11ff8bffdf654b, type: 2}
 --- !u!114 &1787359199434955374
 MonoBehaviour:
   m_ObjectHideFlags: 0

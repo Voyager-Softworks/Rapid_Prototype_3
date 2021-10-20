@@ -77,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
     public float sneakNoiseReduction = 0.0f;
     public float sneakDetectionChance = 0.5f;
 
+    NoiseMaker footstepNoise;
+    public NoiseData normalFootstep;
+    public NoiseData sneakFootstep;
+
     private void Start()
     {
         source = GetComponent<AudioSource>(); ;
@@ -86,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
         currExertion = 0.0f;
 
         UpdateHeldEquipment();
+
+        footstepNoise = GetComponent<NoiseMaker>();
     }
 
     // Update is called once per frame
@@ -199,6 +205,8 @@ public class PlayerMovement : MonoBehaviour
             if (oneStep)
             {
                 oneStep = false;
+                footstepNoise.m_noise = (isSneaking ? sneakFootstep : normalFootstep);
+                footstepNoise.PlayNoise();
                 Step.Invoke();
             }
         }
