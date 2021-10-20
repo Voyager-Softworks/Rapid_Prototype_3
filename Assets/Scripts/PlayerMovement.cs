@@ -28,7 +28,9 @@ public class PlayerMovement : MonoBehaviour
     public bool m_shotgunUnlocked = false;
 
     [SerializeField] AudioClip EquipFlashlight;
+    [SerializeField] AudioClip UnequipFlashlight;
     [SerializeField] AudioClip EquipShotgun;
+    [SerializeField] AudioClip UnequipShotgun;
 
     [Header("Ground")]
     public CharacterController controller;
@@ -91,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) || Input.mouseScrollDelta.y != 0)
         {
-            NextEquipment(false);
+            NextEquipment(Input.mouseScrollDelta.y != 0 ? Input.mouseScrollDelta.y < 0 ? false : true : true);
             UpdateHeldEquipment();
         }
 
@@ -211,8 +213,16 @@ public class PlayerMovement : MonoBehaviour
         switch (m_currentlyEquipped)
         {
             case Equipment.None:
-                if (m_flashlight.activeSelf) m_flashlight.SetActive(false);
-                if (m_shotgun.activeSelf) m_shotgun.SetActive(false);
+                if (m_flashlight.activeSelf)
+                {
+                    m_flashlight.SetActive(false);
+                    GetComponent<AudioSource>().PlayOneShot(UnequipFlashlight);
+                }
+                if (m_shotgun.activeSelf)
+                {
+                    m_shotgun.SetActive(false);
+                    GetComponent<AudioSource>().PlayOneShot(UnequipShotgun);
+                }
                 break;
 
             case Equipment.Flashlight:
