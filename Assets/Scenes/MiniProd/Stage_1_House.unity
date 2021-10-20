@@ -1132,6 +1132,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16213e0a7bb55614b8bd9099f459ad30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1103850291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1833513550, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+  m_PrefabInstance: {fileID: 9130812747399162717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583650aaa933b45449cd07081ee6795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1129989420 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 274414992067133170, guid: d6ab912e008ae004a9eea0d54bd9d791, type: 3}
@@ -1868,6 +1879,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1144337780}
     - target: {fileID: 1833513550, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: worldMessage
+      value: Dont need to go outside
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833513550, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 984712473}
@@ -1880,6 +1895,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 900475741}
     - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1129989420}
@@ -1887,6 +1910,34 @@ PrefabInstance:
       propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1742967460}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1103850291}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetWorldMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: PlayerInteracts, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_FloatArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
+      value: Need my gun, ammo, and flashlight first
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875708980, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerReached.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8247850139935313069, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: m_Name
       value: HouseInterior

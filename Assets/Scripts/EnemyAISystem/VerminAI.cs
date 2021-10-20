@@ -57,7 +57,7 @@ public class VerminAI : MonoBehaviour
                 m_runSource.Play();
             }
         }
-        m_agent.destination = playerTransform.position;
+        if(m_agent.isOnNavMesh) m_agent.destination = playerTransform.position;
         if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Angle(transform.forward, (playerTransform.position - m_headTransform.position)) < m_visionAngle / 2)
         {
             if(m_attackTimer <= 0.0f)
