@@ -135,10 +135,10 @@ public class EnemyAI : MonoBehaviour
                 (playerTransform.position - m_headTransform.position).magnitude, 
                 layerMask: LayerMask.GetMask("Obstacles")))
                 {
-                    if(!(playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking && 
-                    Random.Range(0, 100) > (playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f)))
+                    if(!playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking ||
+                    Random.Range(0, 100) > (playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f))
                     {
-                        m_awareness += 4.0f * Time.deltaTime;
+                        m_awareness += 8.0f * Time.deltaTime;
                     }
                 }
         }
@@ -352,7 +352,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void RecieveAlert(Transform _alertPos)
     {
-        if ((m_currentState == (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING) || m_currentState == AIState.INVESTIGATING) && Random.Range(1, 100) < m_searchChance)
+        if ((m_currentState == (m_patrolAgent != null ? AIState.PATROLLING : AIState.WANDERING) || m_currentState == AIState.INVESTIGATING || m_currentState == AIState.SEARCHING) && Random.Range(1, 100) < m_searchChance)
         {
             m_currentState = AIState.SEARCHING;
             agent.destination = _alertPos.position;
