@@ -370,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 553192748229756678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8969368851398044753}
   - {fileID: 5285741541355509007}
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_attackDuration: 1
   m_attackSource: {fileID: 4448429533629248978}
   m_runSource: {fileID: 2332560654894106511}
-  m_speed: 1.5
+  m_speed: 3
   m_deathPrefab: {fileID: 8090348779352603015, guid: 52111c057f8b0174bae8724245c3395a, type: 3}
 --- !u!82 &4448429533629248978
 AudioSource:
