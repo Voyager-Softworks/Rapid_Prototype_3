@@ -2277,7 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847ab3d8cb1465b4f9902e19d63d2461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 0}
+  menu: {fileID: 7508779472013062495}
   win: {fileID: 1178841073474776947}
   lose: {fileID: 1178841073017456072}
 --- !u!1 &8872125094766883019
@@ -2450,8 +2450,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9101278975546442476, guid: f322919070cca984e8971749de12b941, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6787438172589904197}
+    - target: {fileID: 9101278975546442476, guid: f322919070cca984e8971749de12b941, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101278975546442476, guid: f322919070cca984e8971749de12b941, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f322919070cca984e8971749de12b941, type: 3}
+--- !u!1 &7508779472013062495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5625396548619262780, guid: f322919070cca984e8971749de12b941, type: 3}
+  m_PrefabInstance: {fileID: 2748857679139940963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7508779472013062494 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5625396548619262781, guid: f322919070cca984e8971749de12b941, type: 3}
