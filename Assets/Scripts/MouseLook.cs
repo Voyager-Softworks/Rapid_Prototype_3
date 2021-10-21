@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,16 +14,43 @@ public class MouseLook : MonoBehaviour
 
     RaycastHit bestHit = new RaycastHit();
 
+    private GameObject m_target;
+    private float m_time = 2.0f;
+    private float m_timeStarted = 0;
+    private float m_speed = 1.0f;
+
+    public void LookAt(GameObject _target)
+    {
+        m_target = _target;
+        m_timeStarted = Time.time;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        m_timeStarted = -m_time;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Cursor.lockState == CursorLockMode.Locked)
+        if (Time.time - m_timeStarted <= m_time)
+        {
+            if (m_target && m_target.transform)
+            {
+                player.transform.LookAt(Vector3.Lerp(player.transform.position + player.transform.forward, m_target.transform.position, m_speed * Time.deltaTime));
+                player.transform.localRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, 0);
+
+                if (Vector3.Dot(cam.transform.forward, m_target.transform.position - cam.transform.position) > 0)
+                {
+                    cam.transform.LookAt(Vector3.Lerp(cam.transform.position + cam.transform.forward, m_target.transform.position, m_speed * Time.deltaTime));
+                    cam.transform.localRotation = Quaternion.Euler(cam.transform.localRotation.eulerAngles.x, 0, 0);
+                    xRoation = cam.transform.localRotation.eulerAngles.x;
+                }
+            }
+        }
+        else if (Cursor.lockState == CursorLockMode.Locked)
         {
             
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
