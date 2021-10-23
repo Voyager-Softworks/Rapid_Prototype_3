@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3e197a43f9b1345b0df40265243621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isComplete: 0
   PlayerReached:
     m_PersistentCalls:
       m_Calls:
@@ -260,9 +261,11 @@ MonoBehaviour:
   CantTrigger:
     m_PersistentCalls:
       m_Calls: []
-  m_player: {fileID: 0}
+  ConditionsMet:
+    m_PersistentCalls:
+      m_Calls: []
+  Conditions: []
   canPlayerTrigger: 1
-  hasPlayerReached: 0
   infoBox: {fileID: 0}
   worldMessage: 
 --- !u!82 &725620916
@@ -278,7 +281,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 00a436dd1b38cab4e8d6680b8776d282, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.030488
   Loop: 0
   Mute: 0
   Spatialize: 0
