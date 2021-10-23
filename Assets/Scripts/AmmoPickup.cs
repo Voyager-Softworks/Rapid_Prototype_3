@@ -14,11 +14,13 @@ public class AmmoPickup : MonoBehaviour
 {
     [Header("Editable")]
     public int m_amount = 5;
+    public AudioClip m_pickupSound;
 
     [Header("External")]
     public GameObject m_player;
     public GunScript m_playerGun;
     public PlayerMovement m_playerMovement;
+    public AudioSource m_playerAS;
 
     [Header("Internal")]
     public PlayerInteracts m_pi;
@@ -80,6 +82,7 @@ public class AmmoPickup : MonoBehaviour
         m_collider = GetComponent<MeshCollider>();
 
 
+
         if (!m_pi)
         {
             Debug.LogWarning("No <PlayerInteracts> found on " + gameObject.name + ", adding one.");
@@ -110,6 +113,7 @@ public class AmmoPickup : MonoBehaviour
         {
             m_playerGun = m_player.GetComponentInChildren<GunScript>(true);
             m_playerMovement = m_player.GetComponent<PlayerMovement>();
+            m_playerAS = m_player.GetComponent<AudioSource>();
         }
 
         if (!m_playerGun)
@@ -122,7 +126,12 @@ public class AmmoPickup : MonoBehaviour
             Debug.LogWarning("No <PlayerMovement> found on 'Player'.");
         }
 
-        if (m_pi && m_player && m_playerGun && m_playerMovement)
+        if (!m_playerMovement)
+        {
+            Debug.LogWarning("No <AudioSource> found on 'Player'.");
+        }
+
+        if (m_pi && m_player && m_playerGun && m_playerMovement && m_playerAS)
         {
 
             while (m_pi.PlayerInteracted.GetPersistentEventCount() > 0)
@@ -137,6 +146,7 @@ public class AmmoPickup : MonoBehaviour
             UnityEventTools.AddBoolPersistentListener(m_pi.PlayerInteracted, gameObject.SetActive, false);
             UnityEventTools.AddFloatPersistentListener(m_pi.PlayerInteracted, m_playerGun.AddAmmo, m_amount);
             UnityEventTools.AddPersistentListener(m_pi.PlayerInteracted, m_pi.HideWorldMessage);
+            UnityEventTools.AddObjectPersistentListener<AudioClip>(m_pi.PlayerInteracted, m_playerAS.PlayOneShot, m_pickupSound);
 
             UnityEventTools.AddPersistentListener(m_pi.CantTrigger, m_pi.DisplayWorldMessage);
 
