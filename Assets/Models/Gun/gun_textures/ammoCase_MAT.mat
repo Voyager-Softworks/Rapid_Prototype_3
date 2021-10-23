@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ammoCase_MAT
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _METALLICSPECGLOSSMAP
+  m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,12 +20,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_2fb4cf98664246899fb0b62422267b8f:
+        m_Texture: {fileID: 2800000, guid: 250132c35c7f10a409ff434e2eab5051, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_af9c5c3ce6114ceba35d0cbb8745e3b7:
+        m_Texture: {fileID: 2800000, guid: 3265e15d68bfbb941b49c8b399b1178f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 250132c35c7f10a409ff434e2eab5051, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3265e15d68bfbb941b49c8b399b1178f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -53,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f835df4b49ad7a04fb858fd9549aa9b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -77,6 +85,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_3d4ec5afd3714fa4a7e8bbceadc7aa3a: 0
+    - Vector1_99423c91389a4b9c85824d3df9f4b788: 1.31
+    - Vector1_a2b1c83510654a9fbda87e3607a8bcc6: 0
+    - Vector1_adebc245281a4308b5580f5545a74966: 1
+    - Vector1_cbcd9bc9f17d42c09d39fffe0bafb25f: 1.21
+    - Vector1_d16cfd61797a4a55b3574c9559c27b5c: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -96,6 +110,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _SampleGI: 0
     - _Smoothness: 0.392
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -104,6 +119,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_dc4114555a324bfdb70fdd0b62bb8e73: {r: 0.83137256, g: 0.49411765, b: 0.11372549, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
