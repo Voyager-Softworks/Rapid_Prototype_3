@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6695730204763461230}
   - component: {fileID: 5417151423115526094}
   - component: {fileID: 3732241905452501148}
+  - component: {fileID: 7074854262827881809}
   m_Layer: 0
   m_Name: print_solo
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5182798013753997243}
-  m_LocalRotation: {x: 0, y: -0.105212376, z: -0, w: 0.9944498}
+  m_LocalRotation: {x: 0, y: -0.10521403, z: 0, w: 0.9944497}
   m_LocalPosition: {x: 138.46034, y: 0.70903033, z: 95.92211}
   m_LocalScale: {x: 0.12968959, y: 0.12968959, z: 0.12968959}
   m_Children: []
@@ -117,9 +118,6 @@ MonoBehaviour:
   m_isComplete: 0
   PlayerInteracted:
     m_PersistentCalls:
-      m_Calls: []
-  CantTrigger:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3732241905452501148}
         m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
@@ -133,6 +131,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3732241905452501148}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: SetCanTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3732241905452501148}
+        m_TargetAssemblyTypeName: Condition, Assembly-CSharp
+        m_MethodName: SetComplete
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CantTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   ConditionsMet:
     m_PersistentCalls:
       m_Calls: []
@@ -141,3 +166,17 @@ MonoBehaviour:
   canPlayerTrigger: 1
   infoBox: {fileID: 0}
   worldMessage: He must've gone this way
+--- !u!64 &7074854262827881809
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5182798013753997243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4144633243405581410, guid: 4fec40c9c04b5664890f6ff8ed57e77b, type: 3}
