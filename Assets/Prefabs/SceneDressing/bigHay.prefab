@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3786878805328924249}
   - component: {fileID: 1398725559311596179}
   - component: {fileID: 335747822389585429}
+  - component: {fileID: 811333095363987184}
   m_Layer: 0
   m_Name: bigHay
   m_TagString: Untagged
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 160.73657, y: 80.38013, z: 414.72272}
   m_Center: {x: 0, y: 38.40129, z: 0}
+--- !u!208 &811333095363987184
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606219087989267270}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 83.3, y: 47.3, z: 207.36101}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 38.401, z: 0}
+  m_TimeToStationary: 0.5
