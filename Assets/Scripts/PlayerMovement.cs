@@ -293,7 +293,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.name.Contains("Corn"))
         {
             cornCount++;
-            Debug.Log("Corn: " + cornCount);
             CornHit.Invoke();
             lastHit = Time.time;
         }

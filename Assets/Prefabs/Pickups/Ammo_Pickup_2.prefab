@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 2298971012352835436}
   - component: {fileID: 2298971012352835432}
   - component: {fileID: 2298971012352835435}
+  - component: {fileID: 419551023064405913}
   m_Layer: 0
   m_Name: Shells_refill_outside
   m_TagString: Untagged
@@ -214,7 +215,7 @@ MonoBehaviour:
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -226,15 +227,39 @@ MonoBehaviour:
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2298971012352835432}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: HideWorldMessage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   CantTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2298971012352835432}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: DisplayWorldMessage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ConditionsMet:
     m_PersistentCalls:
       m_Calls: []
@@ -242,7 +267,7 @@ MonoBehaviour:
   m_interactDistance: 3
   canPlayerTrigger: 1
   infoBox: {fileID: 0}
-  worldMessage: 
+  worldMessage: Cant hold anymore
 --- !u!114 &2298971012352835435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +287,22 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &419551023064405913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859570018054754930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb268e902783e944db069bb3831805d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_amount: 5
+  m_player: {fileID: 0}
+  m_playerGun: {fileID: 0}
+  m_playerMovement: {fileID: 0}
+  m_pi: {fileID: 2298971012352835432}
+  m_outline: {fileID: 2298971012352835435}
+  m_collider: {fileID: 2298971012352835434}
