@@ -16,12 +16,16 @@ public class GunScript : MonoBehaviour
     [SerializeField] Material green;
 
     [SerializeField] GameObject shotParticles;
-    [SerializeField] AudioClip shotSound;
+    [SerializeField] AudioClip reloadSound;
     [SerializeField] NoiseMaker noiseMaker;
 
     [SerializeField] static float ammo = 0;
     [SerializeField] static bool r_chamber = true;
     [SerializeField] static bool l_chamber = true;
+
+    private float reloadTime = 2.0f;
+    private float reloadCooldown = 1.0f;
+    private float reloadStart = 0.0f;
 
     EnemyAI[] m_enemies;
     VerminAI[] m_rats;
@@ -47,6 +51,8 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        reloadStart = -reloadTime;
+
         if (!m_meteor) m_meteor = GameObject.Find("Meteor");
         if (!m_boss) m_boss = GameObject.Find("BOSS_Bear_Finished");
         if (!m_jerrycanManager) m_jerrycanManager = GameObject.Find("JerrycanManager");
@@ -58,29 +64,54 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time - reloadStart <= reloadTime)
         {
-            Shoot();
-        }
+            GetComponent<LookAtCursor>().doLook = false;
 
-        if (Input.GetKeyDown(KeyCode.R))
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0,0,-2), Time.deltaTime);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(90, 0, 0), Time.deltaTime);
+            
+        }
+        else if (Time.time - reloadStart >= reloadTime + reloadCooldown)
         {
-            Reload();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Reload();
+            }
+        }
+        else
+        {
+            GetComponent<LookAtCursor>().doLook = true;
         }
     }
 
     public void Reload()
     {
+        bool didReload = false;
+
         if (!l_chamber && ammo > 0)
         {
             l_chamber = true;
             ammo--;
+            didReload = true;
         }
 
         if (!r_chamber && ammo > 0)
         {
             r_chamber = true;
             ammo--;
+            didReload = true;
+        }
+
+        if (didReload)
+        {
+            GetComponent<AudioSource>().PlayOneShot(reloadSound);
+            reloadStart = Time.time;
         }
 
         UpdateVisuals();
