@@ -19,9 +19,9 @@ public class GunScript : MonoBehaviour
     [SerializeField] AudioClip shotSound;
     [SerializeField] NoiseMaker noiseMaker;
 
-    [SerializeField] float ammo = 6;
-    [SerializeField] bool r_chamber = true;
-    [SerializeField] bool l_chamber = true;
+    [SerializeField] static float ammo = 0;
+    [SerializeField] static bool r_chamber = true;
+    [SerializeField] static bool l_chamber = true;
 
     EnemyAI[] m_enemies;
     VerminAI[] m_rats;
