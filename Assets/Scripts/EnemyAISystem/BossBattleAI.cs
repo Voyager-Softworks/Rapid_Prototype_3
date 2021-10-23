@@ -25,6 +25,8 @@ public class BossBattleAI : MonoBehaviour
     Animator m_anim;
     NavMeshAgent m_agent;
 
+    SkinnedMeshRenderer m_renderer;
+
     Transform m_playerTransform;
 
     public AudioSource m_injuredSFX, m_dieSFX, m_footstepSFX, m_bossmusicSFX;
@@ -59,6 +61,7 @@ public class BossBattleAI : MonoBehaviour
         m_anim = GetComponent<Animator>();
         m_agent = GetComponent<NavMeshAgent>();
         m_effect = GetComponent<SFX_Effect>();
+        m_renderer = GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
     public void StartBattle()
@@ -125,6 +128,8 @@ public class BossBattleAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(m_currState == BossAIState.WAITING || m_currState == BossAIState.INACTIVE) m_renderer.enabled = false;
+        else m_renderer.enabled = true;
         switch (m_currState)
         {
             case BossAIState.CHARGING:
