@@ -2212,6 +2212,8 @@ MonoBehaviour:
   shotParticles: {fileID: 3816971866841486247, guid: a5052a24690b1d14f81d2a1dc34cafe9, type: 3}
   reloadSound: {fileID: 8300000, guid: b90470d8bd433b7488d65dee72b9540a, type: 3}
   noiseMaker: {fileID: 7115408418560647538}
+  reloadTime: 2
+  reloadCooldown: 1
 --- !u!114 &7115408418560647538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3398,7 +3400,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0

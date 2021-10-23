@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2250320431821337802}
   m_LocalRotation: {x: -0.39002353, y: -0.5799452, z: -0.37288058, w: 0.6103322}
   m_LocalPosition: {x: 50.041, y: 0.942, z: 34.45106}
-  m_LocalScale: {x: 0.5310426, y: 0.5310426, z: 0.5310426}
+  m_LocalScale: {x: 0.003937055, y: 0.004150897, z: 0.00434965}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -235,17 +235,66 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 0775205931fa53044b824c74f272829c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: SetEquipment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   CantTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 780034640}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: DisplayWorldMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ConditionsMet:
     m_PersistentCalls:
-      m_Calls: []
-  Conditions: []
+      m_Calls:
+      - m_Target: {fileID: 780034640}
+        m_TargetAssemblyTypeName: PlayerInteracts, Assembly-CSharp
+        m_MethodName: SetCanTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  Conditions:
+  - {fileID: 0}
   m_interactDistance: 3
-  canPlayerTrigger: 1
+  canPlayerTrigger: 0
   infoBox: {fileID: 0}
-  worldMessage: 
+  worldMessage: Dont need my gun
 --- !u!114 &780034641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +310,7 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 0.707, b: 0, a: 1}
   outlineWidth: 5
+  setWidthTo10: 1
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
