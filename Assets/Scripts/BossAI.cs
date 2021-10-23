@@ -13,6 +13,7 @@ public class BossAI : MonoBehaviour
     public float m_audioDelay;
     float m_timer;
     Transform m_playerTransform;
+    SkinnedMeshRenderer m_renderer;
     public Animator m_anim;
 
     public bool m_manualWake = false;
