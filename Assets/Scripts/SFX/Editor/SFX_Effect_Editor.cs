@@ -100,6 +100,14 @@ public class SFX_Effect_Editor : Editor
                 GUIContent.none
                 );
                 break;
+            case SFX_Effect.SFXtype.STOP_SOUND:
+                EditorGUI.LabelField(new Rect(rect.x, rect.y + (EditorGUIUtility.singleLineHeight + 5) * 2, 150, EditorGUIUtility.singleLineHeight), "[ Play a Sound ]");
+                EditorGUI.PropertyField(
+                new Rect(rect.x + 150 + ((rect.width - 150) / 2), rect.y, (rect.width - 150) / 2, EditorGUIUtility.singleLineHeight * 4),
+                element.FindPropertyRelative("m_source"),
+                GUIContent.none
+                );
+                break;
             case SFX_Effect.SFXtype.SET_SCREEN_SHAKE:
                 EditorGUI.LabelField(new Rect(rect.x, rect.y + (EditorGUIUtility.singleLineHeight + 5) * 2, 170, EditorGUIUtility.singleLineHeight), "[ Set Screen Shake Amount ]");
                 EditorGUI.PropertyField(

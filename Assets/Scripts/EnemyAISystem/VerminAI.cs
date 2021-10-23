@@ -28,6 +28,7 @@ public class VerminAI : MonoBehaviour
     Vector3 m_lookVector;
     NavMeshAgent m_agent;
     Animator m_anim;
+    PatrolAgent m_patrolAgent;
 
     Rigidbody m_body;
 
@@ -41,6 +42,7 @@ public class VerminAI : MonoBehaviour
         m_anim = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         m_body = GetComponent<Rigidbody>();
+        m_patrolAgent = GetComponent<PatrolAgent>();
     }
 
     // Update is called once per frame
@@ -57,7 +59,7 @@ public class VerminAI : MonoBehaviour
                 m_runSource.Play();
             }
         }
-        if(m_agent.isOnNavMesh) m_agent.destination = playerTransform.position;
+        if(m_agent.isOnNavMesh && m_patrolAgent == null) m_agent.destination = playerTransform.position;
         if ((playerTransform.position - m_headTransform.position).magnitude <= m_visionDistance && Vector3.Angle(transform.forward, (playerTransform.position - m_headTransform.position)) < m_visionAngle / 2)
         {
             if(m_attackTimer <= 0.0f)

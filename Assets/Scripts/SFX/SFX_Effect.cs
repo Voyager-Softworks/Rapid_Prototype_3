@@ -12,6 +12,7 @@ public class SFX_Effect : MonoBehaviour
         DESTROY_OBJ,
         WAIT,
         PLAY_SOUND,
+        STOP_SOUND,
         PLAY_PARTICLE,
         STOP_PARTICLE,
         SET_SCREEN_SHAKE,
@@ -110,6 +111,9 @@ public class SFX_Effect : MonoBehaviour
                 case SFXtype.PLAY_SOUND:
                     currEffect.m_source.clip = currEffect.m_clip;
                     currEffect.m_source.Play();
+                    break;
+                case SFXtype.STOP_SOUND:
+                    currEffect.m_source.Stop();
                     break;
                 case SFXtype.SET_SCREEN_SHAKE:
                     if(m_noiseSettingsData != null)
