@@ -286,10 +286,6 @@ PrefabInstance:
       propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartScene
       objectReference: {fileID: 0}
-    - target: {fileID: 8588646081791930385, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8950692737420579587, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000000057742
@@ -2520,5 +2516,9 @@ PrefabInstance:
       propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 2108568130}
+    - target: {fileID: 9130812748536878881, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1144337780}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f0402f847b71e24595728c9564033b9, type: 3}

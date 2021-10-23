@@ -216,6 +216,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SetEquipment(Equipment _newEquip)
+    {
+        m_currentlyEquipped = _newEquip;
+        UpdateHeldEquipment();
+    }
+
+    public void SetEquipment(int _newEquip)
+    {
+        m_currentlyEquipped = (Equipment)_newEquip;
+        UpdateHeldEquipment();
+    }
+
     private void UpdateHeldEquipment()
     {
         switch (m_currentlyEquipped)

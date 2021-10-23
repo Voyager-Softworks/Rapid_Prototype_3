@@ -143,6 +143,7 @@ public class AmmoPickup : MonoBehaviour
                 UnityEventTools.RemovePersistentListener(m_pi.CantTrigger, 0);
             }
 
+            UnityEventTools.AddIntPersistentListener(m_pi.PlayerInteracted, m_playerMovement.SetEquipment, (int)PlayerMovement.Equipment.Shotgun);
             UnityEventTools.AddBoolPersistentListener(m_pi.PlayerInteracted, gameObject.SetActive, false);
             UnityEventTools.AddFloatPersistentListener(m_pi.PlayerInteracted, m_playerGun.AddAmmo, m_amount);
             UnityEventTools.AddPersistentListener(m_pi.PlayerInteracted, m_pi.HideWorldMessage);

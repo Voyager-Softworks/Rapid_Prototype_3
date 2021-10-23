@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GunScript : MonoBehaviour
 {
+    [Header("Parts")]
     [SerializeField] Transform r_end;
     [SerializeField] Transform l_end;
 
@@ -12,19 +14,30 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] GameObject[] shells;
 
+    [Header("Mats")]
     [SerializeField] Material red;
     [SerializeField] Material green;
 
+    [Header("Effects")]
     [SerializeField] GameObject shotParticles;
     [SerializeField] AudioClip reloadSound;
     [SerializeField] NoiseMaker noiseMaker;
 
+    [Header("Ammo")]
     [SerializeField] static float ammo = 0;
-    [SerializeField] static bool r_chamber = true;
-    [SerializeField] static bool l_chamber = true;
+    [SerializeField] static float ammoStarting = 0;
 
-    private float reloadTime = 2.0f;
-    private float reloadCooldown = 1.0f;
+    [SerializeField] static bool r_chamber = true;
+    [SerializeField] static bool r_chamberStarting = true;
+
+    [SerializeField] static bool l_chamber = true;
+    [SerializeField] static bool l_chamberStarting = true;
+
+    static private int currentLevel = 0;
+
+    [Header("Reload")]
+    [SerializeField] private float reloadTime = 2.0f;
+    [SerializeField] private float reloadCooldown = 1.0f;
     private float reloadStart = 0.0f;
 
     EnemyAI[] m_enemies;
@@ -51,6 +64,8 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResetAmmo();
+
         reloadStart = -reloadTime;
 
         if (!m_meteor) m_meteor = GameObject.Find("Meteor");
@@ -59,6 +74,21 @@ public class GunScript : MonoBehaviour
         m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
         m_rats = GameObject.FindObjectsOfType<VerminAI>();
         UpdateVisuals();
+    }
+
+    private static void ResetAmmo()
+    {
+        if (currentLevel == SceneManager.GetActiveScene().buildIndex)
+        {
+            ammo = ammoStarting;
+            r_chamber = r_chamberStarting;
+            l_chamber = l_chamberStarting;
+        }
+
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        ammoStarting = ammo;
+        r_chamberStarting = r_chamber;
+        l_chamberStarting = l_chamber;
     }
 
     // Update is called once per frame
