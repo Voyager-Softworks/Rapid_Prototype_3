@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Equipment")]
     [SerializeField] GameObject m_flashlight;
     [SerializeField] GameObject m_shotgun;
-    public Equipment m_currentlyEquipped = Equipment.None;
+    static public Equipment m_currentlyEquipped = Equipment.None;
     public bool m_flashlightUnlocked = false;
     public bool m_shotgunUnlocked = false;
 
