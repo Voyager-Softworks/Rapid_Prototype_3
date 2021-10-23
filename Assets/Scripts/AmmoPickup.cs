@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Events;
 using UnityEngine.Events;
 using System;
+
+#if UNITY_EDITOR
 using UnityEditor;
-//using static UnityEditor.Events.UnityEventTools;
+using UnityEditor.Events;
+#endif
 
 [ExecuteInEditMode]
 public class AmmoPickup : MonoBehaviour
@@ -35,6 +37,8 @@ public class AmmoPickup : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
+        if (EditorApplication.isCompiling) return;
+
         UpdateScript();
     }
 #endif
@@ -64,9 +68,9 @@ public class AmmoPickup : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     public void UpdateScript()
     {
-#if UNITY_EDITOR
         Undo.RecordObject(this, "UpdateScript");
 
         m_player = GameObject.Find("Player");
@@ -100,7 +104,7 @@ public class AmmoPickup : MonoBehaviour
 
         if (!m_player)
         {
-            Debug.LogError("No 'Player' found in scene.");
+            Debug.LogWarning("No 'Player' found in scene.");
         }
         else
         {
@@ -110,12 +114,12 @@ public class AmmoPickup : MonoBehaviour
 
         if (!m_playerGun)
         {
-            Debug.LogError("No <GunScript> found on 'Player' children.");
+            Debug.LogWarning("No <GunScript> found on 'Player' children.");
         }
 
         if (!m_playerMovement)
         {
-            Debug.LogError("No <PlayerMovement> found on 'Player'.");
+            Debug.LogWarning("No <PlayerMovement> found on 'Player'.");
         }
 
         if (m_pi && m_player && m_playerGun && m_playerMovement)
@@ -148,11 +152,11 @@ public class AmmoPickup : MonoBehaviour
             }
 
 
-                PrefabUtility.RecordPrefabInstancePropertyModifications(m_pi);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(m_pi);
             PrefabUtility.RecordPrefabInstancePropertyModifications(this);
 
             //PrefabUtility.RecordPrefabInstancePropertyModifications(GetComponent<AmmoPickup>());
         }
-#endif
     }
+#endif
 }

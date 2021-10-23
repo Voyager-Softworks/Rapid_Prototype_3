@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Events;
 
 [CustomEditor(typeof(AmmoPickup))]
 public class AmmoPickupEditor : Editor
@@ -19,3 +22,4 @@ public class AmmoPickupEditor : Editor
         }
     }
 }
+#endif
