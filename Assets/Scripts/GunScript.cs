@@ -109,6 +109,11 @@ public class GunScript : MonoBehaviour
         UpdateVisuals();
     }
 
+    public float GetAmmo()
+    {
+        return ammo;
+    }
+
     public void Shoot()
     {
         Transform end = null;
