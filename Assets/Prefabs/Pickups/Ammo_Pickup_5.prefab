@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2298971012352835435}
   - component: {fileID: 419551023064405913}
   m_Layer: 0
-  m_Name: Shells_refill_outside
+  m_Name: Ammo_Pickup_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,9 +265,9 @@ MonoBehaviour:
       m_Calls: []
   Conditions: []
   m_interactDistance: 3
-  canPlayerTrigger: 1
+  canPlayerTrigger: 0
   infoBox: {fileID: 0}
-  worldMessage: Cant hold anymore
+  worldMessage: Need my gun to use these
 --- !u!114 &2298971012352835435
 MonoBehaviour:
   m_ObjectHideFlags: 0
