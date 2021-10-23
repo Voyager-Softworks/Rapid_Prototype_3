@@ -146,10 +146,6 @@ PrefabInstance:
       propertyPath: OnDeathAnimComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 144350003}
-    - target: {fileID: 360788413182244423, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: OnDeathAnimComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartScene
-      objectReference: {fileID: 0}
     - target: {fileID: 1787359198162137935, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000023022294
@@ -184,50 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787359198162137935, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359198691686667, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: sneakFootstep
-      value: 
-      objectReference: {fileID: 11400000, guid: 83cf84db3c9aaba4ba71992236be6555, type: 2}
-    - target: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: normalFootstep
-      value: 
-      objectReference: {fileID: 11400000, guid: efbe5a6b6176ff64e80936e4cc0686f4, type: 2}
-    - target: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_shotgunUnlocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-      propertyPath: m_flashlightUnlocked
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1787359199434955369, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
@@ -2519,6 +2471,14 @@ PrefabInstance:
       propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 900475741}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: worldMessage
+      value: Need my gun to use these
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: canPlayerTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
