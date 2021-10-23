@@ -22,6 +22,8 @@ public class JerrycanManager : MonoBehaviour
     [Header("Meteor")]
     public GameObject m_meteor;
     public List<GameObject> m_meteorCans;
+    public AudioClip m_meteorScream;
+    public GameObject m_meteorParticles;
     public float m_totalBlown;
     public int m_numToWin = 3;
 
@@ -164,14 +166,22 @@ public class JerrycanManager : MonoBehaviour
         {
             if (_can.activeSelf)
             {
+                Destroy(Instantiate(m_meteorParticles, _can.transform.position, Quaternion.identity, null), 5.0f);
                 _can.SetActive(false);
                 m_totalBlown++;
             }
         }
 
+        if (m_totalBlown > 0)
+        {
+            m_meteor.transform.parent.GetComponent<Animator>().SetTrigger("DoInjured");
+            m_meteor.transform.parent.GetComponent<AudioSource>().PlayOneShot(m_meteorScream);
+        }
+
         if (m_totalBlown >= m_numToWin)
         {
-            m_meteor.SetActive(false);
+            m_meteor.transform.parent.GetComponent<Animator>().SetTrigger("DoDeath");
+            //m_meteor.SetActive(false);
             AllBlown.Invoke();
         }
     }

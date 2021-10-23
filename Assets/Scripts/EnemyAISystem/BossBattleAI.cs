@@ -80,12 +80,12 @@ public class BossBattleAI : MonoBehaviour
         m_footstepSFX.Play();
         if ((this.transform.position - m_playerTransform.position).magnitude < m_screenShakeRange)
         {
-            m_effect.m_effectsList[0].m_screenShakeAmplitude = (new Vector2(0.2f, 0.2f) * (1.0f - ((this.transform.position - m_playerTransform.position).magnitude / m_screenShakeRange)));
+            if (m_effect.m_effectsList.Count > 0) m_effect.m_effectsList[0].m_screenShakeAmplitude = (new Vector2(0.2f, 0.2f) * (1.0f - ((this.transform.position - m_playerTransform.position).magnitude / m_screenShakeRange)));
             m_effect.Play();
         }
         else
         {
-            m_effect.m_effectsList[0].m_screenShakeAmplitude = new Vector2(0.0f, 0.0f);
+            if (m_effect.m_effectsList.Count > 0) m_effect.m_effectsList[0].m_screenShakeAmplitude = new Vector2(0.0f, 0.0f);
             m_effect.Play();
         }
     }

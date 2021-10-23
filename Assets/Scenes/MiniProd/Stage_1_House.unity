@@ -328,6 +328,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+--- !u!114 &138384218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5074632281218101417, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+  m_PrefabInstance: {fileID: 138384217}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e967fe2673532474fb176e160d34e09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &138384219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1787359199434955371, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
+  m_PrefabInstance: {fileID: 138384217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &144350003 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5651391617800714230, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
@@ -639,6 +655,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1964224991, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 77b7b0d0dfc8bbe48ac028a70a753b9e, type: 3}
+    - target: {fileID: 5651391616184423005, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: onEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2057564425}
+    - target: {fileID: 5651391616184423005, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: onEnable.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 5651391617800714225, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1114,7 +1142,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1787359199434955368, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
   m_PrefabInstance: {fileID: 138384217}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 138384219}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 710477fd21b05904dab4d8528fe556d7, type: 3}
@@ -1749,6 +1777,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1090596549257622585, guid: 22bc92784244fd443b2787d76dc6b18e, type: 3}
   m_PrefabInstance: {fileID: 944894414}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2057564425 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1964224991, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+  m_PrefabInstance: {fileID: 662740636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2086973845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,7 +1853,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1787359199434955374, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
   m_PrefabInstance: {fileID: 138384217}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 138384219}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb019991c96d5e144bea39c0c200f156, type: 3}
@@ -2476,6 +2509,42 @@ PrefabInstance:
       propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 900475741}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: worldMessage
+      value: Need my gun to use these
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: canPlayerTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1144337780}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 138384218}
+    - target: {fileID: 7771816934812081919, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: PlayerInteracted.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 2108568130}
+    - target: {fileID: 8209522026277565966, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: m_player
+      value: 
+      objectReference: {fileID: 138384219}
+    - target: {fileID: 8209522026277565966, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: m_playerAS
+      value: 
+      objectReference: {fileID: 2108568130}
+    - target: {fileID: 8209522026277565966, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: m_playerGun
+      value: 
+      objectReference: {fileID: 138384218}
+    - target: {fileID: 8209522026277565966, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
+      propertyPath: m_playerMovement
+      value: 
+      objectReference: {fileID: 1144337780}
     - target: {fileID: 8247850139935313069, guid: 8f0402f847b71e24595728c9564033b9, type: 3}
       propertyPath: m_Name
       value: HouseInterior
