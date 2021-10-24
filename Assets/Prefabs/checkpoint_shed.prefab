@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 7412784180322503567}
   - component: {fileID: 7412784180322503566}
   - component: {fileID: 7412784180322503564}
+  - component: {fileID: 373098860358626866}
   m_Layer: 0
   m_Name: checkpointDoor
   m_TagString: Untagged
@@ -345,6 +346,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28158d7278fea248b9141b449c3dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &373098860358626866
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646573674091209044}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.2320004, y: 95.586006, z: 48.708004}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.769, y: 100.00001, z: -48.706}
+  m_TimeToStationary: 0.5
 --- !u!1 &7646573674835868648
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +374,7 @@ GameObject:
   - component: {fileID: 6267353750190337783}
   - component: {fileID: 8151209997454170685}
   - component: {fileID: 3055188837046583184}
+  - component: {fileID: 5920797604707095513}
   m_Layer: 0
   m_Name: checkpointShed_1
   m_TagString: Untagged
@@ -443,6 +461,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -9179383255079661142, guid: f42e3478ddf168b4ca244081266831d9, type: 3}
+--- !u!208 &5920797604707095513
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646573674835868648}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 214.682, y: 165.81801, z: 164.944}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 165.81801, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &9113967102181124614
 PrefabInstance:
   m_ObjectHideFlags: 0
