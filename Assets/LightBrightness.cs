@@ -12,6 +12,9 @@ public class LightBrightness : MonoBehaviour
     {
         m_player = GameObject.Find("Player");
         m_light = GetComponent<Light>();
+
+
+        m_light.innerSpotAngle = 0.0f;
     }
 
     // Update is called once per frame
@@ -45,7 +48,6 @@ public class LightBrightness : MonoBehaviour
 
             float newAng = 200.0f / Mathf.Pow(dist, 0.707f);
             m_light.spotAngle = Mathf.Lerp(m_light.spotAngle, newAng, 2.0f * Time.deltaTime);
-
         }
 
         
