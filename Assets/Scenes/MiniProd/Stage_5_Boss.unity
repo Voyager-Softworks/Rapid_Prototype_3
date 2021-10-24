@@ -1926,6 +1926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693852276}
   - component: {fileID: 693852275}
+  - component: {fileID: 693852277}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -2009,6 +2010,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &693852277
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693852274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a4c76ccf28f68f4188de1ec5e4d06b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &699020508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6717497727881016573, guid: 64fe2a54c78efe84bb34cab08125be3b, type: 3}
@@ -7493,6 +7513,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 919132148875741426, guid: a12e64cbe51d64846a73e642d322973b, type: 3}
+      propertyPath: m_Volume
+      value: 0.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494227146174361346, guid: a12e64cbe51d64846a73e642d322973b, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7129828323499325024, guid: a12e64cbe51d64846a73e642d322973b, type: 3}
       propertyPath: m_Name
       value: AlienMETEOR

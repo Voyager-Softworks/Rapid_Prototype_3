@@ -1065,6 +1065,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 163154598, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_Text
+      value: I should close the curtains and head to bed
+      objectReference: {fileID: 0}
+    - target: {fileID: 179939053, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_Text
+      value: 'Ah SHIT! Jesse''s still outside!
+
+        Gotta get my gun, buckshot,
+        and flashlight'
+      objectReference: {fileID: 0}
+    - target: {fileID: 425814030, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425814032, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 425814033, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 425814035, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f0cf89f2eba7c604796380de7cb12900, type: 3}
+    - target: {fileID: 1500039913, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_Text
+      value: Its Late
+      objectReference: {fileID: 0}
     - target: {fileID: 1964224991, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -1168,6 +1199,10 @@ PrefabInstance:
     - target: {fileID: 5651391617800714237, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037543325103242720, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9554677d07a4d4aa04a584bdbef591, type: 3}
@@ -1680,9 +1715,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 0.9801798, g: 0, b: 1, a: 1}
-  outlineWidth: 2
-  setWidthTo10: 1
+  outlineColor: {r: 0.6320754, g: 0.3150854, b: 0.13416697, a: 1}
+  outlineWidth: 7
+  setWidthTo10: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
