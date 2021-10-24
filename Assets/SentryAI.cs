@@ -40,6 +40,11 @@ public class SentryAI : MonoBehaviour
 
     public SFX_Effect m_ScreamFX;
 
+    Vector3[] vertices;
+    int[] triangles;
+
+    Mesh m_conemesh;
+
     public enum SentryState
     {
         SEARCHING,
@@ -78,83 +83,95 @@ public class SentryAI : MonoBehaviour
     void Start()
     {
         m_state = SentryState.SEARCHING;
-        m_lookBackInterval += Random.Range(-2.0f, 2.0f);
         m_lookBackTimer = m_lookBackInterval;
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         m_origPos = transform.position;
         m_origRot = transform.rotation;
+        //m_conemesh = GenerateConeMesh();
+        //m_headTransform.gameObject.GetComponentInChildren<MeshFilter>().sharedMesh = m_conemesh;
+        float rand = Random.Range(0.0f, 1.0f);
+        m_anim.SetFloat("IdleOffset", rand);
+        m_lookBackTimer *= (1.0f - rand);
+        
     }
 
 
 
     // Update is called once per frame
+    
     void Update()
     {
-        m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
-        m_lookVector = m_headTransform.up;
         
-        switch (m_state)
-        {
-        case SentryState.SEARCHING: 
-            if((m_lookBackTimer -= Time.deltaTime) < 0.0f)
-            {
-                m_anim.SetTrigger("LookBack");
-                m_lookBackTimer = m_lookBackInterval;
-            }
+        
+            m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
+            m_lookVector = m_headTransform.up;
             
-            if((m_playerTransform.position - m_headTransform.position).magnitude <= m_viewDistance && Vector3.Angle(m_lookVector, (m_playerTransform.position - m_headTransform.position)) < m_viewAngle / 2)
+            switch (m_state)
             {
-                if(!Physics.Raycast(m_headTransform.position, 
-                (m_playerTransform.position - m_headTransform.position), 
-                (m_playerTransform.position - m_headTransform.position).magnitude, 
-                layerMask: LayerMask.GetMask("Obstacles")))
+            case SentryState.SEARCHING: 
+                if((m_lookBackTimer -= Time.deltaTime) < 0.0f)
                 {
-                    if(!(m_playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking && 
-                    Random.Range(0, 100) > (m_playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f)))
+                    m_anim.SetTrigger("LookBack");
+                    m_lookBackTimer = m_lookBackInterval;
+                }
+                
+                if((m_playerTransform.position - m_headTransform.position).magnitude <= m_viewDistance && Vector3.Angle(m_lookVector, (m_playerTransform.position - m_headTransform.position)) < m_viewAngle / 2)
+                {
+                    if(!Physics.Raycast(m_headTransform.position, 
+                    (m_playerTransform.position - m_headTransform.position), 
+                    (m_playerTransform.position - m_headTransform.position).magnitude, 
+                    layerMask: LayerMask.GetMask("Obstacles")))
                     {
-                        m_state = SentryState.DETECTED;
-                        m_screechTimer = m_screechDuration;
-                        m_anim.SetTrigger("Detect");
-                        m_ScreamFX.Play();
+                        if(!(m_playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking && 
+                        Random.Range(0, 100) > (m_playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f)))
+                        {
+                            m_state = SentryState.DETECTED;
+                            m_screechTimer = m_screechDuration;
+                            m_anim.SetTrigger("Detect");
+                            m_ScreamFX.Play();
+                            m_headTransform.GetComponentInChildren<MeshRenderer>().enabled = false;
+                        }
                     }
                 }
-            }
-            break;
-        case SentryState.DETECTED:
-            if((m_screechTimer -= Time.deltaTime) < 0.0f)
-            {
-                m_state = SentryState.FLYING;
-                SpawnVermin();
-                m_flightTimer = m_flightDuration;
-            }
-            break;
-        case SentryState.FLYING:
-            if ((m_flightTimer -= Time.deltaTime) < 0.0f)
-            {
-                m_direction = (m_origPos - transform.position).normalized;
-                if ((m_origPos - transform.position).magnitude < m_snappingDistance)
+                break;
+            case SentryState.DETECTED:
+                if((m_screechTimer -= Time.deltaTime) < 0.0f)
                 {
-                    transform.position = m_origPos;
-                    transform.rotation = m_origRot;
-                    m_state = SentryState.SEARCHING;
-                    m_anim.SetTrigger("TouchPost");
-                    break;
+                    m_state = SentryState.FLYING;
+                    SpawnVermin();
+                    m_flightTimer = m_flightDuration;
                 }
+                break;
+            case SentryState.FLYING:
+                if ((m_flightTimer -= Time.deltaTime) < 0.0f)
+                {
+                    m_direction = (m_origPos - transform.position).normalized;
+                    if ((m_origPos - transform.position).magnitude < m_snappingDistance)
+                    {
+                        transform.position = m_origPos;
+                        transform.rotation = m_origRot;
+                        m_state = SentryState.SEARCHING;
+                        m_anim.SetTrigger("TouchPost");
+                        m_headTransform.GetComponentInChildren<MeshRenderer>().enabled = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    m_direction += GetWanderPosition(20.0f, 5.0f, transform.forward) - transform.position;
+                    m_direction.Normalize();
+                    if(transform.position.y < m_flightAltitude) m_direction.y = 0.2f;
+                    if(transform.position.y > m_flightAltitude) m_direction.y = -0.2f;
+                }
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(m_direction, Vector3.up), 10.0f);
+                transform.position += m_direction * Time.deltaTime * 10.0f;
+                
+                break;
+            default:
+                break;
             }
-            else
-            {
-                m_direction += GetWanderPosition(20.0f, 5.0f, transform.forward) - transform.position;
-                m_direction.Normalize();
-                if(transform.position.y < m_flightAltitude) m_direction.y = 0.2f;
-                if(transform.position.y > m_flightAltitude) m_direction.y = -0.2f;
-            }
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(m_direction, Vector3.up), 10.0f);
-            transform.position += m_direction * Time.deltaTime * 10.0f;
-            
-            break;
-        default:
-            break;
-        }
+        
+        
     }
 
 
@@ -170,6 +187,50 @@ public class SentryAI : MonoBehaviour
         {
             
         }
+    }
+
+    Mesh GenerateConeMesh()
+    {
+        
+        m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
+        
+        Vector3 coneRay1 = Quaternion.AngleAxis(m_viewAngle/2, Vector3.forward) * Vector3.up;
+        vertices = new Vector3[11];
+        vertices[0] = Vector3.zero;
+
+        for (int i = 1; i < 11; i++)
+        {
+            vertices[i] = (coneRay1.normalized * m_viewDistance);
+            Vector3 temp = coneRay1;
+            coneRay1 = Quaternion.AngleAxis(36.0f, Vector3.up) * coneRay1;
+        }
+        triangles = new int[30] {0, 2, 1, 0, 3, 2, 0, 4, 3, 0, 5, 4, 0, 6, 5, 0, 7, 6, 0, 8, 7, 0, 9, 8, 0, 10, 9, 0, 1, 10};
+        Mesh outMesh;
+        outMesh = new Mesh();
+        outMesh.SetVertices(vertices);
+        outMesh.triangles = triangles;
+        outMesh.name = "Generated Cone";
+        return outMesh;
+
+    }
+
+    void UpdateMesh(ref Mesh _mesh)
+    {
+        m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
+        
+        Vector3 coneRay1 = Quaternion.AngleAxis(m_viewAngle/2, Vector3.forward) * Vector3.up;
+        vertices = new Vector3[11];
+        vertices[0] = Vector3.zero;
+
+        for (int i = 1; i < 11; i++)
+        {
+            vertices[i] = (coneRay1.normalized * m_viewDistance);
+            Vector3 temp = coneRay1;
+            coneRay1 = Quaternion.AngleAxis(36.0f, Vector3.up) * coneRay1;
+        }
+        
+        _mesh.SetVertices(vertices);
+        
     }
 
     void OnDrawGizmosSelected()
@@ -199,7 +260,15 @@ public class SentryAI : MonoBehaviour
             coneRay5 = Quaternion.AngleAxis(36.0f, m_lookVector) * coneRay5;
             Gizmos.DrawLine((temp.normalized * m_viewDistance) + m_headTransform.position, (coneRay1.normalized * m_viewDistance) + m_headTransform.position);
         }
-        
+        if(m_conemesh == null)
+        {
+            m_conemesh = GenerateConeMesh();
+            m_headTransform.gameObject.GetComponentInChildren<MeshFilter>().sharedMesh = m_conemesh;
+        }
+        else
+        {
+            UpdateMesh(ref m_conemesh);
+        }
 
     }
 }
