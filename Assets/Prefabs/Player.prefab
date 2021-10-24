@@ -325,6 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639557448}
   - component: {fileID: 639557449}
+  - component: {fileID: 1180018463812477853}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -358,10 +359,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.73140156, b: 0.374466, a: 1}
-  m_Intensity: 15
+  m_Intensity: 8
   m_Range: 75
   m_SpotAngle: 52.965515
-  m_InnerSpotAngle: 46.29655
+  m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -408,6 +409,20 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1180018463812477853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639557447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee70c98adb6029c45824b4a52dcbbbad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 0}
+  m_light: {fileID: 0}
 --- !u!1 &738494708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,8 +2836,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787359198162137930}
-  m_LocalRotation: {x: -0, y: 0.7254391, z: -0, w: 0.6882864}
-  m_LocalPosition: {x: 179.79965, y: 1.6659999, z: 67.05687}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1787359198691686667}
