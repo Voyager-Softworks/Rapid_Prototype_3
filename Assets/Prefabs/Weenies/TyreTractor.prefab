@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5743773500294569163}
   - component: {fileID: 8654264836929295214}
   - component: {fileID: 6917202806609012644}
+  - component: {fileID: 3909337848239073151}
   m_Layer: 0
   m_Name: TyreTractor
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3909337848239073151
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971458581970568817}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7606971644463327127, guid: 56fd9bc680ad62b42972571d38bdb495, type: 3}
