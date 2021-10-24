@@ -316,6 +316,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c66e68d15f535b940ba4de551ced97e6, type: 3}
+--- !u!114 &40342944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1178841072269115487, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+  m_PrefabInstance: {fileID: 1178841072584161327}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16213e0a7bb55614b8bd9099f459ad30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &56651296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10772,9 +10783,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 853175040676038886, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178841072218795029, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178841072218795031, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178841072269115481, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1178841072269115486, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
       propertyPath: m_Text
-      value: I can hear her barking at the end of the valley
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178841073035553882, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_Text
+      value: Hell... more of them freaks
       objectReference: {fileID: 0}
     - target: {fileID: 1178841073698381806, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
       propertyPath: MaxDistance
@@ -10867,6 +10898,26 @@ PrefabInstance:
     - target: {fileID: 6787438172589904206, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391920496561105841, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: onDisable.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391920496561105841, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: onDisable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 40342944}
+    - target: {fileID: 8391920496561105841, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: onDisable.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Enable
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391920496561105841, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: onDisable.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnableDisabe, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391920496561105841, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: onDisable.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
