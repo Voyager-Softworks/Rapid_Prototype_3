@@ -90,8 +90,11 @@ public class SentryAI : MonoBehaviour
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         m_origPos = transform.position;
         m_origRot = transform.rotation;
-        //m_conemesh = GenerateConeMesh();
-        //m_headTransform.gameObject.GetComponentInChildren<MeshFilter>().sharedMesh = m_conemesh;
+        if(m_conemesh == null)
+        {
+            m_conemesh = GenerateConeMesh();
+            m_headTransform.gameObject.GetComponentInChildren<MeshFilter>().sharedMesh = m_conemesh;
+        }
         float rand = Random.Range(0.0f, 1.0f);
         m_anim.SetFloat("IdleOffset", rand);
         m_lookBackTimer *= (1.0f - rand);
