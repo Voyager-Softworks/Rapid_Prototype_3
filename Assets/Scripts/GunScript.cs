@@ -42,6 +42,7 @@ public class GunScript : MonoBehaviour
 
     EnemyAI[] m_enemies;
     VerminAI[] m_rats;
+    SentryAI[] m_birds;
 
     GameObject m_meteor;
     GameObject m_jerrycanManager;
@@ -73,6 +74,7 @@ public class GunScript : MonoBehaviour
         if (!m_jerrycanManager) m_jerrycanManager = GameObject.Find("JerrycanManager");
         m_enemies = GameObject.FindObjectsOfType<EnemyAI>();
         m_rats = GameObject.FindObjectsOfType<VerminAI>();
+        m_birds = GameObject.FindObjectsOfType<SentryAI>();
         UpdateVisuals();
     }
 
@@ -223,6 +225,18 @@ public class GunScript : MonoBehaviour
             if (dist <= 20 && angle <= 20)
             {
                 _enemy.Shoot();
+            }
+        }
+
+        m_birds = GameObject.FindObjectsOfType<SentryAI>();
+        foreach (SentryAI _enemy in m_birds)
+        {
+            Vector3 dir = (_enemy.transform.position - transform.position);
+            float angle = Vector3.Angle(dir.normalized, transform.forward);
+            float dist = dir.magnitude;
+            if (dist <= 20 && angle <= 20)
+            {
+                _enemy.Detect();
             }
         }
 
