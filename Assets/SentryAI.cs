@@ -125,11 +125,7 @@ public class SentryAI : MonoBehaviour
                         if(!(m_playerTransform.gameObject.GetComponent<PlayerMovement>().isSneaking && 
                         Random.Range(0, 100) > (m_playerTransform.gameObject.GetComponent<PlayerMovement>().sneakDetectionChance * 100.0f)))
                         {
-                            m_state = SentryState.DETECTED;
-                            m_screechTimer = m_screechDuration;
-                            m_anim.SetTrigger("Detect");
-                            m_ScreamFX.Play();
-                            m_headTransform.GetComponentInChildren<MeshRenderer>().enabled = false;
+                            Detect();
                         }
                     }
                 }
@@ -174,6 +170,14 @@ public class SentryAI : MonoBehaviour
         
     }
 
+    public void Detect()
+    {
+        m_state = SentryState.DETECTED;
+        m_screechTimer = m_screechDuration;
+        m_anim.SetTrigger("Detect");
+        m_ScreamFX.Play();
+        m_headTransform.GetComponentInChildren<MeshRenderer>().enabled = false;
+    }
 
     Vector3 GetWanderPosition(float _offset, float _radius, Vector3 _dir)
     {
