@@ -43,7 +43,10 @@ public class SentryAI : MonoBehaviour
     Vector3[] vertices;
     int[] triangles;
 
-    Mesh m_conemesh;
+    Vector2[] uv;
+
+    public Mesh m_conemesh;
+    public bool m_regenerateMesh;
 
     public enum SentryState
     {
@@ -191,25 +194,61 @@ public class SentryAI : MonoBehaviour
 
     Mesh GenerateConeMesh()
     {
-        
+        float triangleAngle = (((Mathf.PI * 2)/10.0f)*(m_viewAngle/180.0f));
         m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
         
         Vector3 coneRay1 = Quaternion.AngleAxis(m_viewAngle/2, Vector3.forward) * Vector3.up;
-        vertices = new Vector3[11];
+        vertices = new Vector3[23];
         vertices[0] = Vector3.zero;
-
+        uv = new Vector2[23];
+        uv[0] = new Vector2(0.5f, 0.5f);
+        
         for (int i = 1; i < 11; i++)
         {
             vertices[i] = (coneRay1.normalized * m_viewDistance);
+            vertices[i+10] = vertices[i];
             Vector3 temp = coneRay1;
             coneRay1 = Quaternion.AngleAxis(36.0f, Vector3.up) * coneRay1;
+            uv[i] = new Vector2((Mathf.Cos((i-1)*triangleAngle)/2.0f)+0.5f, (Mathf.Sin((i-1)*triangleAngle)/2.0f)+0.5f);
+            uv[i+10] = new Vector2(((Mathf.Cos((i-1)*((Mathf.PI * 2)/10.0f))/2.0f)*(m_viewAngle/180.0f))+0.5f, ((Mathf.Sin((i-1)*((Mathf.PI * 2)/10.0f))/2.0f)*(m_viewAngle/180.0f))+0.5f);
+            
         }
-        triangles = new int[30] {0, 2, 1, 0, 3, 2, 0, 4, 3, 0, 5, 4, 0, 6, 5, 0, 7, 6, 0, 8, 7, 0, 9, 8, 0, 10, 9, 0, 1, 10};
+        vertices[22] = (Vector3.up * m_viewDistance);
+        uv[22] = new Vector2(0.5f, 0.5f);
+        vertices[21] = vertices[1];
+        uv[21] = new Vector2((Mathf.Cos((10)*triangleAngle)/2.0f)+0.5f, (Mathf.Sin((10)*triangleAngle)/2.0f)+0.5f);
+        triangles = new int[60] {
+            //Cone Portion
+            0, 2, 1, 
+            0, 3, 2, 
+            0, 4, 3, 
+            0, 5, 4, 
+            0, 6, 5, 
+            0, 7, 6, 
+            0, 8, 7, 
+            0, 9, 8, 
+            0, 10, 9, 
+            0, 21, 10,
+            //Face
+            22, 11, 12, 
+            22, 12, 13, 
+            22, 13, 14, 
+            22, 14, 15, 
+            22, 15, 16, 
+            22, 16, 17, 
+            22, 17, 18, 
+            22, 18, 19, 
+            22, 19, 20, 
+            22, 20, 11
+            };
         Mesh outMesh;
         outMesh = new Mesh();
         outMesh.SetVertices(vertices);
         outMesh.triangles = triangles;
         outMesh.name = "Generated Cone";
+        outMesh.SetUVs(0, uv);
+        outMesh.RecalculateNormals();
+        outMesh.RecalculateBounds();
         return outMesh;
 
     }
@@ -219,17 +258,20 @@ public class SentryAI : MonoBehaviour
         m_headTransform.localRotation = Quaternion.AngleAxis(m_viewVerticalRotation, Vector3.left);
         
         Vector3 coneRay1 = Quaternion.AngleAxis(m_viewAngle/2, Vector3.forward) * Vector3.up;
-        vertices = new Vector3[11];
+        vertices = new Vector3[23];
         vertices[0] = Vector3.zero;
 
         for (int i = 1; i < 11; i++)
         {
             vertices[i] = (coneRay1.normalized * m_viewDistance);
+            vertices[i+10] = vertices[i];
             Vector3 temp = coneRay1;
             coneRay1 = Quaternion.AngleAxis(36.0f, Vector3.up) * coneRay1;
         }
-        
+        vertices[22] = (Vector3.up * m_viewDistance);
+        vertices[21] = vertices[1];
         _mesh.SetVertices(vertices);
+        _mesh.RecalculateNormals();
         
     }
 
@@ -265,11 +307,13 @@ public class SentryAI : MonoBehaviour
             m_conemesh = GenerateConeMesh();
             m_headTransform.gameObject.GetComponentInChildren<MeshFilter>().sharedMesh = m_conemesh;
         }
-        else
+        else if(m_regenerateMesh)
         {
-            UpdateMesh(ref m_conemesh);
+            m_conemesh = GenerateConeMesh();
             m_headTransform.gameObject.GetComponentInChildren<MeshFilter>().sharedMesh = m_conemesh;
+            m_regenerateMesh = false;
         }
+        
 
     }
 }
