@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2560225070226446475}
   - component: {fileID: 1452521620087936814}
   - component: {fileID: 3732520911723193316}
+  - component: {fileID: -2141293840948030639}
   m_Layer: 0
   m_Name: CowSkull
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-2141293840948030639
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939847314142249521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4476807257831543547, guid: 92c089e9a59c4a14697f34ced1fe43f5, type: 3}
