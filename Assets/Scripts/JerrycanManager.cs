@@ -47,6 +47,11 @@ public class JerrycanManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateCans();
+    }
+
+    public void UpdateCans()
+    {
         switch (m_currentStage)
         {
             case Stage.Arrived:
@@ -81,7 +86,14 @@ public class JerrycanManager : MonoBehaviour
                         if (_can.activeSelf)
                         {
                             PlayerInteracts pi = _can.GetComponent<PlayerInteracts>();
-                            pi.SetCanTrigger(true);
+                            if (pi.AreConditionsMet())
+                            {
+                                pi.SetCanTrigger(true);
+                            }
+                            else
+                            {
+                                pi.SetCanTrigger(false);
+                            }
                             pi.SetWorldMessage("I already have one");
                         }
                     }
@@ -123,7 +135,18 @@ public class JerrycanManager : MonoBehaviour
                 {
                     foreach (GameObject _can in m_jerryCans)
                     {
-                        if (_can.activeSelf) _can.GetComponent<PlayerInteracts>().SetCanTrigger(true);
+                        if (_can.activeSelf)
+                        {
+                            PlayerInteracts pi = _can.GetComponent<PlayerInteracts>();
+                            if (pi.AreConditionsMet())
+                            {
+                                pi.SetCanTrigger(true);
+                            }
+                            else
+                            {
+                                pi.SetCanTrigger(false);
+                            }
+                        }
                     }
                 }
                 break;
