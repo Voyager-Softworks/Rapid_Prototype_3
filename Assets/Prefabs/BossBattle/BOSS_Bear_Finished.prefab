@@ -800,7 +800,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 35.7
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_cooldownTime: 15
   m_chargeSpeed: 12
   m_injureAnimLength: 3
-  m_screenShakeRange: 35
+  m_screenShakeRange: 60
   m_injuredSFX: {fileID: 7626341167523592276}
   m_dieSFX: {fileID: 2663037189230076440}
   m_footstepSFX: {fileID: 2128997988045389485}
@@ -2037,7 +2037,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7702423640272121842}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.51
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2079,7 +2079,31 @@ MonoBehaviour:
   m_noiseSettingsData: {fileID: 11400000, guid: 1a503a2f0a9a91563be79908807165b3, type: 2}
   m_playOnAwake: 0
   m_loop: 0
-  m_effectsList: []
+  m_effectsList:
+  - m_type: 6
+    m_waitDuration: 0
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 1, y: 2}
+    m_screenShakeFrequency: {x: 5, y: 5}
+    m_prefab: {fileID: 0}
+  - m_type: 1
+    m_waitDuration: 0.2
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
+    m_prefab: {fileID: 0}
+  - m_type: 6
+    m_waitDuration: 0
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
+    m_prefab: {fileID: 0}
 --- !u!1 &7761566288345930504
 GameObject:
   m_ObjectHideFlags: 0
