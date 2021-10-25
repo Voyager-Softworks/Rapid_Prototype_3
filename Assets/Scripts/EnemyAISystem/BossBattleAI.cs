@@ -103,7 +103,10 @@ public class BossBattleAI : MonoBehaviour
             m_injuredSFX.Play();
         }
     }
-
+    public void Disable()
+    {
+        m_currState = BossAIState.RETREATING;
+    }
     public void Kill()
     {
         m_currState = BossAIState.DEAD;
