@@ -129,7 +129,9 @@ public class JerrycanManager : MonoBehaviour
                 {
                     foreach (GameObject _can in m_jerryCans)
                     {
-                        if (_can.activeSelf) _can.GetComponent<PlayerInteracts>().SetCanTrigger(false);
+                        PlayerInteracts pi = _can.GetComponent<PlayerInteracts>();
+                        pi.SetCanTrigger(false);
+                        pi.SetWorldMessage("I already have one");
                     }
                 }
                 else
