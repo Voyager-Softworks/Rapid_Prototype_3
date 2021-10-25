@@ -12,6 +12,8 @@ public class PlayerInteracts : Condition
 
     [SerializeField] List<Condition> Conditions;
 
+    private bool m_areConditionsMet = false;
+
     GameObject m_player;
 
     [SerializeField] public float m_interactDistance = 3.0f;
@@ -37,6 +39,16 @@ public class PlayerInteracts : Condition
         }
     }
 
+    public List<Condition> GetConditions()
+    {
+        return Conditions;
+    }
+
+    public bool AreConditionsMet()
+    {
+        return m_areConditionsMet;
+    }
+
     void CheckCoditions()
     {
         bool allreached = true;
@@ -52,6 +64,7 @@ public class PlayerInteracts : Condition
 
         if (allreached)
         {
+            m_areConditionsMet = true;
             ConditionsMet.Invoke();
         }
     }
