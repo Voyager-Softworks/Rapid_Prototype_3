@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 7618381624186662106}
   - component: {fileID: 919132148875741426}
   - component: {fileID: 919132148875741427}
+  - component: {fileID: 7862512250893896644}
   m_Layer: 0
   m_Name: AlienMETEOR
   m_TagString: Untagged
@@ -642,6 +643,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7862512250893896644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129828323499325024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13db967582573f387bd4f16f5bedad59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_noiseSettingsData: {fileID: 11400000, guid: 1a503a2f0a9a91563be79908807165b3, type: 2}
+  m_playOnAwake: 0
+  m_loop: 0
+  m_effectsList:
+  - m_type: 2
+    m_waitDuration: 0
+    m_clip: {fileID: 8300000, guid: f90854be9098eef4fad03c6eb81e2977, type: 3}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
+    m_prefab: {fileID: 0}
+  - m_type: 1
+    m_waitDuration: 3.05
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
+    m_prefab: {fileID: 0}
+  - m_type: 7
+    m_waitDuration: 0
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
+    m_prefab: {fileID: 8090348779352603015, guid: 0d0440f59be10c343a5b3fe8b9603304, type: 3}
+  - m_type: 0
+    m_waitDuration: 0
+    m_clip: {fileID: 0}
+    m_source: {fileID: 0}
+    m_particle: {fileID: 0}
+    m_screenShakeAmplitude: {x: 0, y: 0}
+    m_screenShakeFrequency: {x: 0, y: 0}
+    m_prefab: {fileID: 0}
 --- !u!1 &7239600413614404588
 GameObject:
   m_ObjectHideFlags: 0
