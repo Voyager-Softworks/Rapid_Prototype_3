@@ -2650,7 +2650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156990878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.1, y: 10.8, z: 408.57}
+  m_LocalPosition: {x: 117.93, y: 5.02, z: 397.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11035,7 +11035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142977401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.95, y: 2.0611866, z: 364.2}
+  m_LocalPosition: {x: 133.85, y: 2.0611866, z: 356.22}
   m_LocalScale: {x: 18.485458, y: 4.8669, z: 4.8669}
   m_Children:
   - {fileID: 1808278333}
@@ -16202,6 +16202,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1142977406}
     m_Modifications:
+    - target: {fileID: 5652989326914080816, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652989326914080816, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 00a436dd1b38cab4e8d6680b8776d282, type: 3}
+    - target: {fileID: 5652989326914080816, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652989326914080816, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652989326914080816, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6530910007538709509, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
       propertyPath: m_Name
       value: DogBark
@@ -16262,7 +16282,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2544830381751671596, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4380f3813c6e5e54f89b6183aed20d60, type: 3}
 --- !u!4 &1808278333 stripped
 Transform:
