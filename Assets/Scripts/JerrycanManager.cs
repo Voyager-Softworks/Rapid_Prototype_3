@@ -86,15 +86,16 @@ public class JerrycanManager : MonoBehaviour
                         if (_can.activeSelf)
                         {
                             PlayerInteracts pi = _can.GetComponent<PlayerInteracts>();
-                            if (pi.AreConditionsMet())
+                            if (pi.GetConditions().Count <= 0 || pi.AreConditionsMet())
                             {
                                 pi.SetCanTrigger(true);
+                                pi.SetWorldMessage("I already have one");
                             }
                             else
                             {
                                 pi.SetCanTrigger(false);
+                                pi.SetWorldMessage("It's Stuck");
                             }
-                            pi.SetWorldMessage("I already have one");
                         }
                     }
 
@@ -138,13 +139,15 @@ public class JerrycanManager : MonoBehaviour
                         if (_can.activeSelf)
                         {
                             PlayerInteracts pi = _can.GetComponent<PlayerInteracts>();
-                            if (pi.AreConditionsMet())
+                            if (pi.GetConditions().Count <= 0 || pi.AreConditionsMet())
                             {
                                 pi.SetCanTrigger(true);
+                                pi.SetWorldMessage("I already have one");
                             }
                             else
                             {
                                 pi.SetCanTrigger(false);
+                                pi.SetWorldMessage("It's Stuck");
                             }
                         }
                     }
