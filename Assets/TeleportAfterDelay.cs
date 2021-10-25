@@ -13,7 +13,7 @@ public class TeleportAfterDelay : MonoBehaviour
     public float m_teleportDelay;
     public bool m_started = false;
 
-    Mesh m_mesh;
+    public Mesh m_mesh;
     void Update()
     {
         if (m_started && (m_teleportDelay -= Time.deltaTime) < 0.0f)
@@ -41,6 +41,8 @@ public class TeleportAfterDelay : MonoBehaviour
             if (m_objectToTeleport != null)
             {
                 m_mesh = m_objectToTeleport.GetComponentInChildren<MeshFilter>().sharedMesh;
+                if(m_mesh == null) m_mesh = m_objectToTeleport.GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh;
+
             }
         }
         else
