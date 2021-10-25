@@ -66,9 +66,10 @@ public class BossBattleAI : MonoBehaviour
 
     public void StartBattle()
     {
+        
         if (m_currState == BossAIState.INACTIVE)
         {
-            this.transform.position = m_nextSpawnPosition;
+            
             m_currState = BossAIState.CHARGING;
             m_bossmusicSFX.Play();
         }
@@ -76,6 +77,7 @@ public class BossBattleAI : MonoBehaviour
 
     public void Footstep()
     {
+        if (m_currState == BossAIState.INACTIVE || m_currState == BossAIState.WAITING) return;
         m_footstepSFX.clip = m_footstepClips[Random.Range(0, m_footstepClips.Count)];
         m_footstepSFX.Play();
         if ((this.transform.position - m_playerTransform.position).magnitude < m_screenShakeRange)
