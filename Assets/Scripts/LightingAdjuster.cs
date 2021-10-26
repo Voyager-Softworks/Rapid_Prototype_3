@@ -26,14 +26,27 @@ public class LightingAdjuster : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Equals))
         {
-            m_gamma += Time.deltaTime;
+            IncreaseGamma(Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.Minus))
         {
-            m_gamma -= Time.deltaTime;
+            DecreaseGamma(Time.deltaTime);
         }
         SetGammaAlpha(m_gamma);
     }
+
+    public void DecreaseGamma(float _amount)
+    {
+        m_gamma -= _amount;
+        SetGammaAlpha(m_gamma);
+    }
+
+    public void IncreaseGamma(float _amount)
+    {
+        m_gamma += _amount;
+        SetGammaAlpha(m_gamma);
+    }
+
     public void SetGammaAlpha(float gammaAlpha)
     {
         m_LGG.gamma.Override(new Vector4(1f, 1f, 1f, gammaAlpha));

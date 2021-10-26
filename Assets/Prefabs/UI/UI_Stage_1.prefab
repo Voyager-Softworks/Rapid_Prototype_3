@@ -2559,6 +2559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5651391617800714225}
     m_Modifications:
+    - target: {fileID: 1810078701465139402, guid: f322919070cca984e8971749de12b941, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5651391617800714230}
     - target: {fileID: 5625396548619262780, guid: f322919070cca984e8971749de12b941, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -2647,10 +2651,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9101278975546442476, guid: f322919070cca984e8971749de12b941, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5651391617800714230}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f322919070cca984e8971749de12b941, type: 3}
 --- !u!224 &5651391617528755121 stripped
