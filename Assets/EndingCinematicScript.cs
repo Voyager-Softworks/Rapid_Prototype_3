@@ -25,6 +25,18 @@ public class EndingCinematicScript : MonoBehaviour
         m_bearTransform.rotation = Quaternion.Euler(m_bearTeleportRotation);
         m_bearTransform.position = m_bearTeleportPosition;
         m_bearTransform.gameObject.GetComponent<BossBattleAI>().Kill();
+
+        SentryAI[] m_birds = GameObject.FindObjectsOfType<SentryAI>();
+        foreach (SentryAI _enemy in m_birds)
+        {
+            _enemy.FlyAway();
+        }
+        
+        VerminAI[] m_rats = GameObject.FindObjectsOfType<VerminAI>();
+        foreach (VerminAI _enemy in m_rats)
+        {
+            _enemy.Shoot();
+        }
     }
 
     public void GotoTitleScreen()

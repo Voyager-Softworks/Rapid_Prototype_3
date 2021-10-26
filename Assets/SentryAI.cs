@@ -139,9 +139,8 @@ public class SentryAI : MonoBehaviour
             case SentryState.DETECTED:
                 if((m_screechTimer -= Time.deltaTime) < 0.0f)
                 {
-                    m_state = SentryState.FLYING;
+                    FlyAway();
                     SpawnVermin();
-                    m_flightTimer = m_flightDuration;
                 }
                 break;
             case SentryState.FLYING:
@@ -174,6 +173,12 @@ public class SentryAI : MonoBehaviour
             }
         
         
+    }
+
+    public void FlyAway()
+    {
+        m_state = SentryState.FLYING;
+        m_flightTimer = m_flightDuration;
     }
 
     public void Detect()
