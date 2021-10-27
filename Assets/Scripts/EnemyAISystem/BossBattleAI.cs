@@ -114,7 +114,7 @@ public class BossBattleAI : MonoBehaviour
         m_agent.speed = 0.0f;
         m_agent.angularSpeed = 0.0f;
         m_dieSFX.Play();
-        m_bossmusicSFX.Stop();
+        
     }
 
     void OnTriggerEnter(Collider other)
