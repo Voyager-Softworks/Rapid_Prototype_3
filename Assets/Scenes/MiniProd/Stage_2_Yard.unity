@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0021589263, g: 0.0019397696, b: 0.0014458214, a: 1}
+  m_IndirectSpecularColor: {r: 0.002159414, g: 0.0019396791, b: 0.0014456362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -977,17 +977,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 236d5737fba364d1a9708839273f8959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &152852556 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5584626404510463665, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
-  m_PrefabInstance: {fileID: 5584626404659605245}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb6c04792fd15510af2e3ef94b72d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &159479280
@@ -5490,17 +5479,6 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8588646081791930385, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
   m_PrefabInstance: {fileID: 138384217}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1367301876 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 360788413182244423, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-  m_PrefabInstance: {fileID: 138384217}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367301869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f8cafe0dbc51ec1c99faf96465f4640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1369408748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1090596549257622585, guid: 22bc92784244fd443b2787d76dc6b18e, type: 3}
@@ -8684,6 +8662,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7652620469010545608, guid: edbaed2137fb7a94289a0eea7e026bf9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 152852555}
+    - target: {fileID: 7652620469010545608, guid: edbaed2137fb7a94289a0eea7e026bf9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorState
+      objectReference: {fileID: 0}
     - target: {fileID: 8729534324390763893, guid: edbaed2137fb7a94289a0eea7e026bf9, type: 3}
       propertyPath: m_Pivot.x
       value: 0

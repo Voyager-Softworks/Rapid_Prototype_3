@@ -6674,17 +6674,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
---- !u!114 &1247951839 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5584626404510463665, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
-  m_PrefabInstance: {fileID: 1247951838}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb6c04792fd15510af2e3ef94b72d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1247951840 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5584626404510463670, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
@@ -8091,17 +8080,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e967fe2673532474fb176e160d34e09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1521395947 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 360788413182244423, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-  m_PrefabInstance: {fileID: 1521395943}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673113929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f8cafe0dbc51ec1c99faf96465f4640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1521927113
@@ -11132,6 +11110,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2958761664189058507, guid: c0c982f346a36e046b9794178aae1d61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1247951840}
+    - target: {fileID: 2958761664189058507, guid: c0c982f346a36e046b9794178aae1d61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorState
+      objectReference: {fileID: 0}
     - target: {fileID: 4625011643500478611, guid: c0c982f346a36e046b9794178aae1d61, type: 3}
       propertyPath: m_Name
       value: UI_Stage_5

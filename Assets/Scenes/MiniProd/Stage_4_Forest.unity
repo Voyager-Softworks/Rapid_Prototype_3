@@ -2128,17 +2128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710477fd21b05904dab4d8528fe556d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &138384222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 360788413182244423, guid: 92b324edcf7758745961b1606c15d0ed, type: 3}
-  m_PrefabInstance: {fileID: 138384217}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138384218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f8cafe0dbc51ec1c99faf96465f4640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &141395253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7989,17 +7978,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
---- !u!114 &836900376 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5584626404510463665, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
-  m_PrefabInstance: {fileID: 836900375}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb6c04792fd15510af2e3ef94b72d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &836900377 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5584626404510463670, guid: 763573f39d8ec69c887d1ac04d658e9f, type: 3}
@@ -18612,6 +18590,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5807012898088383533, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 836900377}
+    - target: {fileID: 5807012898088383533, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorState
+      objectReference: {fileID: 0}
     - target: {fileID: 6787438172589904194, guid: e4ebdd0265ffea346b45f957e6abf34a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
