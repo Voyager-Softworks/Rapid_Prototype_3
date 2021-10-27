@@ -17,6 +17,8 @@ public class PlayerDeath : MonoBehaviour
     PlayerMovement m_pMovement;
     MouseLook m_mouseLook;
 
+    public bool m_godmode = false;
+
     public UnityEvent OnDeathAnimComplete;
 
     float m_fadeTimer;
@@ -33,9 +35,21 @@ public class PlayerDeath : MonoBehaviour
     {
         
     }
-
+    public void ToggleGodMode()
+    {
+        if (m_godmode)
+        {
+            m_godmode = false;
+        }
+        else
+        {
+            m_godmode = true;
+        }
+    }
     public void KillPlayer(EnemyType _type, Vector3 _attackerPos)
     {
+        if (m_godmode) return;
+        
         switch (_type)
         {
             case EnemyType.CAT:
