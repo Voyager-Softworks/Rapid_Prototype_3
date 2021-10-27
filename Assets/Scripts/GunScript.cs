@@ -106,7 +106,7 @@ public class GunScript : MonoBehaviour
         }
         else if (Time.time - reloadStart >= reloadTime + reloadCooldown)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && Cursor.lockState == CursorLockMode.Locked)
             {
                 Shoot();
             }
