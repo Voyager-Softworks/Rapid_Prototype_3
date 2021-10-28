@@ -105,7 +105,7 @@ public class BossBattleAI : MonoBehaviour
     }
     public void Disable()
     {
-        m_currState = BossAIState.RETREATING;
+        m_currState = BossAIState.INACTIVE;
     }
     public void Kill()
     {
