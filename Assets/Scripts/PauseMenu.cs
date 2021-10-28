@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         menu.SetActive(true);
         win.SetActive(false);
@@ -18,6 +19,7 @@ public class PauseMenu : MonoBehaviour
 
     public void EnableWinScreen()
     {
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         menu.SetActive(false);
         win.SetActive(true);
@@ -26,6 +28,7 @@ public class PauseMenu : MonoBehaviour
 
     public void EnableLoseScreen()
     {
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         menu.SetActive(false);
         win.SetActive(false);
@@ -34,6 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Unpause()
     {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         menu.SetActive(false);
         win.SetActive(false);
@@ -42,6 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 

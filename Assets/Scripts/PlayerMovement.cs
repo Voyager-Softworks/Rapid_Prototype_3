@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Simple player movement script
@@ -89,6 +90,13 @@ public class PlayerMovement : MonoBehaviour
         camY = m_cam.transform.localPosition.y;
         currExertion = 0.0f;
 
+        if (SceneManager.GetActiveScene().buildIndex <= 1)
+        {
+            m_flashlightUnlocked = false;
+            m_shotgunUnlocked = false;
+
+            m_currentlyEquipped = Equipment.None;
+        }
         UpdateHeldEquipment();
 
         footstepNoise = GetComponent<NoiseMaker>();

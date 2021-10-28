@@ -80,6 +80,12 @@ public class GunScript : MonoBehaviour
 
     private static void ResetAmmo()
     {
+        if (SceneManager.GetActiveScene().buildIndex <= 1)
+        {
+            ammo = 0;
+            ammoStarting = 0;
+        }
+
         if (currentLevel == SceneManager.GetActiveScene().buildIndex)
         {
             ammo = ammoStarting;
