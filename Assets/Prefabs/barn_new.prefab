@@ -2173,8 +2173,8 @@ Transform:
   m_Father: {fileID: 5625138337019659838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1950799877
-MeshCollider:
+--- !u!135 &1950799877
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2183,10 +2183,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 61755086400809443, guid: 1138f93c1ed76944ab46b28a351eeafa, type: 3}
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: -10, z: 0}
 --- !u!64 &1435095843
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6020,7 +6019,7 @@ MonoBehaviour:
   m_attackForceMult: 10
   m_attackHeightOffset: 1
   m_attackDuration: 1
-  m_attackSource: {fileID: 8979435758767807391, guid: 00c9370c553038744956474c943c1e3c, type: 3}
+  m_attackSource: {fileID: 0}
   m_runSource: {fileID: 1690332888909338834}
   m_speed: 4
   m_deathPrefab: {fileID: 8090348779352603015, guid: 52111c057f8b0174bae8724245c3395a, type: 3}
@@ -6125,7 +6124,7 @@ MonoBehaviour:
   - m_type: 2
     m_waitDuration: 0
     m_clip: {fileID: 8300000, guid: e05cc98e33c25c25986ca672db0689b9, type: 3}
-    m_source: {fileID: 8979435758767807391, guid: 00c9370c553038744956474c943c1e3c, type: 3}
+    m_source: {fileID: 0}
     m_particle: {fileID: 0}
     m_screenShakeAmplitude: {x: 0, y: 0}
     m_screenShakeFrequency: {x: 0, y: 0}
@@ -6141,7 +6140,7 @@ MonoBehaviour:
   - m_type: 2
     m_waitDuration: 0
     m_clip: {fileID: 8300000, guid: e60214c3ef1b05048924d7103f173912, type: 3}
-    m_source: {fileID: 8979435758767807391, guid: 00c9370c553038744956474c943c1e3c, type: 3}
+    m_source: {fileID: 0}
     m_particle: {fileID: 0}
     m_screenShakeAmplitude: {x: 0, y: 0}
     m_screenShakeFrequency: {x: 0, y: 0}
