@@ -30,6 +30,7 @@ public class BossBattleAI : MonoBehaviour
     Transform m_playerTransform;
 
     public AudioSource m_injuredSFX, m_dieSFX, m_footstepSFX, m_bossmusicSFX;
+    public SFX_Effect m_shotEffect;
     public List<AudioClip> m_footstepClips;
     SFX_Effect m_effect;
 
@@ -101,6 +102,7 @@ public class BossBattleAI : MonoBehaviour
             m_anim.SetTrigger("Shot");
             m_injureAnimTimer = m_injureAnimLength;
             m_injuredSFX.Play();
+            m_shotEffect.Play();
         }
     }
     public void Disable()
