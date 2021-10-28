@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6183422960388755023}
   - component: {fileID: 8672570557082788780}
   - component: {fileID: 5706074487871188209}
-  - component: {fileID: 8847124967064788810}
   m_Layer: 7
   m_Name: Pine03_LOD1
   m_TagString: Untagged
@@ -93,20 +92,6 @@ Tree:
   m_GameObject: {fileID: 455227831878514068}
   m_SpeedTreeWindAsset: {fileID: 22800000, guid: 8425b3bfacab5b34fa529b5f25e7dc6a, type: 3}
   m_TreeData: {fileID: 0}
---- !u!64 &8847124967064788810
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455227831878514068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 8425b3bfacab5b34fa529b5f25e7dc6a, type: 3}
 --- !u!1 &470309482039957795
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +196,6 @@ GameObject:
   - component: {fileID: 6181666407378858102}
   - component: {fileID: 3534291844760289028}
   - component: {fileID: 7173013651212298794}
-  - component: {fileID: 5549523258073128015}
   m_Layer: 7
   m_Name: Pine03_LOD0
   m_TagString: Untagged
@@ -292,20 +276,6 @@ Tree:
   m_GameObject: {fileID: 1545109665021653831}
   m_SpeedTreeWindAsset: {fileID: 22800000, guid: 8425b3bfacab5b34fa529b5f25e7dc6a, type: 3}
   m_TreeData: {fileID: 0}
---- !u!64 &5549523258073128015
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545109665021653831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8425b3bfacab5b34fa529b5f25e7dc6a, type: 3}
 --- !u!1 &3963716104779330007
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6553733499734902061}
-  - component: {fileID: 7856965909621953541}
+  - component: {fileID: 6333978713092187784}
   m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
@@ -609,7 +579,7 @@ Transform:
   m_Father: {fileID: 6547805326741338134}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7856965909621953541
+--- !u!65 &6333978713092187784
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,5 +590,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.75, y: 1, z: 0.75}
   m_Center: {x: 0, y: 0, z: 0}

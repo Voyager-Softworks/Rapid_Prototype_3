@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 7788273022260604019}
   - component: {fileID: 3056007281444701600}
   - component: {fileID: 8810572666511314874}
-  - component: {fileID: 7130458226136659484}
   m_Layer: 7
   m_Name: Pine01_LOD1
   m_TagString: Untagged
@@ -274,20 +273,6 @@ Tree:
   m_GameObject: {fileID: 2600827093475206052}
   m_SpeedTreeWindAsset: {fileID: 22800000, guid: c66e68d15f535b940ba4de551ced97e6, type: 3}
   m_TreeData: {fileID: 0}
---- !u!64 &7130458226136659484
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2600827093475206052}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: c66e68d15f535b940ba4de551ced97e6, type: 3}
 --- !u!1 &3377382506321072914
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5522045734607788521}
-  - component: {fileID: 396287990054779844}
+  - component: {fileID: 4799085821868380846}
   m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
@@ -411,7 +396,7 @@ Transform:
   m_Father: {fileID: 2904055919282788621}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &396287990054779844
+--- !u!65 &4799085821868380846
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,7 +407,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.75, y: 1, z: 0.75}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7142913938522402387
 GameObject:
@@ -436,7 +421,6 @@ GameObject:
   - component: {fileID: 1609278080958718648}
   - component: {fileID: 8214902274731326975}
   - component: {fileID: 3150495044654183223}
-  - component: {fileID: 5847507746272655823}
   m_Layer: 7
   m_Name: Pine01_LOD0
   m_TagString: Untagged
@@ -517,20 +501,6 @@ Tree:
   m_GameObject: {fileID: 7142913938522402387}
   m_SpeedTreeWindAsset: {fileID: 22800000, guid: c66e68d15f535b940ba4de551ced97e6, type: 3}
   m_TreeData: {fileID: 0}
---- !u!64 &5847507746272655823
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7142913938522402387}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c66e68d15f535b940ba4de551ced97e6, type: 3}
 --- !u!1 &8656573022487456106
 GameObject:
   m_ObjectHideFlags: 0
