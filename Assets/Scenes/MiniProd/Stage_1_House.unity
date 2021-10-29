@@ -1883,6 +1883,7 @@ Transform:
   - {fileID: 352894743}
   - {fileID: 1316203172}
   - {fileID: 1460477155}
+  - {fileID: 8333634369805228192}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3464,6 +3465,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fa429e09689c74b8691f237e961889, type: 3}
+--- !u!1001 &8333634369805228191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1303313950}
+    m_Modifications:
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -95.723015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.920273
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.687943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99928546
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.03779617
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 4.332
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333634370204824249, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+      propertyPath: m_Name
+      value: pumpkin patch
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+--- !u!4 &8333634369805228192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8333634370204824248, guid: 0298f375a54e6f64b87cb263d07386ef, type: 3}
+  m_PrefabInstance: {fileID: 8333634369805228191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &8382834682928474754
 MeshFilter:
   m_ObjectHideFlags: 0
